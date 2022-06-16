@@ -32,6 +32,7 @@ const Login = () => {
       );
 
       localStorage.setItem("authToken", data.token);
+      localStorage.setItem("email", email);
 
       navigate("/");
     } catch (error) {
