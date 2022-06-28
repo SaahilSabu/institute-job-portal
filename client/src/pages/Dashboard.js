@@ -7,11 +7,14 @@ import Footer from "./../components/Footer";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../redux/userSlice";
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const id = localStorage.getItem("id");
-  const [username, setUsername] = useState("");
+  const username = useSelector((state) => state.username.value)
 
   useEffect(() => {
     if (!localStorage.getItem("authToken")) {
@@ -28,8 +31,8 @@ const Dashboard = () => {
       };
 
       try {
-        const { data } = await axios.get(`/api//forminfo/${id}`, config);
-        setUsername(data.user.username);
+        const { data } = await axios.get(`/api/form/forminfo/${id}`, config);
+        dispatch(login(data.user.username));
       } catch (error) {
         console.log(error);
       }
