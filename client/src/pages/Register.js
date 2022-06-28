@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "./../components/Header";
 import Nav from "./../components/Nav";
 import Footer from "./../components/Footer";
+import validator from "validator";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -35,6 +36,21 @@ const Register = () => {
         setError("");
       }, 5000);
       return setError("Passwords do not match");
+    }
+
+    if (
+      validator.isStrongPassword(password, {
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      })
+    ) {
+    } else {
+      return setError(
+        "Password should have 8 characters , one lowercase and one uppercase one number and one special character"
+      );
     }
 
     try {
@@ -69,7 +85,7 @@ const Register = () => {
             Register
           </h3>
           {error && (
-            <div class="alert alert-error shadow-sm my-2 text-sm h-6">
+            <div class="alert alert-error shadow-sm my-2 text-sm">
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +104,7 @@ const Register = () => {
               </div>
             </div>
           )}
-          <div className="w-56 mb-4 relative group">
+          <div className="w-56 mb-4 relative group mx-auto">
             <label className="text-sm font-light" htmlFor="name">
               Username:
             </label>
@@ -116,7 +132,7 @@ const Register = () => {
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
-          <div className="w-56 mb-4 relative group">
+          <div className="w-56 mb-4 relative group mx-auto">
             <label className="text-sm font-light" htmlFor="email">
               Email:
             </label>
@@ -144,7 +160,7 @@ const Register = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="w-56 mb-4 relative group">
+          <div className="w-56 mb-4 relative group mx-auto">
             <label className="text-sm font-light" htmlFor="password">
               Password:
             </label>
@@ -173,7 +189,7 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div className="w-56 mb-4 relative group">
+          <div className="w-56 mb-4 relative group mx-auto">
             <label className="text-sm font-light" htmlFor="confirmpassword">
               Confirm Password:
             </label>
@@ -204,7 +220,7 @@ const Register = () => {
           </div>
           <button
             type="submit"
-            className="btn bg-[#020493] hover:bg-[#0608c2] text-white w-full"
+            className="btn bg-[#020493] hover:bg-[#0608c2] text-white w-56 mx-auto"
           >
             Register
           </button>

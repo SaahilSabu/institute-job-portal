@@ -54,7 +54,7 @@ const Login = () => {
             Login
           </h3>
           {error && (
-            <div class="alert alert-error shadow-sm my-2 text-sm h-6">
+            <div class="alert alert-error shadow-sm my-2 text-sm">
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +143,7 @@ const Login = () => {
           </Link>
           <button
             type="submit"
-            className="btn  bg-[#020493] hover:bg-[#0608c2] text-white w-full"
+            className="btn  bg-[#020493] hover:bg-[#0608c2] text-white w-56"
             tabIndex={3}
           >
             Login
