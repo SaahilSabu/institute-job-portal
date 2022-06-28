@@ -5,11 +5,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
 //Pages
-import PrivatePage from "./components/pages/PrivatePage";
-import Login from "./components/pages/Login";
-import Register from "./components/pages/Register";
-import ForgotPassword from "./components/pages/ForgotPassword";
-import ResetPassword from "./components/pages/ResetPassword";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
+import Application from './pages/Application';
+import Dashboard from './pages/Dashboard';
 
 const App = () => {
   return (
@@ -17,13 +19,14 @@ const App = () => {
       <Routes>
         <Route
           exact
-          path="/"
+          path="/dashboard"
           element={
             <PrivateRoute>
-              <PrivatePage />
+              <Dashboard />
             </PrivateRoute>
           }
         ></Route>
+        <Route exact path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/forgotpassword" element={<ForgotPassword />}></Route>

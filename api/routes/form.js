@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const {
-    formInfo,
-} = require("../controllers/form");
+const { addFormInfo, getFormInfo } = require("../controllers/form");
 
-router.route("/forminfo").put(formInfo);
+router.route("/forminfo/:id").get(getFormInfo);
+router.route("/forminfo/:id").put(addFormInfo);
 
 module.exports = router;
+ 

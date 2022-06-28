@@ -13,7 +13,6 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/private", require("./routes/private"));
 app.use("/api/form", require("./routes/form"));
-app.use("/api/user", require("./routes/user"));
 
 // Error handler should be last piece of middleware v imp
 

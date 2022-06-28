@@ -15,6 +15,7 @@ exports.register = async (req, res, next) => {
 
     sendToken(user, 201, res);
   } catch (error) {
+    // console.log(error)
     next(error);
   }
 };
@@ -116,18 +117,17 @@ exports.resetpassword = async (req, res, next) => {
     await user.save();
 
     return res.status(200).json({ success: true, data: "Password Updated" });
-
   } catch (error) {
     next(error);
   }
-    
-
 };
 
 const sendToken = (user, statusCode, res) => {
+  const id = user._id;
   const token = user.getSignedToken();
   res.status(statusCode).json({
     success: true,
     token,
+    id,
   });
 };
