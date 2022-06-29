@@ -76,9 +76,9 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="">
       <Nav />
-      <Header />
+      <Header title="Register" />
       <div className="flex justify-center  w-11/12 m-auto my-6 p-4 border-2 border-gray-600 font-sans sm:w-1/2 xl:w-1/4">
         <form onSubmit={registerHandler} className="flex flex-col p-3">
           <h3 className="text-center p-3 text-3xl font-medium text-gray-700 mb-5 ">
@@ -114,7 +114,7 @@ const Register = () => {
         w-full
         px-3
         py-1.5
-        text-base
+        text-sm
         font-normal
         text-gray-700
         bg-white bg-clip-padding
@@ -127,7 +127,6 @@ const Register = () => {
               type="text"
               required
               id="name"
-              placeholder="Enter username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -142,7 +141,7 @@ const Register = () => {
         w-full
         px-3
         py-1.5
-        text-base
+        text-sm
         font-normal
         text-gray-700
         bg-white bg-clip-padding
@@ -155,7 +154,6 @@ const Register = () => {
               type="email"
               required
               id="email"
-              placeholder="Email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -170,7 +168,7 @@ const Register = () => {
         w-full
         px-3
         py-1.5
-        text-base
+        text-sm
         font-normal
         text-gray-700
         bg-white bg-clip-padding
@@ -184,7 +182,6 @@ const Register = () => {
               required
               id="password"
               autoComplete="true"
-              placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -199,7 +196,7 @@ const Register = () => {
         w-full
         px-3
         py-1.5
-        text-base
+        text-sm
         font-normal
         text-gray-700
         bg-white bg-clip-padding
@@ -213,7 +210,6 @@ const Register = () => {
               required
               id="confirmpassword"
               autoComplete="true"
-              placeholder="Confirm password"
               value={confirmpassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />

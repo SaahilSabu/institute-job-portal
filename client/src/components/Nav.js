@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { UserIcon } from "@heroicons/react/outline";
+import { UserIcon, UserAddIcon } from "@heroicons/react/solid";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/userSlice.js";
 const Nav = () => {
@@ -21,28 +21,34 @@ const Nav = () => {
         </ul>
         {username ? (
           <>
-            <ul
-              onClick={() => navigate("/login")}
-              className="hover:text-white flex items-center px-3 sm:px-5 cursor-pointer"
-            >
+            <ul className="hover:text-white flex items-center px-3 sm:px-5 cursor-pointer">
               <UserIcon className="h-3 sm:h-4 px-1" />
               {username}
             </ul>
             <ul
-              onClick={() => handleLogout}
+              onClick={handleLogout}
               className="hover:text-white flex items-center px-3 sm:px-5 cursor-pointer"
             >
               Logout
             </ul>
           </>
         ) : (
-          <ul
-            onClick={() => navigate("/login")}
-            className="hover:text-white flex items-center px-3 sm:px-5 cursor-pointer"
-          >
-            <UserIcon className="h-3 sm:h-4 px-1" />
-            Login
-          </ul>
+          <>
+            <ul
+              onClick={() => navigate("/register")}
+              className="hover:text-white flex items-center px-3 sm:px-5 cursor-pointer"
+            >
+              <UserAddIcon className="h-3 sm:h-4 px-1" />
+              Register
+            </ul>
+            <ul
+              onClick={() => navigate("/login")}
+              className="hover:text-white flex items-center px-3 sm:px-5 cursor-pointer"
+            >
+              <UserIcon className="h-3 sm:h-4 px-1" />
+              Login
+            </ul>
+          </>
         )}
       </li>
     </nav>

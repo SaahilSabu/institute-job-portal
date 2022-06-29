@@ -1,11 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({title}) => {
   const navigate = useNavigate();
   return (
     <div
-      onClick={() => navigate("/")}
       className="p-4 bg-white cursor-pointer flex items-center font-sans justify-between px-4 sm:justify-start sm:divide-x-2 select-none"
     >
       <img
@@ -15,9 +14,8 @@ const Header = () => {
       />
       <h1
         className=" text-3xl text-gray-600 font-light sm:pl-4 cursor-pointer"
-        onClick={() => navigate("/")}
       >
-        Careers
+        {title}
       </h1>
     </div>
   );

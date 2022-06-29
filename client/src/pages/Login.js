@@ -47,7 +47,7 @@ const Login = () => {
   return (
     <div>
       <Nav />
-      <Header />
+      <Header title="Login" />
       <div className="flex justify-center  w-11/12 m-auto my-6 p-4 border-2 border-gray-600 font-sans sm:w-1/2 xl:w-1/4">
         <form onSubmit={loginHandler} className="flex flex-col p-3">
           <h3 className="text-center p-3 text-3xl font-medium text-gray-700 mb-5 ">
@@ -89,7 +89,7 @@ const Login = () => {
         w-full
         px-3
         py-1.5
-        text-base
+        text-sm
         font-normal
         text-gray-700
         bg-white bg-clip-padding
@@ -119,7 +119,7 @@ const Login = () => {
         w-full
         px-3
         py-1.5
-        text-base
+        text-sm
         font-normal
         text-gray-700
         bg-white bg-clip-padding

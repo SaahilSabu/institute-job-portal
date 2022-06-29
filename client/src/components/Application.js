@@ -94,45 +94,8 @@ const Application = () => {
     navigate("/login");
   };
 
-  return error ? (
-    <div class="alert alert-error shadow-sm my-2 text-sm h-6">
-      <div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="stroke-current flex-shrink-0 h-3 w-3"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-        <span>{error}</span>
-      </div>
-    </div>
-  ) : (
+  return (
     <>
-      <div class="alert alert-success shadow-sm w-11/12 sm:w-1/2 m-auto">
-        <div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="stroke-current flex-shrink-0 h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <span>{privateData}</span>
-        </div>
-      </div>
       {success ? (
         <div class="alert alert-success shadow-sm w-11/12 sm:w-1/2 m-auto">
           <div>
@@ -155,7 +118,7 @@ const Application = () => {
       ) : (
         <></>
       )}
-      <div className="flex justify-center  w-11/12 m-auto my-6 p-4 border-2 border-gray-600 font-sans sm:w-1/2 xl:w-1/4">
+      <div className="flex justify-center  w-full m-auto my-6 p-4 border-2 border-gray-600 font-sans sm:w-1/2">
         <form onSubmit={formHandler} className="flex flex-col p-3">
           <h3 className="text-center p-3 text-3xl font-medium text-gray-700 mb-5 ">
             Form
@@ -302,12 +265,6 @@ const Application = () => {
           </button>
         </form>
       </div>
-      <button
-        className="btn  bg-error text-white w-full"
-        onClick={logoutHandler}
-      >
-        Logout
-      </button>
     </>
   );
 };
