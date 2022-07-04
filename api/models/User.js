@@ -36,8 +36,9 @@ const userSchema = new mongoose.Schema(
     address: {
       type: String,
     },
-    resetPasswordToken: String,
-    resetPasswordExpire: Date,
+    resetPasswordToken: { type: String, select: false },
+    resetPasswordExpire: { type: Date, select: false },
+    submitted: { type: Boolean, default: false, select: false },
   },
   { timestamps: true }
 );

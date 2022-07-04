@@ -9,34 +9,9 @@ const Application = () => {
   const [lname, setLname] = useState("");
   const [phno, setPhno] = useState("");
   const [address, setAddress] = useState("");
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(null);
   const navigate = useNavigate();
   const id = localStorage.getItem("id");
-
-  useEffect(() => {
-    if (!localStorage.getItem("authToken")) {
-      navigate("/login");
-    }
-
-    const fetchPrivateDate = async () => {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-      };
-
-      try {
-        const { data } = await axios.get("/api/private", config);
-        setPrivateData(data.data);
-      } catch (error) {
-        localStorage.removeItem("authToken");
-        setError("You are not authorized please login");
-      }
-    };
-
-    fetchPrivateDate();
-  }, [navigate]);
 
   useEffect(() => {
     const userFormData = async () => {
@@ -79,29 +54,37 @@ const Application = () => {
         },
         config
       );
-      setSuccess(true);
+      setSuccess("Form Updated");
     } catch (error) {
       setError(error);
       setTimeout(() => {
         setError("");
+        setSuccess("");
       }, 5000);
     }
   };
 
-  const logoutHandler = () => {
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("id");
-    navigate("/login");
+  const handleSubmit = () => {
+    try {
+      axios.put(`api/form/submit/${id}`);
+      setSuccess("Submitted");
+    } catch (error) {
+      setError(error);
+      setTimeout(() => {
+        setError("");
+        setSuccess("");
+      }, 5000);
+    }
   };
 
   return (
     <>
       {success ? (
-        <div class="alert alert-success shadow-sm w-11/12 sm:w-1/2 m-auto">
+        <div className="alert alert-success shadow-sm w-11/12 sm:w-1/2 m-auto">
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="stroke-current flex-shrink-0 h-6 w-6"
+              className="stroke-current flex-shrink-0 h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
             >
@@ -112,7 +95,7 @@ const Application = () => {
                 d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <span>Form Updated</span>
+            <span>{success}</span>
           </div>
         </div>
       ) : (
@@ -257,12 +240,21 @@ const Application = () => {
               onChange={(e) => setAddress(e.target.value)}
             />
           </div>
-          <button
-            type="submit"
-            className="btn  bg-[#020493] hover:bg-[#0608c2] text-white w-full"
-          >
-            Submit
-          </button>
+          <div className="flex justify-between">
+            <button
+              type="submit"
+              className="btn bg-green-800 hover:bg-green-700 text-white px-6 border-none "
+            >
+              Save
+            </button>
+            <button
+              type="button"
+              className="btn  bg-[#020493] hover:bg-[#0608c2] text-white px-6 border-none"
+              onClick={handleSubmit}
+            >
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     </>
