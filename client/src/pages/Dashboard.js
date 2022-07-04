@@ -43,7 +43,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <div className="h-screen">
+      <div className="min-h-screen">
         <Nav />
         <Header title="Dashboard" />
         <h2 className="m-4 text-lg">
