@@ -12,6 +12,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminRoute from "./components/routing/AdminRoute";
 
 const App = () => {
   return (
@@ -26,7 +27,14 @@ const App = () => {
             </PrivateRoute>
           }
         ></Route>
-        <Route path="/admin-dashboard" element={<AdminDashboard />}></Route>
+        <Route
+          path="/admin-dashboard"
+          element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
+          }
+        ></Route>
         <Route exact path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>

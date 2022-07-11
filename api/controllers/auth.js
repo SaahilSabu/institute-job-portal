@@ -124,10 +124,16 @@ exports.resetpassword = async (req, res, next) => {
 
 const sendToken = (user, statusCode, res) => {
   const id = user._id;
+  const isAdmin = user.isAdmin;
   const token = user.getSignedToken();
+  var adminToken = null;
+  if (isAdmin) {
+    adminToken = user.getAdminToken();
+  }
   res.status(statusCode).json({
     success: true,
     token,
+    adminToken,
     id,
   });
 };

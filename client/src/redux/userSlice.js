@@ -13,6 +13,7 @@ export const userSlice = createSlice({
       state.value = null;
       localStorage.removeItem("id");
       localStorage.removeItem("authToken");
+      localStorage.removeItem("adminToken");
     },
   },
 });

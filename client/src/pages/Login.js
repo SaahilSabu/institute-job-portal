@@ -32,10 +32,15 @@ const Login = () => {
         { email, password },
         config
       );
+      console.log(data);
       localStorage.setItem("id", data.id);
       localStorage.setItem("authToken", data.token);
-
-      navigate("/dashboard");
+      if (data.adminToken) {
+        navigate("/admin-dashboard");
+        localStorage.setItem("adminToken", data.adminToken);
+      } else {
+        navigate("/dashboard");
+      }
     } catch (error) {
       setError(error.response.data.error);
       setTimeout(() => {
@@ -75,7 +80,7 @@ const Login = () => {
               </div>
             )}
             <div className="w-56 mb-4 relative group">
-              <label className="text-sm font-light" htmlFor="email" for="email">
+              <label className="text-sm font-light" htmlFor="email">
                 Email
               </label>
               <input
@@ -106,7 +111,6 @@ const Login = () => {
               <label
                 className="text-sm font-light"
                 htmlFor="password"
-                for="password"
               >
                 Password
               </label>

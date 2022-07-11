@@ -3,24 +3,46 @@ import Header from "./../components/Header";
 import Nav from "./../components/Nav";
 import Footer from "./../components/Footer";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../redux/userSlice";
+import { useSelector, useDispatch } from "react-redux";
 import { DocumentTextIcon } from "@heroicons/react/solid";
 import Application from "./../components/Application";
+import axios from "axios";
+import { login } from "../redux/userSlice";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const id = localStorage.getItem("id");
   const username = useSelector((state) => state.username.value);
   const [activeTab, setActiveTab] = useState(1);
+  const [privateData, setPrivateData] = useState("");
+  const [error, setError] = useState("");
+  const dispatch = useDispatch();
+  const id = localStorage.getItem("id");
 
   useEffect(() => {
-    if (!localStorage.getItem("authToken")) {
-      navigate("/login");
-    }
+    const fetchPrivateData = async () => {
+      if (!localStorage.getItem("authToken")) {
+        navigate("/login");
+      }
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      };
+
+      try {
+        const { data } = await axios.get("/api/private/user", config);
+        setPrivateData(data.data);
+      } catch (error) {
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("adminToken");
+        localStorage.removeItem("id");
+        setError("You are not authorized please login");
+      }
+    };
+
+    fetchPrivateData();
   }, []);
 
   useEffect(() => {
@@ -41,7 +63,9 @@ const Dashboard = () => {
     userData();
   }, []);
 
-  return (
+  return error ? (
+    <span className="alert alert-error shadow-lg rounded-none">{error}</span>
+  ) : (
     <div>
       <div className="min-h-screen">
         <Nav />

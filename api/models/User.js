@@ -39,6 +39,7 @@ const userSchema = new mongoose.Schema(
     resetPasswordToken: { type: String, select: false },
     resetPasswordExpire: { type: Date, select: false },
     submitted: { type: Boolean, default: false, select: false },
+    isAdmin: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
@@ -58,6 +59,12 @@ userSchema.methods.matchPasswords = async function (password) {
 
 userSchema.methods.getSignedToken = function () {
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRE,
+  });
+};
+
+userSchema.methods.getAdminToken = function () {
+  return jwt.sign({ id: this._id, isAdmin: this.isAdmin }, process.env.JWT_ADMIN, {
     expiresIn: process.env.JWT_EXPIRE,
   });
 };
