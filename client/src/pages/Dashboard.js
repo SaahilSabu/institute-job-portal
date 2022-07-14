@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { DocumentTextIcon } from "@heroicons/react/solid";
-import Application from "./../components/Application";
+import Form1 from "./../components/forms/Form1";
 import axios from "axios";
 import { login } from "../redux/userSlice";
 
@@ -110,7 +110,7 @@ const Dashboard = () => {
             <div className="flex justify-center mt-4">
               {activeTab === 1 && (
                 <div className="w-full">
-                  <Application />
+                  <Form1 />
                 </div>
               )}
             </div>
