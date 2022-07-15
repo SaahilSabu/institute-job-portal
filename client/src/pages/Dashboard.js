@@ -6,9 +6,10 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { DocumentTextIcon } from "@heroicons/react/solid";
-import Form1 from "./../components/forms/Form1";
+import Summary from "./../components/forms/Summary";
 import axios from "axios";
 import { login } from "../redux/userSlice";
+import GeneralDetails from './../components/forms/GeneralDetails';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -87,7 +88,7 @@ const Dashboard = () => {
                     activeTab === 1 ? "tab-active" : ""
                   }`}
                 >
-                  Tab 1
+                  General
                 </li>
                 <li
                   onClick={() => setActiveTab(2)}
@@ -110,7 +111,7 @@ const Dashboard = () => {
             <div className="flex justify-center mt-4">
               {activeTab === 1 && (
                 <div className="w-full">
-                  <Form1 />
+                  <GeneralDetails />
                 </div>
               )}
             </div>

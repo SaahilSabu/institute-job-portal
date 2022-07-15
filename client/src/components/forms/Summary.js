@@ -1445,6 +1445,44 @@ const Form1 = () => {
             </div>
           </div>
           {/* end of phd thesis , research projects and publications */}
+          <div className="flex justify-center w-full m-auto mb-6 p-4 font-sans ">
+            <div className="flex flex-col  p-3">
+              <h3 className="text-center p-3 text-2xl font-medium text-gray-700 mb-5 ">
+                No of Patents Awarded/Pending
+              </h3>
+              <div className="mb-4 relative group grid place-content-center place-items-center m-auto grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-flow-col  gap-4 ">
+                  <label className="text-sm font-light">Books</label>
+                  <input
+                    className="form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                    type="number"
+                    required
+                    name="books"
+                    autoComplete="true"
+                    value={publications.books}
+                    onChange={(e) =>
+                      setPublications({
+                        ...publications,
+                        books: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                </div>
+                </div>
           {/* main divider */}
           <div className="flex justify-between">
             <button
