@@ -26,6 +26,10 @@ exports.addFormInfo = async (req, res, next) => {
     specialisation,
     gender,
     feeDetails,
+    userPPUrl,
+    academic,
+    phdDissertationTitle,
+    phdAwardDate,
   } = req.body;
   const id = req.params.id;
 
@@ -55,6 +59,10 @@ exports.addFormInfo = async (req, res, next) => {
       specialisation,
       gender,
       feeDetails,
+      userPPUrl,
+      academic,
+      phdDissertationTitle,
+      phdAwardDate,
     });
 
     await user.save();

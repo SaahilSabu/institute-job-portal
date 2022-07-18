@@ -10,6 +10,7 @@ import Summary from "./../components/forms/Summary";
 import axios from "axios";
 import { login } from "../redux/userSlice";
 import GeneralDetails from './../components/forms/GeneralDetails';
+import AcademicDetails from './../components/forms/AcademicDetails';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -96,7 +97,7 @@ const Dashboard = () => {
                     activeTab === 2 ? "tab-active" : ""
                   }`}
                 >
-                  Tab 2
+                  Academic
                 </li>
                 <li
                   onClick={() => setActiveTab(3)}
@@ -112,6 +113,11 @@ const Dashboard = () => {
               {activeTab === 1 && (
                 <div className="w-full">
                   <GeneralDetails />
+                </div>
+              )}
+              {activeTab === 2 && (
+                <div className="w-full">
+                  <AcademicDetails />
                 </div>
               )}
             </div>

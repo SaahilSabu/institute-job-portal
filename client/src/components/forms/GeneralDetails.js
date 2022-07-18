@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Image } from "cloudinary-react";
+import { UploadIcon } from "@heroicons/react/outline";
 
 const GeneralDetails = () => {
   const navigate = useNavigate();
@@ -10,6 +12,7 @@ const GeneralDetails = () => {
   const [success, setSuccess] = useState(null);
   const [privateData, setPrivateData] = useState("");
   const [jobData, setJobData] = useState("");
+  const [userPPUrl, setUserPPUrl] = useState("");
   const [adNo, setAdNo] = useState("");
   const [post, setPost] = useState("");
   const [aadhaarNo, setAadhaarNo] = useState("");
@@ -41,6 +44,7 @@ const GeneralDetails = () => {
     id: "",
     date: "",
   });
+  const [userPP, setUserPP] = useState("");
 
   useEffect(() => {
     const jobDataReq = async () => {
@@ -105,7 +109,7 @@ const GeneralDetails = () => {
         setSpecialisation(data.user.specialisation);
         setGender(data.user.gender);
         setFeeDetails(data.user.feeDetails);
-        console.log(data.user);
+        setUserPPUrl(data.user.userPPUrl);
       } catch (error) {
         console.log(error);
       }
@@ -148,6 +152,7 @@ const GeneralDetails = () => {
           specialisation,
           gender,
           feeDetails,
+          userPPUrl,
         },
         config
       );
@@ -159,6 +164,18 @@ const GeneralDetails = () => {
         setSuccess("");
       }, 5000);
     }
+  };
+
+  const uploadUserPP = (files) => {
+    const formData = new FormData();
+    formData.append("file", userPP);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setUserPPUrl(response.data.url);
+      });
   };
 
   return (
@@ -226,7 +243,7 @@ const GeneralDetails = () => {
         text-base
         font-normal
         text-gray-700
-        bg-white bg-clip-padding
+        bg-gray-200 bg-clip-padding
         border border-solid border-gray-300
         rounded
         transition
@@ -383,8 +400,9 @@ const GeneralDetails = () => {
             </div>
             <div className="flex w-56 mb-4 flex-col m-auto  lg:w-80 lg:mb-auto">
               <label className="text-sm font-light">Upload a photo</label>
-              <input
-                className="form-control
+              <div className="flex">
+                <input
+                  className="form-control
         block
         w-full
         px-3
@@ -397,14 +415,31 @@ const GeneralDetails = () => {
         rounded
         transition
         ease-in-out
-        m-0
+        mr-3
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
-                type="file"
-                // required
-                id="address"
-                autoComplete="true"
-                placeholder="Enter your address with pin code"
-              />
+                  type="file"
+                  // required
+                  id="address"
+                  autoComplete="true"
+                  onChange={(e) => setUserPP(e.target.files[0])}
+                />
+                <button
+                  type="button"
+                  onClick={uploadUserPP}
+                  className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+                >
+                  <UploadIcon className="h-4" />
+                </button>
+              </div>
+              <div className="avatar flex justify-center">
+                <div className="w-56 ">
+                  <Image
+                    className="flex w-56 mb-4 flex-col m-auto h-40 bg-contain lg:w-80 lg:mb-auto"
+                    cloudName="saahildev"
+                    publicId={userPPUrl}
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <div className="divider"></div>
@@ -446,11 +481,7 @@ const GeneralDetails = () => {
               <label className="text-sm font-light">Date of Transaction</label>
               <input
                 className="form-control
-        block
         w-full
-        px-3
-        py-1.5
-        text-base
         font-normal
         text-gray-700
         bg-white bg-clip-padding
@@ -1027,10 +1058,10 @@ const GeneralDetails = () => {
               />
             </div>
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-center lg:justify-end">
             <button
               type="submit"
-              className="btn bg-green-800 hover:bg-green-700 text-white px-6 border-none "
+              className="btn bg-green-800 w-56 hover:bg-green-700 text-white px-6 border-none "
             >
               Save
             </button>

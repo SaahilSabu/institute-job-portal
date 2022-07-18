@@ -106,6 +106,32 @@ const userSchema = new mongoose.Schema(
         type: String,
       },
     },
+    userPPUrl: {
+      type: String,
+    },
+    academic: {
+      degree: {
+        type: String,
+      },
+      branch: {
+        type: String,
+      },
+      university: {
+        type: String,
+      },
+      completionYear: {
+        type: String,
+      },
+      grade: {
+        type: String,
+      },
+    },
+    phdDissertationTitle: {
+      type: String,
+    },
+    phdAwardDate: {
+      type: String,
+    },
     resetPasswordToken: { type: String, select: false },
     resetPasswordExpire: { type: Date, select: false },
     submitted: { type: Boolean, default: false, select: false },
