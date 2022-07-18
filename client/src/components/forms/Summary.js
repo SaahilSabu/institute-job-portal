@@ -267,11 +267,11 @@ const Form1 = () => {
             Form
           </h3>
           {error && (
-            <div class="alert alert-error shadow-sm my-2 text-sm h-6">
+            <div className="alert alert-error shadow-sm my-2 text-sm h-6">
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="stroke-current flex-shrink-0 h-3 w-3"
+                  className="stroke-current flex-shrink-0 h-3 w-3"
                   fill="none"
                   viewBox="0 0 24 24"
                 >
@@ -1451,9 +1451,9 @@ const Form1 = () => {
                 No of Patents Awarded/Pending
               </h3>
               <div className="mb-4 relative group grid place-content-center place-items-center m-auto grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-flow-col  gap-4 ">
-                  <label className="text-sm font-light">Books</label>
-                  <input
-                    className="form-control
+                <label className="text-sm font-light">Books</label>
+                <input
+                  className="form-control
         block
         w-full
         px-3
@@ -1468,21 +1468,21 @@ const Form1 = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                    type="number"
-                    required
-                    name="books"
-                    autoComplete="true"
-                    value={publications.books}
-                    onChange={(e) =>
-                      setPublications({
-                        ...publications,
-                        books: e.target.value,
-                      })
-                    }
-                  />
-                </div>
-                </div>
-                </div>
+                  type="number"
+                  required
+                  name="books"
+                  autoComplete="true"
+                  value={publications.books}
+                  onChange={(e) =>
+                    setPublications({
+                      ...publications,
+                      books: e.target.value,
+                    })
+                  }
+                />
+              </div>
+            </div>
+          </div>
           {/* main divider */}
           <div className="flex justify-between">
             <button

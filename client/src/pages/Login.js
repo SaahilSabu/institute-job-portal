@@ -60,11 +60,11 @@ const Login = () => {
               Login
             </h3>
             {error && (
-              <div class="alert alert-error shadow-sm my-2 text-sm">
+              <div className="alert alert-error shadow-sm my-2 text-sm">
                 <div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="stroke-current flex-shrink-0 h-3 w-3"
+                    className="stroke-current flex-shrink-0 h-3 w-3"
                     fill="none"
                     viewBox="0 0 24 24"
                   >
@@ -108,10 +108,7 @@ const Login = () => {
               />
             </div>
             <div className="w-56 mb-4 relative group">
-              <label
-                className="text-sm font-light"
-                htmlFor="password"
-              >
+              <label className="text-sm font-light" htmlFor="password">
                 Password
               </label>
               <input

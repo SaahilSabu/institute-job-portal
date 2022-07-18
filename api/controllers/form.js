@@ -3,17 +3,58 @@ const errorResponse = require("../utils/errorResponse");
 const sendEmail = require("../utils/sendEmail");
 
 exports.addFormInfo = async (req, res, next) => {
-  const { fname, lname, phno, address } = req.body;
+  const {
+    adNo,
+    post,
+    aadhaarNo,
+    discipline,
+    fname,
+    mname,
+    lname,
+    fatherName,
+    dob,
+    age,
+    category,
+    phno,
+    secPhNo,
+    email,
+    secEmail,
+    maritalStatus,
+    nationality,
+    address,
+    secAddress,
+    specialisation,
+    gender,
+    feeDetails,
+  } = req.body;
   const id = req.params.id;
 
   try {
     const user = await User.findById({ _id: id });
 
     await user.updateOne({
+      adNo,
+      post,
+      aadhaarNo,
+      discipline,
       fname,
+      mname,
       lname,
+      fatherName,
+      dob,
+      age,
+      category,
       phno,
+      secPhNo,
+      email,
+      secEmail,
+      maritalStatus,
+      nationality,
       address,
+      secAddress,
+      specialisation,
+      gender,
+      feeDetails,
     });
 
     await user.save();

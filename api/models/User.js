@@ -24,17 +24,87 @@ const userSchema = new mongoose.Schema(
       minlength: [8, "Password must be at least 8 characters"],
       select: false,
     },
+    adNo: {
+      type: String,
+    },
+    post: {
+      type: String,
+    },
+    aadhaarNo: {
+      type: String,
+    },
+    discipline: {
+      type: String,
+    },
     fname: {
+      type: String,
+    },
+    mname: {
       type: String,
     },
     lname: {
       type: String,
     },
+    fatherName: {
+      type: String,
+    },
+    dob: {
+      type: String,
+    },
+    age: {
+      type: Number,
+    },
+    category: {
+      type: String,
+    },
     phno: {
       type: Number,
     },
-    address: {
+    secPhNo: {
+      type: Number,
+    },
+    secEmail: {
       type: String,
+      match: [
+        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+        "Please enter a valid email",
+      ],
+    },
+    maritalStatus: {
+      type: String,
+    },
+    nationality: {
+      type: String,
+    },
+    address: {
+      loc: {
+        type: String,
+      },
+      pin: {
+        type: Number,
+      },
+    },
+    secAddress: {
+      loc: {
+        type: String,
+      },
+      pin: {
+        type: Number,
+      },
+    },
+    specialisation: {
+      type: String,
+    },
+    gender: {
+      type: String,
+    },
+    feeDetails: {
+      id: {
+        type: String,
+      },
+      date: {
+        type: String,
+      },
     },
     resetPasswordToken: { type: String, select: false },
     resetPasswordExpire: { type: Date, select: false },
@@ -64,9 +134,13 @@ userSchema.methods.getSignedToken = function () {
 };
 
 userSchema.methods.getAdminToken = function () {
-  return jwt.sign({ id: this._id, isAdmin: this.isAdmin }, process.env.JWT_ADMIN, {
-    expiresIn: process.env.JWT_EXPIRE,
-  });
+  return jwt.sign(
+    { id: this._id, isAdmin: this.isAdmin },
+    process.env.JWT_ADMIN,
+    {
+      expiresIn: process.env.JWT_EXPIRE,
+    }
+  );
 };
 
 userSchema.methods.getResetPasswordToken = function () {

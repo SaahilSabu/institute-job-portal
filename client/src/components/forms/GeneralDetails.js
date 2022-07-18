@@ -61,6 +61,19 @@ const GeneralDetails = () => {
   }, []);
 
   useEffect(() => {
+    const jobAdNo = () => {
+      if (jobData) {
+        jobData.map((job) => {
+          if (`${job.name} ${job.dept}` == post) {
+            return setAdNo(job._id);
+          }
+        });
+      }
+    };
+    jobAdNo();
+  }, [post]);
+
+  useEffect(() => {
     const userFormData = async () => {
       const config = {
         headers: {
@@ -74,12 +87,25 @@ const GeneralDetails = () => {
         setPost(data.user.post);
         setAadhaarNo(data.user.aadhaarNo);
         setDiscipline(data.user.discipline);
+        setFName(data.user.fname);
+        setMName(data.user.mname);
+        setLName(data.user.lname);
+        setFatherName(data.user.fatherName);
         setDob(data.user.dob);
+        setAge(data.user.age);
         setCategory(data.user.category);
         setPhno(data.user.phno);
+        setSecPhNo(data.user.secPhNo);
         setEmail(data.user.email);
+        setSecEmail(data.user.secEmail);
         setMaritalStatus(data.user.maritalStatus);
+        setNationality(data.user.nationality);
         setAddress(data.user.address);
+        setSecAddress(data.user.secAddress);
+        setSpecialisation(data.user.specialisation);
+        setGender(data.user.gender);
+        setFeeDetails(data.user.feeDetails);
+        console.log(data.user);
       } catch (error) {
         console.log(error);
       }
@@ -104,12 +130,24 @@ const GeneralDetails = () => {
           post,
           aadhaarNo,
           discipline,
+          fname,
+          mname,
+          lname,
+          fatherName,
           dob,
+          age,
           category,
           phno,
+          secPhNo,
           email,
+          secEmail,
           maritalStatus,
+          nationality,
           address,
+          secAddress,
+          specialisation,
+          gender,
+          feeDetails,
         },
         config
       );
@@ -156,11 +194,11 @@ const GeneralDetails = () => {
             General Information
           </h3>
           {error && (
-            <div class="alert alert-error shadow-sm my-2 text-sm h-6">
+            <div className="alert alert-error shadow-sm my-2 text-sm h-6">
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="stroke-current flex-shrink-0 h-3 w-3"
+                  className="stroke-current flex-shrink-0 h-3 w-3"
                   fill="none"
                   viewBox="0 0 24 24"
                 >
@@ -180,7 +218,7 @@ const GeneralDetails = () => {
               <div className="w-56 mb-4 lg:w-64 lg:mx-2">
                 <label className="text-sm font-light">Advertisement No</label>
                 <input
-                  className="form-control
+                  className="form-control cursor-not-allowed
         block
         w-full
         px-3
@@ -200,7 +238,7 @@ const GeneralDetails = () => {
                   id="adNo"
                   placeholder="Enter advertisement no"
                   value={adNo}
-                  onChange={(e) => setAdNo(e.target.value)}
+                  disabled={true}
                 />
               </div>
               <div className="w-56 mb-4 lg:w-64 lg:mx-2">
@@ -227,9 +265,13 @@ const GeneralDetails = () => {
                   value={post}
                   onChange={(e) => setPost(e.target.value)}
                 >
-                  {/* {jobData.map((job) => (
-                    <option key={job._id}>{job.desc}</option>
-                  ))} */}
+                  <option>-- Select An Option --</option>
+                  {jobData &&
+                    jobData.map((job) => (
+                      <option key={job._id}>
+                        {job.name} {job.dept}
+                      </option>
+                    ))}
                 </select>
               </div>
               <div className="w-56 mb-4 lg:w-64 lg:mx-2">
@@ -263,10 +305,8 @@ const GeneralDetails = () => {
                 <label className="text-sm font-light">Date of Birth</label>
                 <input
                   className="form-control
-        block
         w-full
         px-3
-        py-1.5
         text-base
         font-normal
         text-gray-700
@@ -277,7 +317,7 @@ const GeneralDetails = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                  type="text"
+                  type="date"
                   required
                   id="dob"
                   autoComplete="true"
@@ -360,14 +400,14 @@ const GeneralDetails = () => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
                 type="file"
-                required
+                // required
                 id="address"
                 autoComplete="true"
                 placeholder="Enter your address with pin code"
               />
             </div>
           </div>
-          <div class="divider"></div>
+          <div className="divider"></div>
           <h4 className="w-56 mb-2 mt-2 lg:w-64 lg:mx-2">Fee Details*</h4>
           <div className="grid grid-cols-1 place-content-center w-56 m-auto  lg:w-full lg:grid-cols-4 lg:m-0 lg:gap-2">
             <div className="w-56 mb-4 lg:w-64 lg:mx-2">
@@ -420,7 +460,7 @@ const GeneralDetails = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                type="text"
+                type="date"
                 required
                 id="date"
                 autoComplete="true"
@@ -435,7 +475,7 @@ const GeneralDetails = () => {
               />
             </div>
           </div>
-          <div class="divider"></div>
+          <div className="divider"></div>
           <div className="grid grid-cols-1 place-content-center w-56 m-auto  lg:w-full lg:grid-cols-4 lg:m-0 lg:gap-2">
             <div className="w-56 mb-4 lg:w-64 lg:mx-2">
               <label className="text-sm font-light">Discipline</label>
@@ -493,87 +533,149 @@ const GeneralDetails = () => {
             </div>
             <div className="w-56 mb-4 lg:w-64 lg:mx-2">
               <label className="text-sm font-light">Gender</label>
-              <input
-                className="form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                type="text"
-                required
-                id="gender"
-                autoComplete="true"
-                placeholder="Enter gender"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-              />
+              <form className="flex justify-evenly p-3">
+                <label>Male</label>
+                <input
+                  type="radio"
+                  required
+                  id="gender"
+                  name="radio-1"
+                  className="radio"
+                  value={"Male"}
+                  checked={gender === "Male"}
+                  onChange={(e) => setGender("Male")}
+                />
+                <label>Female</label>
+                <input
+                  type="radio"
+                  required
+                  id="gender"
+                  name="radio-1"
+                  className="radio"
+                  value={"Female"}
+                  checked={gender === "Female"}
+                  onChange={(e) => setGender("Female")}
+                />
+              </form>
             </div>
             <div className="w-56 mb-4 lg:w-64 lg:mx-2">
               <label className="text-sm font-light">Marital Status</label>
-              <input
-                className="form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                type="text"
-                required
-                id="maritalStatus"
-                autoComplete="true"
-                placeholder="Select your marital Status "
-                value={maritalStatus}
-                onChange={(e) => setMaritalStatus(e.target.value)}
-              />
-            </div>
-            <div className="w-56 mb-4 lg:w-64 lg:mx-2">
-              <label className="text-sm font-light">Category</label>
-              <input
-                className="form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                type="text"
-                required
-                id="category"
-                autoComplete="true"
-                placeholder="Enter Category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              />
+              <form className="flex justify-evenly p-3">
+                <label>Single</label>
+                <input
+                  type="radio"
+                  required
+                  id="maritalStatus"
+                  name="radio-1"
+                  className="radio"
+                  checked={maritalStatus === "Single"}
+                  value={"Single"}
+                  onChange={(e) => setMaritalStatus("Single")}
+                  {...maritalStatus}
+                />
+                <label>Married</label>
+                <input
+                  type="radio"
+                  required
+                  id="maritalStatus"
+                  name="radio-1"
+                  className="radio"
+                  checked={maritalStatus === "Married"}
+                  value={"Married"}
+                  onChange={(e) => setMaritalStatus("Married")}
+                  {...maritalStatus}
+                />
+              </form>
             </div>
           </div>
-          <div class="divider"></div>
+
+          <div className="w-full flex flex-col mb-4 lg:w-1/2 lg:flex-none lg:mx-2">
+            <label className="text-sm font-light text-center lg:text-left">
+              Category
+            </label>
+            <form className="flex justify-evenly py-3">
+              <label>GEN</label>
+              <input
+                type="radio"
+                required
+                id="category"
+                name="radio-1"
+                className="radio"
+                checked={category === "GEN"}
+                value={"GEN"}
+                onChange={(e) => setCategory("GEN")}
+                {...category}
+              />
+              <label>OBC</label>
+              <input
+                type="radio"
+                required
+                id="category"
+                name="radio-1"
+                className="radio"
+                checked={category === "OBC"}
+                value={"OBC"}
+                onChange={(e) => setCategory("OBC")}
+                {...category}
+              />
+              <label>SC</label>
+              <input
+                type="radio"
+                required
+                id="category"
+                name="radio-1"
+                className="radio"
+                checked={category === "SC"}
+                value={"SC"}
+                onChange={(e) => setCategory("SC")}
+              />
+              <label>ST</label>
+              <input
+                type="radio"
+                required
+                id="category"
+                name="radio-1"
+                className="radio"
+                checked={category === "ST"}
+                value={"ST"}
+                onChange={(e) => setCategory("ST")}
+              />
+              <label>OBC-NC</label>
+              <input
+                type="radio"
+                required
+                id="category"
+                name="radio-1"
+                className="radio"
+                checked={category === "OBC-NC"}
+                value={"OBC-NC"}
+                onChange={(e) => setCategory("OBC-NC")}
+              />
+              <label>EWS</label>
+              <input
+                type="radio"
+                required
+                id="category"
+                name="radio-1"
+                className="radio"
+                checked={category === "EWS"}
+                value={"EWS"}
+                onChange={(e) => setCategory("EWS")}
+              />
+              <label>PWD</label>
+              <input
+                type="radio"
+                required
+                id="category"
+                name="radio-1"
+                className="radio"
+                checked={category === "PWD"}
+                value={"PWD"}
+                onChange={(e) => setCategory("PWD")}
+              />
+            </form>
+          </div>
+          <div className="divider"></div>
           <h4 className="w-56 mb-2 mt-2 lg:w-64 lg:mx-2">Name in Full</h4>
           <div className="grid grid-cols-1 place-content-center w-56 m-auto  lg:w-full lg:grid-cols-4 lg:m-0 lg:gap-2">
             <div className="w-56 mb-4 lg:w-64 lg:mx-2">
@@ -685,7 +787,7 @@ const GeneralDetails = () => {
               />
             </div>
           </div>
-          <div class="divider"></div>
+          <div className="divider"></div>
           <h4 className="w-56 mb-2 mt-2 lg:w-64 lg:mx-2">Address</h4>
           <div className="grid grid-cols-1 place-content-center w-56 m-auto  lg:w-full lg:grid-cols-2 lg:m-0 lg:gap-2">
             <div className="w-56 mb-4 lg:w-3/4 lg:mx-2">
@@ -771,7 +873,6 @@ const GeneralDetails = () => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
                 type="text"
-                required
                 id="secAddress"
                 autoComplete="true"
                 placeholder="Enter permanent address if different from current address"
@@ -801,7 +902,6 @@ const GeneralDetails = () => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
                 type="text"
-                required
                 id="secAddress"
                 autoComplete="true"
                 placeholder="Enter your pincode"
@@ -815,7 +915,7 @@ const GeneralDetails = () => {
               />
             </div>
           </div>
-          <div class="divider"></div>
+          <div className="divider"></div>
           <h4 className="w-56 mb-2 mt-2 lg:w-64 lg:mx-2">Contact Details</h4>
           <div className="grid grid-cols-1 place-content-center w-56 m-auto  lg:w-full lg:grid-cols-4 lg:m-0 lg:gap-2">
             <div className="w-56 mb-4 lg:w-64 lg:mx-2">
@@ -864,7 +964,6 @@ const GeneralDetails = () => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
                 type="text"
-                required
                 id="secEmail"
                 autoComplete="true"
                 placeholder="Enter alternate email"
@@ -920,7 +1019,6 @@ const GeneralDetails = () => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
                 type="text"
-                required
                 id="secPhNo"
                 autoComplete="true"
                 placeholder="Enter alternate phone number"

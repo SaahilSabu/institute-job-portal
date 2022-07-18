@@ -71,11 +71,11 @@ const JobForm = () => {
             Job Form
           </h3>
           {error && (
-            <div class="alert alert-error shadow-sm my-2 text-sm h-6">
+            <div className="alert alert-error shadow-sm my-2 text-sm h-6">
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="stroke-current flex-shrink-0 h-3 w-3"
+                  className="stroke-current flex-shrink-0 h-3 w-3"
                   fill="none"
                   viewBox="0 0 24 24"
                 >

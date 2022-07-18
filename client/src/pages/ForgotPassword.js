@@ -39,11 +39,11 @@ const ForgotPassword = () => {
           Forgot Password
         </h3>
         {error && (
-          <div class="alert alert-error shadow-sm my-2 text-sm h-6">
+          <div className="alert alert-error shadow-sm my-2 text-sm h-6">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="stroke-current flex-shrink-0 h-3 w-3"
+                className="stroke-current flex-shrink-0 h-3 w-3"
                 fill="none"
                 viewBox="0 0 24 24"
               >
@@ -59,11 +59,11 @@ const ForgotPassword = () => {
           </div>
         )}
         {success && (
-          <div class="alert alert-success shadow-sm w-11/12 sm:w-1/2 m-auto">
+          <div className="alert alert-success shadow-sm w-11/12 sm:w-1/2 m-auto">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="stroke-current flex-shrink-0 h-6 w-6"
+                className="stroke-current flex-shrink-0 h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
               >
