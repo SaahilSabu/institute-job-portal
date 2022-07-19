@@ -132,6 +132,60 @@ const userSchema = new mongoose.Schema(
     phdAwardDate: {
       type: String,
     },
+    teachingExp: {
+      employer: {
+        type: String,
+      },
+      position: {
+        type: String,
+      },
+      dateOfJoining: {
+        type: String,
+      },
+      dateOfLeaving: {
+        type: String,
+      },
+      payLevel: {
+        type: String,
+      },
+      PayInPayLevel: {
+        type: String,
+      },
+      GP: {
+        type: String,
+      },
+      reasonForLeaving: {
+        type: String,
+      },
+    },
+    postPhdExp: {
+      type: String,
+    },
+    profBodyMembership: {
+      id: {
+        type: Number,
+      },
+      name: {
+        type: String,
+      },
+    },
+    references: {
+      name: {
+        type: String,
+      },
+      address: {
+        type: String,
+      },
+      email: {
+        type: String,
+      },
+      phone: {
+        type: String,
+      },
+      designation: {
+        type: String,
+      },
+    },
     resetPasswordToken: { type: String, select: false },
     resetPasswordExpire: { type: Date, select: false },
     submitted: { type: Boolean, default: false, select: false },

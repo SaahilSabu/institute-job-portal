@@ -321,11 +321,12 @@ const AcademicDetails = () => {
               </div>
             );
           })}
-
-          <PlusCircleIcon
-            className="h-12 p-2 mx-4 text-[#020493] mt-1"
-            onClick={addAcademic}
-          />
+          <div className="flex justify-center">
+            <PlusCircleIcon
+              className="h-12 p-2 w-12 mx-4 text-[#020493] mt-1"
+              onClick={addAcademic}
+            />
+          </div>
           <div className="divider"></div>
           <div className="grid grid-cols-1 place-content-center w-56 m-auto  lg:w-full lg:grid-cols-2 lg:m-0 lg:gap-4">
             <div className="w-56 mb-4 lg:w-3/4 lg:mx-2">

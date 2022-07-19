@@ -9,8 +9,10 @@ import { DocumentTextIcon } from "@heroicons/react/solid";
 import Summary from "./../components/forms/Summary";
 import axios from "axios";
 import { login } from "../redux/userSlice";
-import GeneralDetails from './../components/forms/GeneralDetails';
-import AcademicDetails from './../components/forms/AcademicDetails';
+import GeneralDetails from "./../components/forms/GeneralDetails";
+import AcademicDetails from "./../components/forms/AcademicDetails";
+import EmploymentDetails from "./../components/forms/EmploymentDetails";
+import References from "./../components/forms/References";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -105,7 +107,15 @@ const Dashboard = () => {
                     activeTab === 3 ? "tab-active" : ""
                   }`}
                 >
-                  Tab 3
+                  Employment
+                </li>
+                <li
+                  onClick={() => setActiveTab(4)}
+                  className={`tab tab-bordered ${
+                    activeTab === 4 ? "tab-active" : ""
+                  }`}
+                >
+                  References
                 </li>
               </ul>
             </div>
@@ -118,6 +128,16 @@ const Dashboard = () => {
               {activeTab === 2 && (
                 <div className="w-full">
                   <AcademicDetails />
+                </div>
+              )}
+              {activeTab === 3 && (
+                <div className="w-full">
+                  <EmploymentDetails />
+                </div>
+              )}
+              {activeTab === 4 && (
+                <div className="w-full">
+                  <References />
                 </div>
               )}
             </div>

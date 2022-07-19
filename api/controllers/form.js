@@ -30,6 +30,10 @@ exports.addFormInfo = async (req, res, next) => {
     academic,
     phdDissertationTitle,
     phdAwardDate,
+    teachingExp,
+    postPhdExp,
+    profBodyMembership,
+    references,
   } = req.body;
   const id = req.params.id;
 
@@ -63,6 +67,10 @@ exports.addFormInfo = async (req, res, next) => {
       academic,
       phdDissertationTitle,
       phdAwardDate,
+      teachingExp,
+      postPhdExp,
+      profBodyMembership,
+      references,
     });
 
     await user.save();
