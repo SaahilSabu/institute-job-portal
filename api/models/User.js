@@ -186,6 +186,261 @@ const userSchema = new mongoose.Schema(
         type: String,
       },
     },
+    publications: {
+      totalPapers: {
+        type: Number,
+      },
+      referredJournals: {
+        type: Number,
+      },
+      sciIndexedJournal: {
+        type: Number,
+      },
+      internationalConferences: {
+        type: Number,
+      },
+      nationalConferences: {
+        type: Number,
+      },
+      bookChapters: {
+        type: Number,
+      },
+      sciIndexJournalOutsidePhd: {
+        type: Number,
+      },
+      books: {
+        type: Number,
+      },
+      patents: {
+        type: Number,
+      },
+    },
+    researchExp: {
+      duration: {
+        type: String,
+      },
+      organisation: {
+        type: String,
+      },
+      area: {
+        type: String,
+      },
+    },
+    industrialExp: {
+      organisation: {
+        type: String,
+      },
+      designation: {
+        type: String,
+      },
+      period: {
+        type: String,
+      },
+      natureOfWork: {
+        type: String,
+      },
+    },
+    administrativeExp: {
+      organisation: {
+        type: String,
+      },
+      designation: {
+        type: String,
+      },
+      period: {
+        type: String,
+      },
+      natureOfWork: {
+        type: String,
+      },
+    },
+    coursesTaught: {
+      title: {
+        type: String,
+      },
+      level: {
+        type: String,
+      },
+      noOfTimes: {
+        type: String,
+      },
+      developedByYou: {
+        type: String,
+      },
+    },
+    thesis: {
+      bachelorsLvl: {
+        type: String,
+      },
+      mastersLvl: {
+        type: String,
+      },
+      phdCo: {
+        type: String,
+      },
+      phdSingle: {
+        type: String,
+      },
+    },
+    sponsoredProjects: {
+      period: {
+        type: String,
+      },
+      organisation: {
+        type: String,
+      },
+      title: {
+        type: String,
+      },
+      grantAmount: {
+        type: String,
+      },
+      coInvestigators: {
+        type: String,
+      },
+      status: {
+        type: String,
+      },
+    },
+    consultancy: {
+      period: {
+        type: String,
+      },
+      organisation: {
+        type: String,
+      },
+      title: {
+        type: String,
+      },
+      grantAmount: {
+        type: String,
+      },
+      coInvestigators: {
+        type: String,
+      },
+      status: {
+        type: String,
+      },
+    },
+    refJournal: {
+      author: {
+        type: String,
+      },
+      year: {
+        type: String,
+      },
+      title: {
+        type: String,
+      },
+      referenceOfJournal: {
+        type: String,
+      },
+      impactFactor: {
+        type: String,
+      },
+    },
+    sciIndexJournal: {
+      author: {
+        type: String,
+      },
+      year: {
+        type: String,
+      },
+      title: {
+        type: String,
+      },
+      referenceOfJournal: {
+        type: String,
+      },
+      impactFactor: {
+        type: String,
+      },
+    },
+    nationalConferences: {
+      author: {
+        type: String,
+      },
+      year: {
+        type: String,
+      },
+      title: {
+        type: String,
+      },
+      nameAndPlace: {
+        type: String,
+      },
+      presentedOrPublished: {
+        type: String,
+      },
+    },
+    internationalConferences: {
+      author: {
+        type: String,
+      },
+      year: {
+        type: String,
+      },
+      title: {
+        type: String,
+      },
+      nameAndPlace: {
+        type: String,
+      },
+      presentedOrPublished: {
+        type: String,
+      },
+    },
+    books: {
+      name: {
+        type: String,
+      },
+      year: {
+        type: String,
+      },
+      title: {
+        type: String,
+      },
+      publisher: {
+        type: String,
+      },
+      coAuthor: {
+        type: String,
+      },
+    },
+    examsCleared: {
+      net: {
+        type: String,
+      },
+      gate: {
+        type: String,
+      },
+      csirOrjrf: {
+        type: String,
+      },
+      other1: {
+        type: String,
+      },
+      other2: {
+        type: String,
+      },
+      other3: {
+        type: String,
+      },
+    },
+    patent: {
+      filedNational: {
+        type: String,
+      },
+      filedInternational: {
+        type: String,
+      },
+      awardedNational: {
+        type: String,
+      },
+      awardedIntenational: {
+        type: String,
+      },
+    },
     resetPasswordToken: { type: String, select: false },
     resetPasswordExpire: { type: Date, select: false },
     submitted: { type: Boolean, default: false, select: false },

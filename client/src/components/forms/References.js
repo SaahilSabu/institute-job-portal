@@ -157,10 +157,9 @@ const References = () => {
           {references.map((input, index) => {
             return (
               <div className="flex justify-center items-center">
-                <label className="text-sm font-light w-5">{index + 1}</label>
                 <div
                   key={index}
-                  className="w-56 mb-4 relative group grid place-content-center place-items-center m-auto lg:grid-cols-5 lg:w-full  gap-4 "
+                  className="w-56 mb-4 relative group grid place-content-center place-items-center m-auto lg:grid-cols-5 lg:w-full gap-4 "
                 >
                   <div className="w-56 lg:w-40 p-2 xl:w-56">
                     <label className="text-sm font-light">Name</label>

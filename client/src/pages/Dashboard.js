@@ -13,6 +13,7 @@ import GeneralDetails from "./../components/forms/GeneralDetails";
 import AcademicDetails from "./../components/forms/AcademicDetails";
 import EmploymentDetails from "./../components/forms/EmploymentDetails";
 import References from "./../components/forms/References";
+import OtherDetails from "./../components/forms/OtherDetails";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -117,6 +118,14 @@ const Dashboard = () => {
                 >
                   References
                 </li>
+                <li
+                  onClick={() => setActiveTab(5)}
+                  className={`tab tab-bordered ${
+                    activeTab === 5 ? "tab-active" : ""
+                  }`}
+                >
+                  Other
+                </li>
               </ul>
             </div>
             <div className="flex justify-center mt-4">
@@ -138,6 +147,11 @@ const Dashboard = () => {
               {activeTab === 4 && (
                 <div className="w-full">
                   <References />
+                </div>
+              )}
+              {activeTab === 5 && (
+                <div className="w-full">
+                  <OtherDetails />
                 </div>
               )}
             </div>

@@ -34,6 +34,21 @@ exports.addFormInfo = async (req, res, next) => {
     postPhdExp,
     profBodyMembership,
     references,
+    publications,
+    researchExp,
+    industrialExp,
+    administrativeExp,
+    coursesTaught,
+    thesis,
+    sponsoredProjects,
+    consultancy,
+    refJournal,
+    sciIndexJournal,
+    nationalConferences,
+    internationalConferences,
+    books,
+    examsCleared,
+    patent,
   } = req.body;
   const id = req.params.id;
 
@@ -71,6 +86,21 @@ exports.addFormInfo = async (req, res, next) => {
       postPhdExp,
       profBodyMembership,
       references,
+      publications,
+      researchExp,
+      industrialExp,
+      administrativeExp,
+      coursesTaught,
+      thesis,
+      sponsoredProjects,
+      consultancy,
+      refJournal,
+      sciIndexJournal,
+      nationalConferences,
+      internationalConferences,
+      books,
+      examsCleared,
+      patent,
     });
 
     await user.save();
