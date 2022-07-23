@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { PlusCircleIcon, TrashIcon } from "@heroicons/react/solid";
+import { UploadIcon } from "@heroicons/react/outline";
 
 const EmploymentDetails = () => {
   const id = localStorage.getItem("id");
@@ -26,6 +27,9 @@ const EmploymentDetails = () => {
     { id: 2, name: "" },
     { id: 3, name: "" },
   ]);
+
+  const [appendix5, setAppendix5] = useState("");
+  const [appendix6, setAppendix6] = useState("");
 
   const handleTeachingExpChange = (index, e) => {
     let data = [...teachingExp];
@@ -59,6 +63,29 @@ const EmploymentDetails = () => {
     setTeachingExp(data);
   };
 
+  const uploadA5 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix5);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix5(response.data.url);
+      });
+  };
+  const uploadA6 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix6);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix6(response.data.url);
+      });
+  };
+
   useEffect(() => {
     const userFormData = async () => {
       const config = {
@@ -77,6 +104,8 @@ const EmploymentDetails = () => {
         if (data.user.profBodyMembership) {
           setProfBodyMembership(data.user.profBodyMembership);
         }
+        if(data.user.appendix5) setAppendix5(data.user.appendix5);
+        if(data.user.appendix6) setAppendix6(data.user.appendix6);
       } catch (error) {
         console.log(error);
       }
@@ -100,6 +129,8 @@ const EmploymentDetails = () => {
           teachingExp,
           postPhdExp,
           profBodyMembership,
+          appendix5,
+          appendix6,
         },
         config
       );
@@ -409,6 +440,88 @@ const EmploymentDetails = () => {
               className="h-12 p-2 w-12 mx-4 text-[#020493] mt-1"
               onClick={addTeachingExp}
             />
+          </div>
+          <div className="divider"></div>
+
+          <div className="flex justify-between w-3/4 m-auto items-center my-2">
+            <div>
+              <h2 className="font-light">Please enclose experience certificate(s) as Appendix 5 </h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix5(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA5}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix5 && (
+                <>
+                  <a href={appendix5}>View</a>
+                </>
+              )}
+            </div>
+          </div>
+          <div className="divider"></div>
+
+          <div className="flex justify-between w-3/4 m-auto items-center my-2">
+            <div>
+              <h2 className="font-light">Please enclose NOC from existing employer, if applicable as Appendix 6</h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix6(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA6}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix6 && (
+                <>
+                  <a href={appendix6}>View</a>
+                </>
+              )}
+            </div>
           </div>
           <div className="divider"></div>
           <div className="grid grid-cols-1 place-content-center w-56 m-auto  lg:w-full lg:grid-cols-2 lg:m-0 lg:gap-4">

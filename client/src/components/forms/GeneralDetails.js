@@ -45,6 +45,45 @@ const GeneralDetails = () => {
     date: "",
   });
   const [userPP, setUserPP] = useState("");
+  const [appendix1, setAppendix1] = useState("");
+  const [appendix2, setAppendix2] = useState("");
+  const [appendix3, setAppendix3] = useState("");
+
+  const uploadA1 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix1);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix1(response.data.url);
+      });
+  };
+
+  const uploadA2 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix2);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix2(response.data.url);
+      });
+  };
+
+  const uploadA3 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix3);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix3(response.data.url);
+      });
+  };
 
   useEffect(() => {
     const jobDataReq = async () => {
@@ -110,6 +149,9 @@ const GeneralDetails = () => {
         setGender(data.user.gender);
         setFeeDetails(data.user.feeDetails);
         setUserPPUrl(data.user.userPPUrl);
+        if (data.user.appendix1) setAppendix1(data.user.appendix1);
+        if (data.user.appendix2) setAppendix2(data.user.appendix2);
+        if (data.user.appendix3) setAppendix3(data.user.appendix3);
       } catch (error) {
         console.log(error);
       }
@@ -153,6 +195,9 @@ const GeneralDetails = () => {
           gender,
           feeDetails,
           userPPUrl,
+          appendix1,
+          appendix2,
+          appendix3,
         },
         config
       );
@@ -292,7 +337,7 @@ const GeneralDetails = () => {
                 </select>
               </div>
               <div className="w-56 mb-4 lg:w-64 lg:mx-2">
-                <label className="text-sm font-light">Aadhaar No</label>
+                <label className="text-sm font-light">Aadhaar No*</label>
                 <input
                   className="form-control
         block
@@ -418,7 +463,7 @@ const GeneralDetails = () => {
         mr-3
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
                   type="file"
-                  // required
+                  required
                   id="address"
                   autoComplete="true"
                   onChange={(e) => setUserPP(e.target.files[0])}
@@ -443,7 +488,7 @@ const GeneralDetails = () => {
             </div>
           </div>
           <div className="divider"></div>
-          <h4 className="w-56 mb-2 mt-2 lg:w-64 lg:mx-2">Fee Details*</h4>
+          <h4 className="w-56 mb-2 mt-2 lg:w-64 lg:mx-2">Fee Details**</h4>
           <div className="grid grid-cols-1 place-content-center w-56 m-auto  lg:w-full lg:grid-cols-4 lg:m-0 lg:gap-2">
             <div className="w-56 mb-4 lg:w-64 lg:mx-2">
               <label className="text-sm font-light">Transaction ID</label>
@@ -622,7 +667,7 @@ const GeneralDetails = () => {
 
           <div className="w-full flex flex-col mb-4 lg:w-1/2 lg:flex-none lg:mx-2">
             <label className="text-sm font-light text-center lg:text-left">
-              Category
+              Category***
             </label>
             <form className="flex justify-evenly py-3">
               <label>GEN</label>
@@ -1058,6 +1103,136 @@ const GeneralDetails = () => {
               />
             </div>
           </div>
+          <div className="divider"></div>
+          <div className="flex justify-between w-3/4 m-auto items-center my-2">
+            <div>
+              <h2 className="font-light">
+                Please aadhar details as Appendix 1{" "}
+              </h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix1(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA1}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix1 && (
+                <>
+                  <a href={appendix1}>View</a>
+                </>
+              )}
+            </div>
+          </div>
+          <div className="divider"></div>
+
+          <div className="flex justify-between w-3/4 m-auto items-center my-2">
+            <div>
+              <h2 className="font-light">
+                Please enclose experience certificate(s) as Appendix 2{" "}
+              </h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix2(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA2}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix2 && (
+                <>
+                  <a href={appendix2}>View</a>
+                </>
+              )}
+            </div>
+          </div>
+          <div className="divider"></div>
+
+          <div className="flex justify-between w-3/4 m-auto items-center my-2">
+            <div>
+              <h2 className="font-light">
+                Please enclose category details as as Appendix 3{" "}
+              </h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix3(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA3}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix3 && (
+                <>
+                  <a href={appendix3}>View</a>
+                </>
+              )}
+            </div>
+          </div>
+          <div className="divider"></div>
+
           <div className="flex justify-center lg:justify-end">
             <button
               type="submit"

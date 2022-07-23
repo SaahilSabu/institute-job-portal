@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { PlusCircleIcon, TrashIcon } from "@heroicons/react/solid";
+import { UploadIcon } from "@heroicons/react/outline";
+
 
 const AcademicDetails = () => {
   const id = localStorage.getItem("id");
@@ -18,6 +20,7 @@ const AcademicDetails = () => {
   ]);
   const [phdDissertationTitle, setPhdDissertationTitle] = useState("");
   const [phdAwardDate, setPhdAwardDate] = useState("");
+  const [appendix4, setAppendix4] = useState("");
 
   const handleAcademicChange = (index, e) => {
     let data = [...academic];
@@ -42,6 +45,18 @@ const AcademicDetails = () => {
     setAcademic(data);
   };
 
+  const uploadA4 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix4);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix4(response.data.url);
+      });
+  };
+
   useEffect(() => {
     const userFormData = async () => {
       const config = {
@@ -55,6 +70,9 @@ const AcademicDetails = () => {
         setAcademic(data.user.academic);
         setPhdDissertationTitle(data.user.phdDissertationTitle);
         setPhdAwardDate(data.user.phdAwardDate);
+        if (data.user.appendix4) {
+          setAppendix4(data.user.appendix4);
+        }
         console.log(data.user);
       } catch (error) {
         console.log(error);
@@ -79,6 +97,7 @@ const AcademicDetails = () => {
           academic,
           phdDissertationTitle,
           phdAwardDate,
+          appendix4,
         },
         config
       );
@@ -326,6 +345,47 @@ const AcademicDetails = () => {
               className="h-12 p-2 w-12 mx-4 text-[#020493] mt-1"
               onClick={addAcademic}
             />
+          </div>
+          <div className="flex justify-between w-3/4 m-auto items-center my-2">
+            <div>
+              <h2 className="font-light">
+                Please enclose mark sheets /certificate(s) as Appendix 4
+              </h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix4(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA4}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix4 && (
+                <>
+                  <a href={appendix4}>View</a>
+                </>
+              )}
+            </div>
           </div>
           <div className="divider"></div>
           <div className="grid grid-cols-1 place-content-center w-56 m-auto  lg:w-full lg:grid-cols-2 lg:m-0 lg:gap-4">

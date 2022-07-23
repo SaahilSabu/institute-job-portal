@@ -441,6 +441,72 @@ const userSchema = new mongoose.Schema(
         type: String,
       },
     },
+    punishmentClg: {
+      type: String,
+    },
+    punishmentCourt: {
+      type: String,
+    },
+    mentalHealth: {
+      type: String,
+    },
+    courtCases: {
+      type: String,
+    },
+    appendix1: {
+      type: String,
+    },
+    appendix2: {
+      type: String,
+    },
+    appendix3: {
+      type: String,
+    },
+    appendix4: {
+      type: String,
+    },
+    appendix5: {
+      type: String,
+    },
+    appendix6: {
+      type: String,
+    },
+    appendix7: {
+      type: String,
+    },
+    appendix8: {
+      type: String,
+    },
+    appendix9: {
+      type: String,
+    },
+    appendix10: {
+      type: String,
+    },
+    appendix11: {
+      type: String,
+    },
+    appendix12: {
+      type: String,
+    },
+    appendix13: {
+      type: String,
+    },
+    appendix14: {
+      type: String,
+    },
+    appendix15: {
+      type: String,
+    },
+    appendix16: {
+      type: String,
+    },
+    appendix17: {
+      type: String,
+    },
+    appendix18: {
+      type: String,
+    },
     resetPasswordToken: { type: String, select: false },
     resetPasswordExpire: { type: Date, select: false },
     submitted: { type: Boolean, default: false, select: false },

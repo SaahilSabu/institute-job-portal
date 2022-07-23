@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { PlusCircleIcon, TrashIcon } from "@heroicons/react/solid";
+import { UploadIcon } from "@heroicons/react/outline";
 
 const OtherDetails = () => {
   const id = localStorage.getItem("id");
@@ -151,6 +152,23 @@ const OtherDetails = () => {
       awardedIntenational: "",
     },
   ]);
+
+  const [appendix7, setAppendix7] = useState("");
+  const [appendix8, setAppendix8] = useState("");
+  const [appendix9, setAppendix9] = useState("");
+  const [appendix10, setAppendix10] = useState("");
+  const [appendix11, setAppendix11] = useState("");
+  const [appendix12, setAppendix12] = useState("");
+  const [appendix13, setAppendix13] = useState("");
+  const [appendix14, setAppendix14] = useState("");
+  const [appendix15, setAppendix15] = useState("");
+  const [appendix16, setAppendix16] = useState("");
+  const [appendix17, setAppendix17] = useState("");
+  const [appendix18, setAppendix18] = useState("");
+  const [punishmentClg, setPunishmentClg] = useState("");
+  const [punishmentCourt, setPunishmentCourt] = useState("");
+  const [mentalHealth, setmentalHealth] = useState("");
+  const [courtCases, setCourtCases] = useState("");
 
   const handleResearchExpChange = (index, e) => {
     let data = [...researchExp];
@@ -419,6 +437,144 @@ const OtherDetails = () => {
     setPatent(data);
   };
 
+  const uploadA7 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix7);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix7(response.data.url);
+      });
+  };
+  const uploadA8 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix8);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix8(response.data.url);
+      });
+  };
+  const uploadA9 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix9);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix9(response.data.url);
+      });
+  };
+  const uploadA10 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix10);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix10(response.data.url);
+      });
+  };
+  const uploadA11 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix11);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix11(response.data.url);
+      });
+  };
+  const uploadA12 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix12);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix12(response.data.url);
+      });
+  };
+  const uploadA13 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix13);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix13(response.data.url);
+      });
+  };
+
+  const uploadA14 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix14);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix14(response.data.url);
+      });
+  };
+
+  const uploadA15 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix15);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix15(response.data.url);
+      });
+  };
+
+  const uploadA16 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix16);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix16(response.data.url);
+      });
+  };
+
+  const uploadA17 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix17);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix17(response.data.url);
+      });
+  };
+
+  const uploadA18 = (files) => {
+    const formData = new FormData();
+    formData.append("file", appendix18);
+    formData.append("upload_preset", "rivjkqek");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
+      .then((response) => {
+        setAppendix18(response.data.url);
+      });
+  };
+
   useEffect(() => {
     const userFormData = async () => {
       const config = {
@@ -449,6 +605,23 @@ const OtherDetails = () => {
         if (data.user.books) setBooks(data.user.books);
         if (data.user.examsCleared) setExamsCleared(data.user.examsCleared);
         if (data.user.patent) setPatent(data.user.patent);
+        if (data.user.punishmentClg) setPunishmentClg(data.user.punishmentClg);
+        if (data.user.punishmentCourt)
+          setPunishmentCourt(data.user.punishmentCourt);
+        if (data.user.mentalHealth) setmentalHealth(data.user.mentalHealth);
+        if (data.user.courtCases) setCourtCases(data.user.courtCases);
+        if (data.user.appendix7) setAppendix7(data.user.appendix7);
+        if (data.user.appendix8) setAppendix8(data.user.appendix8);
+        if (data.user.appendix9) setAppendix9(data.user.appendix9);
+        if (data.user.appendix10) setAppendix10(data.user.appendix10);
+        if (data.user.appendix11) setAppendix11(data.user.appendix11);
+        if (data.user.appendix12) setAppendix12(data.user.appendix12);
+        if (data.user.appendix13) setAppendix13(data.user.appendix13);
+        if (data.user.appendix14) setAppendix14(data.user.appendix14);
+        if (data.user.appendix15) setAppendix15(data.user.appendix15);
+        if (data.user.appendix16) setAppendix16(data.user.appendix16);
+        if (data.user.appendix17) setAppendix17(data.user.appendix17);
+        if (data.user.appendix18) setAppendix18(data.user.appendix18);
       } catch (error) {
         console.log(error);
       }
@@ -484,6 +657,22 @@ const OtherDetails = () => {
           books,
           examsCleared,
           patent,
+          appendix7,
+          appendix8,
+          appendix9,
+          appendix10,
+          appendix11,
+          appendix12,
+          appendix13,
+          appendix14,
+          appendix15,
+          appendix16,
+          appendix17,
+          appendix18,
+          punishmentClg,
+          punishmentCourt,
+          mentalHealth,
+          courtCases,
         },
         config
       );
@@ -869,6 +1058,48 @@ const OtherDetails = () => {
               </div>
             </div>
           </div>
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg">Publications</h2>
+              <h2 className="font-light">
+                (enclose reprints of 05 best papers as Appendix 7)
+              </h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix7(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA7}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix7 && (
+                <>
+                  <a href={appendix7}>View</a>
+                </>
+              )}
+            </div>
+          </div>
           {/* divider for publications */}
           <div className="divider"></div>
           {/* start of research exp */}
@@ -986,6 +1217,7 @@ const OtherDetails = () => {
               />
             </div>
           </div>
+
           <div className="divider"></div>
           {/* end for research exp */}
           {/* start of industrial exp*/}
@@ -2096,6 +2328,48 @@ const OtherDetails = () => {
               />
             </div>
           </div>
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg">Papers in referred Journals</h2>
+              <h2 className="font-light">
+                (Please attach a list as Appendix 8 in the format given below)
+              </h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix8(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA8}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix8 && (
+                <>
+                  <a href={appendix8}>View</a>
+                </>
+              )}
+            </div>
+          </div>
           <div className="divider"></div>
           {/* end of refered journals */}
           {/* start of sci index journal */}
@@ -2260,6 +2534,48 @@ const OtherDetails = () => {
                 className="h-12 p-2 mx-4 text-[#020493] mt-1"
                 onClick={addSciIndexJournal}
               />
+            </div>
+          </div>
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg">Papers in SCI Indexed Journals</h2>
+              <h2 className="font-light">
+                (Please attach a list as Appendix 9 in the format given below)
+              </h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix9(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA9}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix9 && (
+                <>
+                  <a href={appendix9}>View</a>
+                </>
+              )}
             </div>
           </div>
           <div className="divider"></div>
@@ -2428,6 +2744,48 @@ const OtherDetails = () => {
               />
             </div>
           </div>
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg">National conference papers</h2>
+              <h2 className="font-light">
+                (Please attach a list as Appendix 10 in the format given below)
+              </h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix10(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA10}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix10 && (
+                <>
+                  <a href={appendix10}>View</a>
+                </>
+              )}
+            </div>
+          </div>
           <div className="divider"></div>
           {/* end of national conference */}
           {/* start of internationalConferences */}
@@ -2592,6 +2950,48 @@ const OtherDetails = () => {
                 className="h-12 p-2 mx-4 text-[#020493] mt-1"
                 onClick={addInterationalConferences}
               />
+            </div>
+          </div>
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg">International Conference papers</h2>
+              <h2 className="font-light">
+                (Please attach a list as Appendix 11)
+              </h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix11(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA11}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix11 && (
+                <>
+                  <a href={appendix11}>View</a>
+                </>
+              )}
             </div>
           </div>
           <div className="divider"></div>
@@ -2953,6 +3353,47 @@ const OtherDetails = () => {
               </div>
             </div>
           </div>
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="font-light">
+                (Attach certificates as Appendix 12)
+              </h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix12(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA12}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix12 && (
+                <>
+                  <a href={appendix12}>View</a>
+                </>
+              )}
+            </div>
+          </div>
           <div className="divider"></div>
           {/* end of exams cleared */}
           {/* start of patents */}
@@ -3092,7 +3533,402 @@ const OtherDetails = () => {
               />
             </div>
           </div>
+          <div className="divider"></div>
           {/* end of patents */}
+
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg">
+                Continuing education programme conducted{" "}
+              </h2>
+              <h2 className="font-light">(please attach as Appendix 13)</h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix13(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA13}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix13 && (
+                <>
+                  <a href={appendix13}>View</a>
+                </>
+              )}
+            </div>
+          </div>
+          <div className="divider"></div>
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg">
+                Short term courses/workshops/seminars etc. organized
+              </h2>
+              <h2 className="font-light">(please attach as Appendix 14)</h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix14(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA14}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix13 && (
+                <>
+                  <a href={appendix14}>View</a>
+                </>
+              )}
+            </div>
+          </div>
+          <div className="divider"></div>
+
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg">Awards and Recognitions</h2>
+              <h2 className="font-light">(please attach as Appendix 15)</h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix15(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA15}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix13 && (
+                <>
+                  <a href={appendix15}>View</a>
+                </>
+              )}
+            </div>
+          </div>
+          <div className="divider"></div>
+
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg">
+                Other Academic and corporate activities{" "}
+              </h2>
+              <h2 className="font-light">(please attach as Appendix 16)</h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix16(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA16}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix13 && (
+                <>
+                  <a href={appendix16}>View</a>
+                </>
+              )}
+            </div>
+          </div>
+          <div className="divider"></div>
+
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg">
+                Brief write-up on your teaching and research plan at ABV-IIITM
+                Gwalior (max 500 words.)
+              </h2>
+              <h2 className="font-light">(please attach as Appendix 17)</h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix17(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA17}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix13 && (
+                <>
+                  <a href={appendix17}>View</a>
+                </>
+              )}
+            </div>
+          </div>
+          <div className="divider"></div>
+
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg">
+                Have you been punished during your studies at College/
+                University?
+              </h2>
+              <h2 className="font-light"> If so, give details.</h2>
+            </div>
+            <textarea
+              className="form-control min-h-16
+                w-1/2
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+              type="file"
+              value={punishmentClg}
+              required
+              autoComplete="true"
+              onChange={(e) => setPunishmentClg(e.target.value)}
+            />
+          </div>
+          <div className="divider"></div>
+
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg w-3/4">
+                Have you been punished during your services or convicted by
+                court of Law?
+              </h2>
+              <h2 className="font-light"> If so, give details.</h2>
+            </div>
+            <textarea
+              className="form-control min-h-16
+                w-3/4
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+              type="file"
+              value={punishmentCourt}
+              required
+              autoComplete="true"
+              onChange={(e) => setPunishmentCourt(e.target.value)}
+            />
+          </div>
+          <div className="divider"></div>
+
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg w-3/4">
+                Were you at any time declared medically unfit or asked to submit
+                your resignation or discharged or dismissed
+              </h2>
+              <h2 className="font-light"> If so, give details.</h2>
+            </div>
+            <textarea
+              className="form-control min-h-16
+                w-3/4
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+              type="file"
+              value={mentalHealth}
+              required
+              autoComplete="true"
+              onChange={(e) => setmentalHealth(e.target.value)}
+            />
+          </div>
+          <div className="divider"></div>
+
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg w-3/4">
+                Do you have any court cases pending as one of the parties?
+              </h2>
+              <h2 className="font-light"> If so, give details.</h2>
+            </div>
+            <textarea
+              className="form-control min-h-16
+                w-1/2
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+              type="file"
+              value={courtCases}
+              required
+              autoComplete="true"
+              onChange={(e) => setCourtCases(e.target.value)}
+            />
+          </div>
+          <div className="divider"></div>
+
+          <div className="flex justify-between w-3/4 m-auto items-center">
+            <div>
+              <h2 className="text-lg">
+                Any other relevant information you may like to furnish
+              </h2>
+              <h2 className="font-light">(please attach as Appendix 18)</h2>
+            </div>
+            <div className="flex ">
+              <input
+                className="form-control
+        block
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        mr-3
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
+                type="file"
+                required
+                autoComplete="true"
+                onChange={(e) => setAppendix18(e.target.files[0])}
+              />
+              <button
+                type="button"
+                onClick={uploadA18}
+                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+              >
+                <UploadIcon className="h-4" />
+              </button>
+              {appendix13 && (
+                <>
+                  <a href={appendix18}>View</a>
+                </>
+              )}
+            </div>
+          </div>
+          <div className="divider"></div>
+
           <div className="flex justify-center lg:justify-end">
             <button
               type="submit"
