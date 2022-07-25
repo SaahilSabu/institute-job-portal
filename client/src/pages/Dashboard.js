@@ -14,6 +14,7 @@ import AcademicDetails from "./../components/forms/AcademicDetails";
 import EmploymentDetails from "./../components/forms/EmploymentDetails";
 import References from "./../components/forms/References";
 import OtherDetails from "./../components/forms/OtherDetails";
+import CheckListAndSubmit from "./../components/forms/CheckListAndSubmit";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -126,6 +127,14 @@ const Dashboard = () => {
                 >
                   Other
                 </li>
+                <li
+                  onClick={() => setActiveTab(6)}
+                  className={`tab tab-bordered ${
+                    activeTab === 6 ? "tab-active" : ""
+                  }`}
+                >
+                  Submit
+                </li>
               </ul>
             </div>
             <div className="flex justify-center mt-4">
@@ -152,6 +161,11 @@ const Dashboard = () => {
               {activeTab === 5 && (
                 <div className="w-full">
                   <OtherDetails />
+                </div>
+              )}
+              {activeTab === 6 && (
+                <div className="w-full">
+                  <CheckListAndSubmit />
                 </div>
               )}
             </div>

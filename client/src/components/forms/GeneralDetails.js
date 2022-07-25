@@ -209,6 +209,7 @@ const GeneralDetails = () => {
         setSuccess("");
       }, 5000);
     }
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
   const uploadUserPP = (files) => {
@@ -446,11 +447,11 @@ const GeneralDetails = () => {
             <div className="flex w-56 mb-4 flex-col m-auto  lg:w-80 lg:mb-auto">
               <label className="text-sm font-light mb-2">Upload a photo</label>
               <div className="flex">
-                <label class="block">
-                  <span class="sr-only">Choose File</span>
+                <label className="block">
+                  <span className="sr-only">Choose File</span>
                   <input
                     type="file"
-                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                    className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                     required
                     autoComplete="true"
                     onChange={(e) => setUserPP(e.target.files[0])}
@@ -1131,11 +1132,11 @@ const GeneralDetails = () => {
               </h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix1(e.target.files[0])}
@@ -1159,11 +1160,11 @@ const GeneralDetails = () => {
               </h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix2(e.target.files[0])}
@@ -1187,11 +1188,11 @@ const GeneralDetails = () => {
               </h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix3(e.target.files[0])}

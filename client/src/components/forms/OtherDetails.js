@@ -575,18 +575,6 @@ const OtherDetails = () => {
       });
   };
 
-  const handleSubmit = () => {
-    try {
-      axios.put(`api/form/submit/${id}`);
-      setSuccess("Submitted");
-    } catch (error) {
-      setError(error);
-      setTimeout(() => {
-        setError("");
-        setSuccess("");
-      }, 5000);
-    }
-  };
 
   useEffect(() => {
     const userFormData = async () => {
@@ -697,6 +685,7 @@ const OtherDetails = () => {
         setSuccess("");
       }, 5000);
     }
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
   return (
@@ -1079,11 +1068,11 @@ const OtherDetails = () => {
               </h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix7(e.target.files[0])}
@@ -2334,11 +2323,11 @@ const OtherDetails = () => {
               </h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix8(e.target.files[0])}
@@ -2527,11 +2516,11 @@ const OtherDetails = () => {
               </h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix9(e.target.files[0])}
@@ -2720,11 +2709,11 @@ const OtherDetails = () => {
               </h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix10(e.target.files[0])}
@@ -2913,11 +2902,11 @@ const OtherDetails = () => {
               </h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix11(e.target.files[0])}
@@ -3301,11 +3290,11 @@ const OtherDetails = () => {
               </h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix12(e.target.files[0])}
@@ -3472,11 +3461,11 @@ const OtherDetails = () => {
               <h2 className="font-light">(please attach as Appendix 13)</h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix13(e.target.files[0])}
@@ -3500,11 +3489,11 @@ const OtherDetails = () => {
               <h2 className="font-light">(please attach as Appendix 14)</h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix14(e.target.files[0])}
@@ -3527,11 +3516,11 @@ const OtherDetails = () => {
               <h2 className="font-light">(please attach as Appendix 15)</h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix15(e.target.files[0])}
@@ -3556,11 +3545,11 @@ const OtherDetails = () => {
               <h2 className="font-light">(please attach as Appendix 16)</h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix16(e.target.files[0])}
@@ -3586,11 +3575,11 @@ const OtherDetails = () => {
               <h2 className="font-light">(please attach as Appendix 17)</h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix17(e.target.files[0])}
@@ -3746,11 +3735,11 @@ const OtherDetails = () => {
               <h2 className="font-light">(please attach as Appendix 18)</h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix18(e.target.files[0])}
@@ -3774,13 +3763,7 @@ const OtherDetails = () => {
             >
               Save
             </button>
-            <button
-              type="button"
-              className="btn  bg-[#020493] w-56 hover:bg-[#0608c2] text-white px-6 border-none m-2"
-              onClick={handleSubmit}
-            >
-              Submit
-            </button>
+            
           </div>
         </div>
       </form>

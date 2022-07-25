@@ -72,7 +72,6 @@ const AcademicDetails = () => {
         if (data.user.appendix4) {
           setAppendix4(data.user.appendix4);
         }
-        console.log(data.user);
       } catch (error) {
         console.log(error);
       }
@@ -108,6 +107,7 @@ const AcademicDetails = () => {
         setSuccess("");
       }, 5000);
     }
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
   return (
@@ -352,11 +352,11 @@ const AcademicDetails = () => {
               </h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix4(e.target.files[0])}

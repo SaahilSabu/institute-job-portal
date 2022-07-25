@@ -13,6 +13,7 @@ import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminRoute from "./components/routing/AdminRoute";
+import UserInfo from "./pages/UserInfo";
 
 const App = () => {
   return (
@@ -32,6 +33,14 @@ const App = () => {
           element={
             <AdminRoute>
               <AdminDashboard />
+            </AdminRoute>
+          }
+        ></Route>
+        <Route
+          path="/userinfo/:id"
+          element={
+            <AdminRoute>
+              <UserInfo />
             </AdminRoute>
           }
         ></Route>

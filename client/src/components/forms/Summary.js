@@ -68,8 +68,6 @@ const Form1 = () => {
     bookChapters: "",
   });
 
-  
-
   const [success, setSuccess] = useState(null);
   const navigate = useNavigate();
   const id = localStorage.getItem("id");
@@ -135,6 +133,7 @@ const Form1 = () => {
         setSuccess("");
       }, 5000);
     }
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
   const handleSubmit = () => {

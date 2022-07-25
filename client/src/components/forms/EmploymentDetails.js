@@ -142,6 +142,7 @@ const EmploymentDetails = () => {
         setSuccess("");
       }, 5000);
     }
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
   return (
@@ -196,7 +197,6 @@ const EmploymentDetails = () => {
               </div>
             </div>
           )}
-          {console.log(teachingExp)}
           {teachingExp.map((input, index) => {
             return (
               <div
@@ -450,11 +450,11 @@ const EmploymentDetails = () => {
               </h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix5(e.target.files[0])}
@@ -479,11 +479,11 @@ const EmploymentDetails = () => {
               </h2>
             </div>
             <div className="flex">
-              <label class="block">
-                <span class="sr-only">Choose File</span>
+              <label className="block">
+                <span className="sr-only">Choose File</span>
                 <input
                   type="file"
-                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   required
                   autoComplete="true"
                   onChange={(e) => setAppendix6(e.target.files[0])}
@@ -533,7 +533,10 @@ const EmploymentDetails = () => {
           <label htmlFor="" className="mx-3 text-center">
             Membership of Proffesional Bodies
           </label>
-          <label htmlFor="" className="text-sm font-light mt-3 mx-3 text-center">
+          <label
+            htmlFor=""
+            className="text-sm font-light mt-3 mx-3 text-center"
+          >
             Enter name of bodies
           </label>
           <div className="lg:grid lg:grid-flow-col">

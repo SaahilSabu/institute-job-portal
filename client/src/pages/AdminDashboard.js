@@ -16,6 +16,7 @@ const AdminDashboard = () => {
   const [error, setError] = useState("");
   const dispatch = useDispatch();
   const id = localStorage.getItem("id");
+  
   useEffect(() => {
     const fetchPrivateData = async () => {
       if (!localStorage.getItem("adminToken")) {

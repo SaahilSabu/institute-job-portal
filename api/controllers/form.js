@@ -189,8 +189,26 @@ exports.submit = async (req, res, next) => {
     // HTML Message
     const message = `
       <h1>You have succesfully submitted the form</h1>
-      <p>here is a copy of the submitted form:</p>
-      <p>${user}</p>
+      <p>here is a summary of the submitted form:</p>
+      <div><p>Adno</p><p>${user.adNo}</p></div>
+      <div><p>post applied</p><p>${user.post}</p></div>
+      <div><p>discipline</p><p>${user.discipline}</p></div>
+      <div><p>name</p><p>${user.fname} ${user.mname} ${user.lname}</p></div>
+      <div><p>dob</p><p>${user.dob}</p></div>
+      <div><p>category</p><p>${user.category}</p></div>
+      <div><p>phone number</p><p>${user.phno}</p></div>
+      <div><p>email</p><p>${user.email}</p></div>
+      <div><p>marital status</p><p>${user.maritalStatus}</p></div>
+      <div><p>address</p><p>${user.address.loc}</p><p>${user.address.pin}</p></div>
+      <div><p>academic</p><p>${user.academic}</p></div>
+      <div><p>teaching experience</p><p>${user.teachingExp}</p></div>
+      <div><p>industrial experience</p><p>${user.industrialExp}</p></div>
+      <div><p>consultancy</p><p>${user.consultancy}</p></div>
+      <div><p>thesis supervised</p><p>${user.thesis}</p></div>
+      <div><p>sponsored projects</p><p>${user.sponsoredProjects}</p></div>
+      <div><p>publications</p><p>${user.publications}</p></div>
+      <div><p>patent</p><p>${user.patent}</p></div>
+
     `;
 
     try {
