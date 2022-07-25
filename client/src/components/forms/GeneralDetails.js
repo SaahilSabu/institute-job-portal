@@ -143,11 +143,11 @@ const GeneralDetails = () => {
         setSecEmail(data.user.secEmail);
         setMaritalStatus(data.user.maritalStatus);
         setNationality(data.user.nationality);
-        setAddress(data.user.address);
-        setSecAddress(data.user.secAddress);
+        if (data.user.address) setAddress(data.user.address);
+        if (data.user.secAddress) setSecAddress(data.user.secAddress);
         setSpecialisation(data.user.specialisation);
         setGender(data.user.gender);
-        setFeeDetails(data.user.feeDetails);
+        if (data.user.feeDetails) setFeeDetails(data.user.feeDetails);
         setUserPPUrl(data.user.userPPUrl);
         if (data.user.appendix1) setAppendix1(data.user.appendix1);
         if (data.user.appendix2) setAppendix2(data.user.appendix2);
@@ -366,9 +366,9 @@ const GeneralDetails = () => {
               <div className="w-56 mb-4 lg:w-64 lg:mx-2">
                 <label className="text-sm font-light">Date of Birth</label>
                 <input
-                  className="form-control
-        w-full
+                  className=" w-full
         px-3
+        py-1.5
         text-base
         font-normal
         text-gray-700
@@ -444,9 +444,19 @@ const GeneralDetails = () => {
               </div>
             </div>
             <div className="flex w-56 mb-4 flex-col m-auto  lg:w-80 lg:mb-auto">
-              <label className="text-sm font-light">Upload a photo</label>
+              <label className="text-sm font-light mb-2">Upload a photo</label>
               <div className="flex">
-                <input
+                <label class="block">
+                  <span class="sr-only">Choose File</span>
+                  <input
+                    type="file"
+                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                    required
+                    autoComplete="true"
+                    onChange={(e) => setUserPP(e.target.files[0])}
+                  />
+                </label>
+                {/* <input
                   className="form-control
         block
         w-full
@@ -464,27 +474,37 @@ const GeneralDetails = () => {
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
                   type="file"
                   required
-                  id="address"
                   autoComplete="true"
                   onChange={(e) => setUserPP(e.target.files[0])}
-                />
+                /> */}
                 <button
                   type="button"
                   onClick={uploadUserPP}
-                  className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+                  className="btn bg-blue-800 hover:bg-blue-700 text-white border-none ml-3 rounded-full"
                 >
                   <UploadIcon className="h-4" />
                 </button>
               </div>
-              <div className="avatar flex justify-center">
-                <div className="w-56 ">
-                  <Image
-                    className="flex w-56 mb-4 flex-col m-auto h-40 bg-contain lg:w-80 lg:mb-auto"
-                    cloudName="saahildev"
-                    publicId={userPPUrl}
-                  />
+              {userPPUrl ? (
+                <div className="avatar flex justify-center">
+                  <div className="w-56 ">
+                    <Image
+                      className="flex w-56 mb-4 flex-col m-auto h-40 bg-contain lg:w-80 lg:mb-auto rounded-full"
+                      cloudName="saahildev"
+                      publicId={userPPUrl}
+                    />
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="avatar flex justify-center">
+                  <div className="w-56 ">
+                    <img
+                      src="https://cdn.pixabay.com/photo/2016/04/22/04/57/graduation-1345143__340.png"
+                      alt="default_profile"
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
           <div className="divider"></div>
@@ -525,7 +545,7 @@ const GeneralDetails = () => {
             <div className="w-56 mb-4 lg:w-64 lg:mx-2">
               <label className="text-sm font-light">Date of Transaction</label>
               <input
-                className="form-control
+                className="px-3 py-1.5
         w-full
         font-normal
         text-gray-700
@@ -669,7 +689,7 @@ const GeneralDetails = () => {
             <label className="text-sm font-light text-center lg:text-left">
               Category***
             </label>
-            <form className="flex justify-evenly py-3">
+            <form className="grid grid-cols-4 place-items-center py-3 lg:flex lg:justify-evenly">
               <label>GEN</label>
               <input
                 type="radio"
@@ -1104,131 +1124,86 @@ const GeneralDetails = () => {
             </div>
           </div>
           <div className="divider"></div>
-          <div className="flex justify-between w-3/4 m-auto items-center my-2">
+          <div className="flex flex-col lg:justify-between lg:flex-row lg:w-3/4 m-auto items-center my-2">
             <div>
               <h2 className="font-light">
-                Please aadhar details as Appendix 1{" "}
+                Please attach aadhar details as Appendix 1{" "}
               </h2>
             </div>
-            <div className="flex ">
-              <input
-                className="form-control
-        block
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        mr-3
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
-                type="file"
-                required
-                autoComplete="true"
-                onChange={(e) => setAppendix1(e.target.files[0])}
-              />
+            <div className="flex">
+              <label class="block">
+                <span class="sr-only">Choose File</span>
+                <input
+                  type="file"
+                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  required
+                  autoComplete="true"
+                  onChange={(e) => setAppendix1(e.target.files[0])}
+                />
+              </label>
               <button
                 type="button"
                 onClick={uploadA1}
-                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+                className="btn bg-blue-800 hover:bg-blue-700 text-white border-none ml-3 rounded-full"
               >
                 <UploadIcon className="h-4" />
               </button>
-              {appendix1 && (
-                <>
-                  <a href={appendix1}>View</a>
-                </>
-              )}
             </div>
           </div>
           <div className="divider"></div>
 
-          <div className="flex justify-between w-3/4 m-auto items-center my-2">
+          <div className="flex flex-col lg:justify-between lg:flex-row lg:w-3/4 m-auto items-center my-2">
             <div>
               <h2 className="font-light">
                 Please enclose experience certificate(s) as Appendix 2{" "}
               </h2>
             </div>
-            <div className="flex ">
-              <input
-                className="form-control
-        block
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        mr-3
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
-                type="file"
-                required
-                autoComplete="true"
-                onChange={(e) => setAppendix2(e.target.files[0])}
-              />
+            <div className="flex">
+              <label class="block">
+                <span class="sr-only">Choose File</span>
+                <input
+                  type="file"
+                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  required
+                  autoComplete="true"
+                  onChange={(e) => setAppendix2(e.target.files[0])}
+                />
+              </label>
               <button
                 type="button"
                 onClick={uploadA2}
-                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+                className="btn bg-blue-800 hover:bg-blue-700 text-white border-none ml-3 rounded-full"
               >
                 <UploadIcon className="h-4" />
               </button>
-              {appendix2 && (
-                <>
-                  <a href={appendix2}>View</a>
-                </>
-              )}
             </div>
           </div>
           <div className="divider"></div>
 
-          <div className="flex justify-between w-3/4 m-auto items-center my-2">
+          <div className="flex flex-col lg:justify-between lg:flex-row lg:w-3/4 m-auto items-center my-2">
             <div>
               <h2 className="font-light">
                 Please enclose category details as as Appendix 3{" "}
               </h2>
             </div>
-            <div className="flex ">
-              <input
-                className="form-control
-        block
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        mr-3
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
-                type="file"
-                required
-                autoComplete="true"
-                onChange={(e) => setAppendix3(e.target.files[0])}
-              />
+            <div className="flex">
+              <label class="block">
+                <span class="sr-only">Choose File</span>
+                <input
+                  type="file"
+                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  required
+                  autoComplete="true"
+                  onChange={(e) => setAppendix3(e.target.files[0])}
+                />
+              </label>
               <button
                 type="button"
                 onClick={uploadA3}
-                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+                className="btn bg-blue-800 hover:bg-blue-700 text-white border-none ml-3 rounded-full"
               >
                 <UploadIcon className="h-4" />
               </button>
-              {appendix3 && (
-                <>
-                  <a href={appendix3}>View</a>
-                </>
-              )}
             </div>
           </div>
           <div className="divider"></div>

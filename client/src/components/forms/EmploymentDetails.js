@@ -104,8 +104,8 @@ const EmploymentDetails = () => {
         if (data.user.profBodyMembership) {
           setProfBodyMembership(data.user.profBodyMembership);
         }
-        if(data.user.appendix5) setAppendix5(data.user.appendix5);
-        if(data.user.appendix6) setAppendix6(data.user.appendix6);
+        if (data.user.appendix5) setAppendix5(data.user.appendix5);
+        if (data.user.appendix6) setAppendix6(data.user.appendix6);
       } catch (error) {
         console.log(error);
       }
@@ -263,7 +263,7 @@ const EmploymentDetails = () => {
                 <div className="w-56 lg:w-40 p-2 xl:w-56">
                   <label className="text-sm font-light">Date of Join</label>
                   <input
-                    className="form-control
+                    className="
     block
     w-full
     px-3
@@ -290,7 +290,7 @@ const EmploymentDetails = () => {
                 <div className="w-56 lg:w-40 p-2 xl:w-56">
                   <label className="text-sm font-light">Date of Leaving</label>
                   <input
-                    className="form-control
+                    className="
     block
     w-full
     px-3
@@ -443,84 +443,59 @@ const EmploymentDetails = () => {
           </div>
           <div className="divider"></div>
 
-          <div className="flex justify-between w-3/4 m-auto items-center my-2">
+          <div className="flex flex-col lg:justify-between lg:flex-row lg:w-3/4 m-auto items-center my-2">
             <div>
-              <h2 className="font-light">Please enclose experience certificate(s) as Appendix 5 </h2>
+              <h2 className="font-light">
+                Please enclose experience certificate(s) as Appendix 5{" "}
+              </h2>
             </div>
-            <div className="flex ">
-              <input
-                className="form-control
-        block
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        mr-3
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
-                type="file"
-                required
-                autoComplete="true"
-                onChange={(e) => setAppendix5(e.target.files[0])}
-              />
+            <div className="flex">
+              <label class="block">
+                <span class="sr-only">Choose File</span>
+                <input
+                  type="file"
+                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  required
+                  autoComplete="true"
+                  onChange={(e) => setAppendix5(e.target.files[0])}
+                />
+              </label>
               <button
                 type="button"
                 onClick={uploadA5}
-                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+                className="btn bg-blue-800 hover:bg-blue-700 text-white border-none ml-3 rounded-full"
               >
                 <UploadIcon className="h-4" />
               </button>
-              {appendix5 && (
-                <>
-                  <a href={appendix5}>View</a>
-                </>
-              )}
             </div>
           </div>
           <div className="divider"></div>
 
-          <div className="flex justify-between w-3/4 m-auto items-center my-2">
+          <div className="flex flex-col lg:justify-between lg:flex-row lg:w-3/4 m-auto items-center my-2">
             <div>
-              <h2 className="font-light">Please enclose NOC from existing employer, if applicable as Appendix 6</h2>
+              <h2 className="font-light">
+                Please enclose NOC from existing employer, if applicable as
+                Appendix 6
+              </h2>
             </div>
-            <div className="flex ">
-              <input
-                className="form-control
-        block
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        mr-3
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
-                type="file"
-                required
-                autoComplete="true"
-                onChange={(e) => setAppendix6(e.target.files[0])}
-              />
+            <div className="flex">
+              <label class="block">
+                <span class="sr-only">Choose File</span>
+                <input
+                  type="file"
+                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  required
+                  autoComplete="true"
+                  onChange={(e) => setAppendix6(e.target.files[0])}
+                />
+              </label>
               <button
                 type="button"
                 onClick={uploadA6}
-                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+                className="btn bg-blue-800 hover:bg-blue-700 text-white border-none ml-3 rounded-full"
               >
                 <UploadIcon className="h-4" />
               </button>
-              {appendix6 && (
-                <>
-                  <a href={appendix6}>View</a>
-                </>
-              )}
             </div>
           </div>
           <div className="divider"></div>
@@ -555,26 +530,26 @@ const EmploymentDetails = () => {
               />
             </div>
           </div>
-          <label htmlFor="" className="mx-3">
+          <label htmlFor="" className="mx-3 text-center">
             Membership of Proffesional Bodies
           </label>
-          <label htmlFor="" className="text-sm font-light mt-3 mx-3">
+          <label htmlFor="" className="text-sm font-light mt-3 mx-3 text-center">
             Enter name of bodies
           </label>
-
-          {profBodyMembership.map((input, index) => {
-            return (
-              <div
-                key={index}
-                className="w-56 mb-4 flex justify-center m-auto lg:justify-start lg:m-0 lg:w-full "
-              >
-                <div className="flex justify-center items-center my-2">
-                  <label htmlFor="" className="text-sm font-light mx-3">
-                    {input.id}
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control
+          <div className="lg:grid lg:grid-flow-col">
+            {profBodyMembership.map((input, index) => {
+              return (
+                <div
+                  key={index}
+                  className="w-56 mb-4 flex justify-center m-auto lg:justify-start lg:m-0 lg:w-full "
+                >
+                  <div className="flex justify-center items-center my-2">
+                    <label htmlFor="" className="text-sm font-light mx-3">
+                      {input.id}
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control
     block
     w-full
     px-3
@@ -589,16 +564,17 @@ const EmploymentDetails = () => {
     ease-in-out
     m-0
     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                    name="name"
-                    autoComplete="true"
-                    placeholder="Enter name of body"
-                    value={input.name}
-                    onChange={(e) => handleProfBodyMembershipChange(index, e)}
-                  />
+                      name="name"
+                      autoComplete="true"
+                      placeholder="Enter name of body"
+                      value={input.name}
+                      onChange={(e) => handleProfBodyMembershipChange(index, e)}
+                    />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
           <div className="flex justify-center lg:justify-end">
             <button
               type="submit"

@@ -4,7 +4,6 @@ import axios from "axios";
 import { PlusCircleIcon, TrashIcon } from "@heroicons/react/solid";
 import { UploadIcon } from "@heroicons/react/outline";
 
-
 const AcademicDetails = () => {
   const id = localStorage.getItem("id");
   const [error, setError] = useState("");
@@ -67,7 +66,7 @@ const AcademicDetails = () => {
 
       try {
         const { data } = await axios.get(`/api/form/forminfo/${id}`, config);
-        setAcademic(data.user.academic);
+        if (data.user.academic) setAcademic(data.user.academic);
         setPhdDissertationTitle(data.user.phdDissertationTitle);
         setPhdAwardDate(data.user.phdAwardDate);
         if (data.user.appendix4) {
@@ -144,7 +143,7 @@ const AcademicDetails = () => {
             Academic Details
           </h3>
           <div className="flex justify-center">
-            <div className="alert alert-warning shadow-sm rounded-none w-1/3">
+            <div className="alert alert-warning shadow-sm rounded-none w-full lg:w-1/3">
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -278,7 +277,7 @@ const AcademicDetails = () => {
                 <div className="w-56 lg:w-40 p-2 xl:w-56">
                   <label className="text-sm font-light">Completion year</label>
                   <input
-                    className="form-control
+                    className="
         block
         w-full
         px-3
@@ -346,45 +345,30 @@ const AcademicDetails = () => {
               onClick={addAcademic}
             />
           </div>
-          <div className="flex justify-between w-3/4 m-auto items-center my-2">
+          <div className="flex flex-col lg:justify-between lg:flex-row lg:w-3/4 m-auto items-center my-2">
             <div>
               <h2 className="font-light">
                 Please enclose mark sheets /certificate(s) as Appendix 4
               </h2>
             </div>
-            <div className="flex ">
-              <input
-                className="form-control
-        block
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        mr-3
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none  "
-                type="file"
-                required
-                autoComplete="true"
-                onChange={(e) => setAppendix4(e.target.files[0])}
-              />
+            <div className="flex">
+              <label class="block">
+                <span class="sr-only">Choose File</span>
+                <input
+                  type="file"
+                  class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  required
+                  autoComplete="true"
+                  onChange={(e) => setAppendix4(e.target.files[0])}
+                />
+              </label>
               <button
                 type="button"
                 onClick={uploadA4}
-                className="btn bg-blue-800 hover:bg-blue-700 text-white px-6 border-none ml-3"
+                className="btn bg-blue-800 hover:bg-blue-700 text-white border-none ml-3 rounded-full"
               >
                 <UploadIcon className="h-4" />
               </button>
-              {appendix4 && (
-                <>
-                  <a href={appendix4}>View</a>
-                </>
-              )}
             </div>
           </div>
           <div className="divider"></div>
@@ -418,12 +402,13 @@ const AcademicDetails = () => {
                 onChange={(e) => setPhdDissertationTitle(e.target.value)}
               />
             </div>
-            <div className="w-56 mb-4 lg:w-1/2 lg:mx-2">
+            <div className="w-56 mb-4 lg:w-1/4 lg:mx-2">
               <label className="text-sm font-light">
                 Date of award of Ph. D
               </label>
               <input
-                className="form-control
+                className="
+                px-3 py-1.5
         w-full
         font-normal
         text-gray-700

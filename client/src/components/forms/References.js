@@ -115,7 +115,7 @@ const References = () => {
             References
           </h3>
           <div className="flex justify-center">
-            <div className="alert alert-warning shadow-sm rounded-none w-1/5">
+            <div className="alert alert-warning shadow-sm rounded-none w-full lg:w-1/5">
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -156,15 +156,16 @@ const References = () => {
           )}
           {references.map((input, index) => {
             return (
-              <div className="flex justify-center items-center">
-                <div
-                  key={index}
-                  className="w-56 mb-4 relative group grid place-content-center place-items-center m-auto lg:grid-cols-5 lg:w-full gap-4 "
-                >
-                  <div className="w-56 lg:w-40 p-2 xl:w-56">
-                    <label className="text-sm font-light">Name</label>
-                    <input
-                      className="form-control
+              <>
+                <div className="flex justify-center items-center">
+                  <div
+                    key={index}
+                    className="w-56 mb-4 relative group grid place-content-center place-items-center m-auto lg:grid-cols-5 lg:w-full gap-4 "
+                  >
+                    <div className="w-56 lg:w-40 p-2 xl:w-56">
+                      <label className="text-sm font-light">Name</label>
+                      <input
+                        className="form-control
     block
     w-full
     px-3
@@ -179,19 +180,19 @@ const References = () => {
     ease-in-out
     m-0
     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                      type="text"
-                      required
-                      name="name"
-                      autoComplete="true"
-                      placeholder="Enter name"
-                      value={input.name}
-                      onChange={(e) => handleReferenceChange(index, e)}
-                    />
-                  </div>
-                  <div className="w-56 lg:w-40 p-2 xl:w-56">
-                    <label className="text-sm font-light">Address</label>
-                    <input
-                      className="form-control
+                        type="text"
+                        required
+                        name="name"
+                        autoComplete="true"
+                        placeholder="Enter name"
+                        value={input.name}
+                        onChange={(e) => handleReferenceChange(index, e)}
+                      />
+                    </div>
+                    <div className="w-56 lg:w-40 p-2 xl:w-56">
+                      <label className="text-sm font-light">Address</label>
+                      <input
+                        className="form-control
     block
     w-full
     px-3
@@ -206,19 +207,19 @@ const References = () => {
     ease-in-out
     m-0
     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                      type="text"
-                      required
-                      name="address"
-                      autoComplete="true"
-                      placeholder="Enter address"
-                      value={input.address}
-                      onChange={(e) => handleReferenceChange(index, e)}
-                    />
-                  </div>
-                  <div className="w-56 lg:w-40 p-2 xl:w-56">
-                    <label className="text-sm font-light">Email</label>
-                    <input
-                      className="form-control
+                        type="text"
+                        required
+                        name="address"
+                        autoComplete="true"
+                        placeholder="Enter address"
+                        value={input.address}
+                        onChange={(e) => handleReferenceChange(index, e)}
+                      />
+                    </div>
+                    <div className="w-56 lg:w-40 p-2 xl:w-56">
+                      <label className="text-sm font-light">Email</label>
+                      <input
+                        className="form-control
     block
     w-full
     px-3
@@ -233,19 +234,19 @@ const References = () => {
     ease-in-out
     m-0
     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                      type="email"
-                      required
-                      name="email"
-                      autoComplete="true"
-                      placeholder="Enter email"
-                      value={input.email}
-                      onChange={(e) => handleReferenceChange(index, e)}
-                    />
-                  </div>
-                  <div className="w-56 lg:w-40 p-2 xl:w-56">
-                    <label className="text-sm font-light">Phone Number</label>
-                    <input
-                      className="form-control
+                        type="email"
+                        required
+                        name="email"
+                        autoComplete="true"
+                        placeholder="Enter email"
+                        value={input.email}
+                        onChange={(e) => handleReferenceChange(index, e)}
+                      />
+                    </div>
+                    <div className="w-56 lg:w-40 p-2 xl:w-56">
+                      <label className="text-sm font-light">Phone Number</label>
+                      <input
+                        className="form-control
     block
     w-full
     px-3
@@ -260,19 +261,19 @@ const References = () => {
     ease-in-out
     m-0
     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                      type="text"
-                      required
-                      name="phone"
-                      autoComplete="true"
-                      placeholder="Enter phone"
-                      value={input.phone}
-                      onChange={(e) => handleReferenceChange(index, e)}
-                    />
-                  </div>
-                  <div className="w-56 lg:w-40 p-2 xl:w-56">
-                    <label className="text-sm font-light">Designation</label>
-                    <input
-                      className="form-control
+                        type="text"
+                        required
+                        name="phone"
+                        autoComplete="true"
+                        placeholder="Enter phone"
+                        value={input.phone}
+                        onChange={(e) => handleReferenceChange(index, e)}
+                      />
+                    </div>
+                    <div className="w-56 lg:w-40 p-2 xl:w-56">
+                      <label className="text-sm font-light">Designation</label>
+                      <input
+                        className="form-control
     block
     w-full
     px-3
@@ -287,17 +288,19 @@ const References = () => {
     ease-in-out
     m-0
     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                      type="text"
-                      required
-                      name="designation"
-                      autoComplete="true"
-                      placeholder="Enter designation"
-                      value={input.designation}
-                      onChange={(e) => handleReferenceChange(index, e)}
-                    />
+                        type="text"
+                        required
+                        name="designation"
+                        autoComplete="true"
+                        placeholder="Enter designation"
+                        value={input.designation}
+                        onChange={(e) => handleReferenceChange(index, e)}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
+                <div className="divider"></div>
+              </>
             );
           })}
           <div className="flex justify-center lg:justify-end">
