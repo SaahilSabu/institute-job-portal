@@ -50,17 +50,13 @@ const App = () => {
         <Route
           path="/forgotpassword"
           element={
-            <PrivateRoute>
               <ForgotPassword />
-            </PrivateRoute>
           }
         ></Route>
         <Route
           path="/passwordreset/:resetToken"
           element={
-            <PrivateRoute>
               <ResetPassword />
-            </PrivateRoute>
           }
         />
       </Routes>

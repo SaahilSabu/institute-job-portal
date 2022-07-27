@@ -7,6 +7,7 @@ const Nav = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const username = useSelector((state) => state.username.value);
+  const isAdmin = localStorage.getItem("adminToken");
 
   const handleLogout = () => {
     dispatch(logout());
@@ -21,21 +22,43 @@ const Nav = () => {
         </ul>
         {username ? (
           <>
-            <ul
-              onClick={() => {
-                navigate("/dashboard");
-              }}
-              className="hover:text-white flex items-center px-3 sm:px-5 cursor-pointer"
-            >
-              <UserIcon className="h-3 sm:h-4 px-1" />
-              {username}
-            </ul>
-            <ul
-              onClick={handleLogout}
-              className="hover:text-white flex items-center px-3 sm:px-5 cursor-pointer"
-            >
-              Logout
-            </ul>
+            {isAdmin ? (
+              <>
+                <ul
+                  onClick={() => {
+                    navigate("/admin-dashboard");
+                  }}
+                  className="hover:text-white flex items-center px-3 sm:px-5 cursor-pointer"
+                >
+                  <UserIcon className="h-3 sm:h-4 px-1" />
+                  {username}
+                </ul>
+                <ul
+                  onClick={handleLogout}
+                  className="hover:text-white flex items-center px-3 sm:px-5 cursor-pointer"
+                >
+                  Logout
+                </ul>
+              </>
+            ) : (
+              <>
+                <ul
+                  onClick={() => {
+                    navigate("/dashboard");
+                  }}
+                  className="hover:text-white flex items-center px-3 sm:px-5 cursor-pointer"
+                >
+                  <UserIcon className="h-3 sm:h-4 px-1" />
+                  {username}
+                </ul>
+                <ul
+                  onClick={handleLogout}
+                  className="hover:text-white flex items-center px-3 sm:px-5 cursor-pointer"
+                >
+                  Logout
+                </ul>
+              </>
+            )}
           </>
         ) : (
           <>

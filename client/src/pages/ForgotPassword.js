@@ -1,5 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
+import Footer from './../components/Footer';
+import Nav from './../components/Nav';
+import Header from './../components/Header';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -33,10 +36,14 @@ const ForgotPassword = () => {
   };
 
   return (
+    <div>
+      <div className="h-screen">
+        <Nav />
+        <Header title="Register" />
     <div className="flex justify-center  w-11/12 m-auto my-6 p-4 border-2 border-gray-600 font-sans sm:w-1/2 xl:w-1/4">
       <form onSubmit={forgotPasswordHandler} className="flex flex-col p-3">
         <h3 className="text-center p-3 text-3xl font-medium text-gray-700 mb-5 ">
-          Forgot Password
+          Reset your password
         </h3>
         {error && (
           <div className="alert alert-error shadow-sm my-2 text-sm h-6">
@@ -117,6 +124,9 @@ const ForgotPassword = () => {
           Send Email
         </button>
       </form>
+    </div>
+    </div>
+      <Footer />
     </div>
   );
 };
