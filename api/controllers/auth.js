@@ -2,10 +2,21 @@ const crypto = require("crypto");
 const User = require("../models/User");
 const errorResponse = require("../utils/errorResponse");
 const sendEmail = require("../utils/sendEmail");
-
+const cryptoJS = require("crypto-js");
 exports.register = async (req, res, next) => {
-  const { username, email, password } = req.body;
-
+  const { encrpytedUsername, encrpytedEmail, encrpytedPassword } = req.body;
+  const username = cryptoJS.AES.decrypt(
+    encrpytedUsername,
+    process.env.SECRET_KEY
+  ).toString(cryptoJS.enc.Utf8);
+  const email = cryptoJS.AES.decrypt(
+    encrpytedEmail,
+    process.env.SECRET_KEY
+  ).toString(cryptoJS.enc.Utf8);
+  const password = cryptoJS.AES.decrypt(
+    encrpytedPassword,
+    process.env.SECRET_KEY
+  ).toString(cryptoJS.enc.Utf8);
   try {
     const user = await User.create({
       username,
@@ -21,8 +32,15 @@ exports.register = async (req, res, next) => {
 };
 
 exports.login = async (req, res, next) => {
-  const { email, password } = req.body;
-
+  const { encrpytedEmail, encrpytedPassword } = req.body;
+  const email = cryptoJS.AES.decrypt(
+    encrpytedEmail,
+    process.env.SECRET_KEY
+  ).toString(cryptoJS.enc.Utf8);
+  const password = cryptoJS.AES.decrypt(
+    encrpytedPassword,
+    process.env.SECRET_KEY
+  ).toString(cryptoJS.enc.Utf8);
   if (!email || !password) {
     return next(new errorResponse("Please provide an email and password", 400));
   }
