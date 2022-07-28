@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Nav from "./../components/Nav";
 import Header from "./../components/Header";
 import Footer from "./../components/Footer";
+import cryptoJS from "crypto-js";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -26,10 +27,19 @@ const Login = () => {
       },
     };
 
+    const encrpytedEmail = cryptoJS.AES.encrypt(
+      email,
+      process.env.REACT_APP_SECRET_KEY
+    ).toString();
+    const encrpytedPassword = cryptoJS.AES.encrypt(
+      password,
+      process.env.REACT_APP_SECRET_KEY
+    ).toString();
+
     try {
       const { data } = await axios.post(
         "/api/auth/login",
-        { email, password },
+        { encrpytedEmail, encrpytedPassword },
         config
       );
       console.log(data);
