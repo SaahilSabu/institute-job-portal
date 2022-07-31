@@ -14,6 +14,7 @@ import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminRoute from "./components/routing/AdminRoute";
 import UserInfo from "./pages/UserInfo";
+import PDFpage from "./pages/PDFpage";
 
 const App = () => {
   return (
@@ -47,18 +48,9 @@ const App = () => {
         <Route exact path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
-        <Route
-          path="/forgotpassword"
-          element={
-              <ForgotPassword />
-          }
-        ></Route>
-        <Route
-          path="/passwordreset/:resetToken"
-          element={
-              <ResetPassword />
-          }
-        />
+        <Route path="/forgotpassword" element={<ForgotPassword />}></Route>
+        <Route path="/passwordreset/:resetToken" element={<ResetPassword />} />
+        <Route exact path="/pdfdownload" element={<PDFpage />}></Route>
       </Routes>
     </BrowserRouter>
   );

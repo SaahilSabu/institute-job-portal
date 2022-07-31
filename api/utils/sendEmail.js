@@ -14,7 +14,7 @@ const sendEmail = (options) => {
     to: options.to,
     subject: options.subject,
     html: options.text,
-    // attachments: options.attachments,
+    attachments: options.attachments,
   };
 
   transporter.sendMail(mailOptions, function (err, data) {

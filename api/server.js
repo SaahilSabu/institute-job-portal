@@ -2,18 +2,23 @@ require("dotenv").config({ path: "./config.env" });
 const express = require("express");
 const connectDB = require("./config/db");
 const errorHandler = require("./middleware/error");
-
+const bodyParser = require("body-parser");
+const cors = require("cors");
 const app = express();
 
 //connect DB
 connectDB();
-
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.json());
+
 
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/private", require("./routes/private"));
 app.use("/api/form", require("./routes/form"));
 app.use("/api/admin", require("./routes/admin"));
+app.use("/api/pdf", require("./routes/pdf"));
 
 // Error handler should be last piece of middleware v imp
 

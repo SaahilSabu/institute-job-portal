@@ -1,12 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { saveAs } from "file-saver";
 
 const CheckListAndSubmit = () => {
   const id = localStorage.getItem("id");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(null);
-  const [user, setUser] = useState("");
+  const [userInfo, setUserInfo] = useState("");
 
   useEffect(() => {
     const userFormData = async () => {
@@ -18,7 +19,7 @@ const CheckListAndSubmit = () => {
 
       try {
         const { data } = await axios.get(`/api/form/forminfo/${id}`, config);
-        setUser(data.user);
+        setUserInfo(data.user);
       } catch (error) {
         console.log(error);
       }
@@ -28,6 +29,17 @@ const CheckListAndSubmit = () => {
 
   const formHandler = async (e) => {
     e.preventDefault();
+
+    axios
+      .post("api/pdf/createPdf", {
+        userInfo,
+      })
+      .then(() => axios.get("api/pdf/getPdf", { responseType: "blob" }))
+      .then((res) => {
+        const pdfBlob = new Blob([res.data], { type: "application/pdf" });
+
+        saveAs(pdfBlob, "newPdf.pdf");
+      });
 
     try {
       axios.put(`api/form/submit/${id}`);
@@ -72,7 +84,7 @@ const CheckListAndSubmit = () => {
       >
         <div className="flex flex-col p-3 w-full">
           <h3 className="text-center p-3 text-3xl font-medium text-gray-700 mb-5 ">
-            References
+            Review and Submit
           </h3>
           <div className="flex justify-center">
             <div className="alert alert-warning shadow-sm rounded-none w-full lg:w-1/3">
@@ -123,9 +135,9 @@ const CheckListAndSubmit = () => {
                 <label className="label cursor-pointer ">
                   <span className="text-lg font-light mx-2">Aadhaar Card</span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix1 ? "checked" : ""}
+                    checked={userInfo.appendix1 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -136,9 +148,9 @@ const CheckListAndSubmit = () => {
                     Fee reciept / Payment proof
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix2 ? "checked" : ""}
+                    checked={userInfo.appendix2 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -149,9 +161,9 @@ const CheckListAndSubmit = () => {
                     Category certificates
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix3 ? "checked" : ""}
+                    checked={userInfo.appendix3 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -163,9 +175,9 @@ const CheckListAndSubmit = () => {
                     certificates for all courses from Xth upward till PhD)
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix4 ? "checked" : ""}
+                    checked={userInfo.appendix4 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -176,9 +188,9 @@ const CheckListAndSubmit = () => {
                     Experience Certificates
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix5 ? "checked" : ""}
+                    checked={userInfo.appendix5 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -189,9 +201,9 @@ const CheckListAndSubmit = () => {
                     NOC from current employer (if applicable)
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix6 ? "checked" : ""}
+                    checked={userInfo.appendix6 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -202,9 +214,9 @@ const CheckListAndSubmit = () => {
                     Reprint of best 5 papers
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix7 ? "checked" : ""}
+                    checked={userInfo.appendix7 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -215,9 +227,9 @@ const CheckListAndSubmit = () => {
                     List of Journal papers in referred journals
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix8 ? "checked" : ""}
+                    checked={userInfo.appendix8 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -228,9 +240,9 @@ const CheckListAndSubmit = () => {
                     List of Journal papers in SCI indexed journals
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix9 ? "checked" : ""}
+                    checked={userInfo.appendix9 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -241,9 +253,9 @@ const CheckListAndSubmit = () => {
                     List of International conference papers
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix10 ? "checked" : ""}
+                    checked={userInfo.appendix10 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -254,9 +266,9 @@ const CheckListAndSubmit = () => {
                     List of National conference papers
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix11 ? "checked" : ""}
+                    checked={userInfo.appendix11 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -267,9 +279,9 @@ const CheckListAndSubmit = () => {
                     Qualification certificates (GATE/NET etc.)
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix12 ? "checked" : ""}
+                    checked={userInfo.appendix12 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -280,9 +292,9 @@ const CheckListAndSubmit = () => {
                     List of Continuing Education Programmes conducted
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix13 ? "checked" : ""}
+                    checked={userInfo.appendix13 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -293,9 +305,9 @@ const CheckListAndSubmit = () => {
                     List of courses/FDPs/ Workshops/ Seminars conducted
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix14 ? "checked" : ""}
+                    checked={userInfo.appendix14 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -306,9 +318,9 @@ const CheckListAndSubmit = () => {
                     List of Awards/Recognitions
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix15 ? "checked" : ""}
+                    checked={userInfo.appendix15 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -319,9 +331,9 @@ const CheckListAndSubmit = () => {
                     List of Academic and Corporate activities
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix16 ? "checked" : ""}
+                    checked={userInfo.appendix16 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -332,9 +344,9 @@ const CheckListAndSubmit = () => {
                     Teaching and Research Plan
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix17 ? "checked" : ""}
+                    checked={userInfo.appendix17 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -345,9 +357,9 @@ const CheckListAndSubmit = () => {
                     Any other relevant information
                   </span>
                   <input
-                    required
+                    // required
                     type="checkbox"
-                    checked={user.appendix18 ? "checked" : ""}
+                    checked={userInfo.appendix18 ? "checked" : ""}
                     className="checkbox mx-2"
                   />
                 </label>
@@ -371,7 +383,7 @@ const CheckListAndSubmit = () => {
               <span className="text-lg font-light mx-2">
                 I hereby approve all information provided is correct
               </span>
-              <input required type="checkbox" className="checkbox mx-2" />
+              {/* <input required type="checkbox" className="checkbox mx-2" /> */}
             </label>
           </div>
 
