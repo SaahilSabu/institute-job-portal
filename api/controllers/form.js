@@ -386,8 +386,8 @@ exports.submit = async (req, res, next) => {
         text: message,
         attachments: [
           {
-            filename: "result.pdf",
-            path: path.join(__dirname, "..", "result.pdf"),
+            filename: "output.pdf",
+            path: path.join(__dirname, "..", "output.pdf"),
             contentType: "application/pdf",
           },
         ],
