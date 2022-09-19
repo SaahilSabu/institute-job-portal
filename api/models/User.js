@@ -105,6 +105,9 @@ const userSchema = new mongoose.Schema(
       date: {
         type: String,
       },
+      accUsed: {
+        type: String,
+      },
     },
     userPPUrl: {
       type: String,
@@ -125,9 +128,26 @@ const userSchema = new mongoose.Schema(
       grade: {
         type: String,
       },
+      division: {
+        type: String,
+      },
     },
-    phdDissertationTitle: {
-      type: String,
+    particularsOfPhd: {
+      phdDissertationTitle: {
+        type: String,
+      },
+      enrollmentDate: {
+        type: String,
+      },
+      registrationDate: {
+        type: String,
+      },
+      completionDate: {
+        type: String,
+      },
+      supervisors: {
+        type: String,
+      },
     },
     phdAwardDate: {
       type: String,
@@ -137,6 +157,9 @@ const userSchema = new mongoose.Schema(
         type: String,
       },
       position: {
+        type: String,
+      },
+      natureOfPosition: {
         type: String,
       },
       dateOfJoining: {
@@ -154,7 +177,7 @@ const userSchema = new mongoose.Schema(
       GP: {
         type: String,
       },
-      reasonForLeaving: {
+      area: {
         type: String,
       },
     },
@@ -168,6 +191,8 @@ const userSchema = new mongoose.Schema(
       name: {
         type: String,
       },
+      membershipNo: { type: String },
+      membershipType: { type: String },
     },
     references: {
       name: {
@@ -186,11 +211,28 @@ const userSchema = new mongoose.Schema(
         type: String,
       },
     },
+    publicationPaperDetails: {
+      author: {
+        type: String,
+      },
+      year: {
+        type: String,
+      },
+      title: {
+        type: String,
+      },
+      completeRefOfJournal: {
+        type: String,
+      },
+      impactFactor: {
+        type: String,
+      },
+    },
     publications: {
       totalPapers: {
         type: Number,
       },
-      referredJournals: {
+      nonSciIndexedJournal: {
         type: Number,
       },
       sciIndexedJournal: {
@@ -211,12 +253,12 @@ const userSchema = new mongoose.Schema(
       books: {
         type: Number,
       },
-      patents: {
-        type: Number,
-      },
     },
     researchExp: {
-      duration: {
+      durationFrom: {
+        type: String,
+      },
+      durationTo: {
         type: String,
       },
       organisation: {
@@ -269,9 +311,6 @@ const userSchema = new mongoose.Schema(
       },
     },
     thesis: {
-      bachelorsLvl: {
-        type: String,
-      },
       mastersLvl: {
         type: String,
       },
@@ -283,7 +322,10 @@ const userSchema = new mongoose.Schema(
       },
     },
     sponsoredProjects: {
-      period: {
+      periodFrom: {
+        type: String,
+      },
+      periodTo: {
         type: String,
       },
       organisation: {
@@ -303,7 +345,10 @@ const userSchema = new mongoose.Schema(
       },
     },
     consultancy: {
-      period: {
+      periodFrom: {
+        type: String,
+      },
+      periodTo: {
         type: String,
       },
       organisation: {
@@ -441,6 +486,52 @@ const userSchema = new mongoose.Schema(
         type: String,
       },
     },
+    educationProgConducted: {
+      title: {
+        type: String,
+      },
+      periodFrom: {
+        type: String,
+      },
+      periodTo: {
+        type: String,
+      },
+      organisation: {
+        type: String,
+      },
+      totalExpenditure: {
+        type: String,
+      },
+      venue: {
+        type: String,
+      },
+      noOfCandidates: {
+        type: String,
+      },
+    },
+    workshopsOrganised: {
+      title: {
+        type: String,
+      },
+      periodFrom: {
+        type: String,
+      },
+      periodTo: {
+        type: String,
+      },
+      organisation: {
+        type: String,
+      },
+      totalExpenditure: {
+        type: String,
+      },
+      venue: {
+        type: String,
+      },
+      noOfCandidates: {
+        type: String,
+      },
+    },
     punishmentClg: {
       type: String,
     },
@@ -454,58 +545,148 @@ const userSchema = new mongoose.Schema(
       type: String,
     },
     appendix1: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix2: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix3: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix4: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix5: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix6: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix7: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix8: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix9: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix10: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix11: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix12: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix13: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix14: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix15: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix16: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix17: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     appendix18: {
-      type: String,
+      name: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
     resetPasswordToken: { type: String, select: false },
     resetPasswordExpire: { type: Date, select: false },

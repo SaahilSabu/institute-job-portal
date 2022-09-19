@@ -40,6 +40,18 @@ const CheckListAndSubmit = () => {
 
         saveAs(pdfBlob, "application.pdf");
       });
+    // .then(() => {
+    //   try {
+    //     axios.put(`api/form/submit/${id}`);
+    //     setSuccess("Submitted");
+    //   } catch (error) {
+    //     setError(error);
+    //     setTimeout(() => {
+    //       setError("");
+    //       setSuccess("");
+    //     }, 5000);
+    //   }
+    // });
 
     try {
       axios.put(`api/form/submit/${id}`);
@@ -383,7 +395,7 @@ const CheckListAndSubmit = () => {
               <span className="text-lg font-light mx-2">
                 I hereby approve all information provided is correct
               </span>
-              {/* <input required type="checkbox" className="checkbox mx-2" /> */}
+              <input required type="checkbox" className="checkbox mx-2" />
             </label>
           </div>
 

@@ -93,7 +93,7 @@ const Register = () => {
   console.log(process.env.REACT_APP_SECRET_KEY);
   return (
     <div>
-      <div className="h-screen">
+      <div className="h-screen mb-24">
         <Nav />
         <Header title="Register" />
         <div className="flex justify-center  w-11/12 m-auto my-6 p-4 border-2 border-gray-600 font-sans sm:w-1/2 xl:w-1/4">

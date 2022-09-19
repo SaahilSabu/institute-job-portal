@@ -30,7 +30,7 @@ const Home = () => {
           <Slider />
           <div className="flex absolute bottom-0 left-0 right-0 flex-col ml-auto mr-auto center justify-center  bg-white w-11/12 p-2 sm:w-3/5 sm:p-4 ">
             <h1 className="text-2xl py-1">Open positions at IIITM</h1>
-            <h2 className="text-xl py-1">5 Open positions</h2>
+            <h2 className="text-xl py-1">{jobs.length} Open positions</h2>
           </div>
         </div>
         {jobs.map((job) => {

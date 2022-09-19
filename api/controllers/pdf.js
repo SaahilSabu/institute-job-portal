@@ -21,13 +21,21 @@ exports.createPdf = async (req, res) => {
 
   const data = req.body;
 
+  hbs.registerHelper("add", function (a, b) {
+    return parseInt(a) + parseInt(b);
+  });
+
+  hbs.registerHelper("sub", function (a, b) {
+    return parseInt(a) - parseInt(b);
+  });
+
   const compile = async function (templateName, data) {
     const filePath = path.join(process.cwd(), "docs", `${templateName}.hbs`);
     const html = await fs.readFile(filePath, "utf8");
     return hbs.compile(html)(data);
   };
 
-  (async function () {
+  (async function (req, res) {
     try {
       const browser = await puppeteer.launch();
 

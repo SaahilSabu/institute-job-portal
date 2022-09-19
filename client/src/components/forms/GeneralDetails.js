@@ -43,45 +43,65 @@ const GeneralDetails = () => {
   const [feeDetails, setFeeDetails] = useState({
     id: "",
     date: "",
+    accUsed: "",
   });
   const [userPP, setUserPP] = useState("");
-  const [appendix1, setAppendix1] = useState("");
-  const [appendix2, setAppendix2] = useState("");
-  const [appendix3, setAppendix3] = useState("");
+  const [tempFile, setTempFile] = useState("");
+  const [appendix1, setAppendix1] = useState({
+    name: "",
+    url: "",
+  });
+  const [appendix2, setAppendix2] = useState({
+    name: "",
+    url: "",
+  });
+  const [appendix3, setAppendix3] = useState({
+    name: "",
+    url: "",
+  });
 
   const uploadA1 = (files) => {
     const formData = new FormData();
-    formData.append("file", appendix1);
+    formData.append("file", tempFile);
     formData.append("upload_preset", "rivjkqek");
 
     axios
       .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
       .then((response) => {
-        setAppendix1(response.data.url);
+        setAppendix1({
+          name: tempFile.name,
+          url: response.data.url,
+        });
       });
   };
 
   const uploadA2 = (files) => {
     const formData = new FormData();
-    formData.append("file", appendix2);
+    formData.append("file", tempFile);
     formData.append("upload_preset", "rivjkqek");
 
     axios
       .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
       .then((response) => {
-        setAppendix2(response.data.url);
+        setAppendix2({
+          name: tempFile.name,
+          url: response.data.url,
+        });
       });
   };
 
   const uploadA3 = (files) => {
     const formData = new FormData();
-    formData.append("file", appendix3);
+    formData.append("file", tempFile);
     formData.append("upload_preset", "rivjkqek");
 
     axios
       .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
       .then((response) => {
-        setAppendix3(response.data.url);
+        setAppendix3({
+          name: tempFile.name,
+          url: response.data.url,
+        });
       });
   };
 
@@ -365,6 +385,116 @@ const GeneralDetails = () => {
                 />
               </div>
               <div className="w-56 mb-4 lg:w-64 lg:mx-2">
+                <label className="text-sm font-light">First Name</label>
+                <input
+                  className="form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                  type="text"
+                  required
+                  id="fname"
+                  autoComplete="true"
+                  placeholder="Enter first name"
+                  value={fname}
+                  onChange={(e) => setFName(e.target.value)}
+                />
+              </div>
+              <div className="w-56 mb-4 lg:w-64 lg:mx-2">
+                <label className="text-sm font-light">Middle Name</label>
+                <input
+                  className="form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                  type="text"
+                  required
+                  id="mname"
+                  autoComplete="true"
+                  placeholder="Enter middle name"
+                  value={mname}
+                  onChange={(e) => setMName(e.target.value)}
+                />
+              </div>
+              <div className="w-56 mb-4 lg:w-64 lg:mx-2">
+                <label className="text-sm font-light">Last Name</label>
+                <input
+                  className="form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                  type="text"
+                  required
+                  id="lname"
+                  autoComplete="true"
+                  placeholder="Enter last name"
+                  value={lname}
+                  onChange={(e) => setLName(e.target.value)}
+                />
+              </div>
+              <div className="w-56 mb-4 lg:w-64 lg:mx-2">
+                <label className="text-sm font-light">
+                  Father's / Husband's Name
+                </label>
+                <input
+                  className="form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                  type="text"
+                  required
+                  id="fatherName"
+                  autoComplete="true"
+                  placeholder="Enter father's name"
+                  value={fatherName}
+                  onChange={(e) => setFatherName(e.target.value)}
+                />
+              </div>
+              <div className="w-56 mb-4 lg:w-64 lg:mx-2">
                 <label className="text-sm font-light">Date of Birth</label>
                 <input
                   className=" w-full
@@ -452,7 +582,6 @@ const GeneralDetails = () => {
                   <input
                     type="file"
                     className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                    required
                     autoComplete="true"
                     onChange={(e) => setUserPP(e.target.files[0])}
                   />
@@ -567,6 +696,36 @@ const GeneralDetails = () => {
                   setFeeDetails({
                     ...feeDetails,
                     date: e.target.value,
+                  })
+                }
+              />
+            </div>
+            <div className="w-56 mb-4 lg:w-64 lg:mx-2">
+              <label className="text-sm font-light">
+                Account used for (online) transaction
+              </label>
+              <input
+                className="px-3 py-1.5
+        w-full
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                type="text"
+                required
+                id="accUsed"
+                autoComplete="true"
+                placeholder="Enter account used for transaction"
+                value={feeDetails.accUsed}
+                onChange={(e) =>
+                  setFeeDetails({
+                    ...feeDetails,
+                    accUsed: e.target.value,
                   })
                 }
               />
@@ -771,118 +930,6 @@ const GeneralDetails = () => {
                 onChange={(e) => setCategory("PWD")}
               />
             </form>
-          </div>
-          <div className="divider"></div>
-          <h4 className="w-56 mb-2 mt-2 lg:w-64 lg:mx-2">Name in Full</h4>
-          <div className="grid grid-cols-1 place-content-center w-56 m-auto  lg:w-full lg:grid-cols-4 lg:m-0 lg:gap-2">
-            <div className="w-56 mb-4 lg:w-64 lg:mx-2">
-              <label className="text-sm font-light">First Name</label>
-              <input
-                className="form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                type="text"
-                required
-                id="fname"
-                autoComplete="true"
-                placeholder="Enter first name"
-                value={fname}
-                onChange={(e) => setFName(e.target.value)}
-              />
-            </div>
-            <div className="w-56 mb-4 lg:w-64 lg:mx-2">
-              <label className="text-sm font-light">Middle Name</label>
-              <input
-                className="form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                type="text"
-                required
-                id="mname"
-                autoComplete="true"
-                placeholder="Enter middle name"
-                value={mname}
-                onChange={(e) => setMName(e.target.value)}
-              />
-            </div>
-            <div className="w-56 mb-4 lg:w-64 lg:mx-2">
-              <label className="text-sm font-light">Last Name</label>
-              <input
-                className="form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                type="text"
-                required
-                id="lname"
-                autoComplete="true"
-                placeholder="Enter last name"
-                value={lname}
-                onChange={(e) => setLName(e.target.value)}
-              />
-            </div>
-            <div className="w-56 mb-4 lg:w-64 lg:mx-2">
-              <label className="text-sm font-light">Father's Name</label>
-              <input
-                className="form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                type="text"
-                required
-                id="fatherName"
-                autoComplete="true"
-                placeholder="Enter father's name"
-                value={fatherName}
-                onChange={(e) => setFatherName(e.target.value)}
-              />
-            </div>
           </div>
           <div className="divider"></div>
           <h4 className="w-56 mb-2 mt-2 lg:w-64 lg:mx-2">Address</h4>
@@ -1137,9 +1184,8 @@ const GeneralDetails = () => {
                 <input
                   type="file"
                   className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                  required
                   autoComplete="true"
-                  onChange={(e) => setAppendix1(e.target.files[0])}
+                  onChange={(e) => setTempFile(e.target.files[0])}
                 />
               </label>
               <button
@@ -1149,6 +1195,11 @@ const GeneralDetails = () => {
               >
                 <UploadIcon className="h-4" />
               </button>
+              {appendix1 && (
+                <div className="m-auto mx-4">
+                  {appendix1.name}
+                </div>
+              )}
             </div>
           </div>
           <div className="divider"></div>
@@ -1165,9 +1216,8 @@ const GeneralDetails = () => {
                 <input
                   type="file"
                   className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                  required
                   autoComplete="true"
-                  onChange={(e) => setAppendix2(e.target.files[0])}
+                  onChange={(e) => setTempFile(e.target.files[0])}
                 />
               </label>
               <button
@@ -1177,6 +1227,11 @@ const GeneralDetails = () => {
               >
                 <UploadIcon className="h-4" />
               </button>
+              {appendix2 && (
+                <div className="m-auto mx-4">
+                  {appendix2.name}
+                </div>
+              )}
             </div>
           </div>
           <div className="divider"></div>
@@ -1193,9 +1248,8 @@ const GeneralDetails = () => {
                 <input
                   type="file"
                   className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                  required
                   autoComplete="true"
-                  onChange={(e) => setAppendix3(e.target.files[0])}
+                  onChange={(e) => setTempFile(e.target.files[0])}
                 />
               </label>
               <button
@@ -1205,6 +1259,11 @@ const GeneralDetails = () => {
               >
                 <UploadIcon className="h-4" />
               </button>
+              {appendix3 && (
+                <div className="m-auto mx-4">
+                  {appendix3.name}
+                </div>
+              )}
             </div>
           </div>
           <div className="divider"></div>

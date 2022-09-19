@@ -13,23 +13,30 @@ const EmploymentDetails = () => {
     {
       employer: "",
       position: "",
+      natureOfPosition: "",
       dateOfJoining: "",
       dateOfLeaving: "",
       payLevel: "",
       PayInPayLevel: "",
       GP: "",
-      reasonForLeaving: "",
+      area: "",
     },
   ]);
   const [postPhdExp, setPostPhdExp] = useState("");
   const [profBodyMembership, setProfBodyMembership] = useState([
-    { id: 1, name: "" },
-    { id: 2, name: "" },
-    { id: 3, name: "" },
+    { id: 1, name: "", membershipNo: "", membershipType: "" },
+    { id: 2, name: "", membershipNo: "", membershipType: "" },
+    { id: 3, name: "", membershipNo: "", membershipType: "" },
   ]);
-
-  const [appendix5, setAppendix5] = useState("");
-  const [appendix6, setAppendix6] = useState("");
+  const [tempFile, setTempFile] = useState("");
+  const [appendix5, setAppendix5] = useState({
+    name: "",
+    url: "",
+  });
+  const [appendix6, setAppendix6] = useState({
+    name: "",
+    url: "",
+  });
 
   const handleTeachingExpChange = (index, e) => {
     let data = [...teachingExp];
@@ -52,7 +59,7 @@ const EmploymentDetails = () => {
       payLevel: "",
       PayInPayLevel: "",
       GP: "",
-      reasonForLeaving: "",
+      area: "",
     };
     setTeachingExp([...teachingExp, newTeachingExp]);
   };
@@ -65,24 +72,30 @@ const EmploymentDetails = () => {
 
   const uploadA5 = (files) => {
     const formData = new FormData();
-    formData.append("file", appendix5);
+    formData.append("file", tempFile);
     formData.append("upload_preset", "rivjkqek");
 
     axios
       .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
       .then((response) => {
-        setAppendix5(response.data.url);
+        setAppendix5({
+          name: tempFile.name,
+          url: response.data.url,
+        });
       });
   };
   const uploadA6 = (files) => {
     const formData = new FormData();
-    formData.append("file", appendix6);
+    formData.append("file", tempFile);
     formData.append("upload_preset", "rivjkqek");
 
     axios
       .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
       .then((response) => {
-        setAppendix6(response.data.url);
+        setAppendix6({
+          name: tempFile.name,
+          url: response.data.url,
+        });
       });
   };
 
@@ -231,9 +244,7 @@ const EmploymentDetails = () => {
                   />
                 </div>
                 <div className="w-56 lg:w-40 p-2 xl:w-56">
-                  <label className="text-sm font-light">
-                    Position(Regular / Contractual)
-                  </label>
+                  <label className="text-sm font-light">Position</label>
                   <input
                     className="form-control
     block
@@ -256,6 +267,35 @@ const EmploymentDetails = () => {
                     autoComplete="true"
                     placeholder="Enter position"
                     value={input.position}
+                    onChange={(e) => handleTeachingExpChange(index, e)}
+                  />
+                </div>
+                <div className="w-56 lg:w-40 p-2 xl:w-60">
+                  <label className="text-sm font-light">
+                    Nature of Position(Regular/Contract)
+                  </label>
+                  <input
+                    className="form-control
+    block
+    w-full
+    px-3
+    py-1.5
+    text-base
+    font-normal
+    text-gray-700
+    bg-white bg-clip-padding
+    border border-solid border-gray-300
+    rounded
+    transition
+    ease-in-out
+    m-0
+    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                    type="text"
+                    required
+                    name="natureOfPosition"
+                    autoComplete="true"
+                    placeholder="Enter nature of position"
+                    value={input.natureOfPosition}
                     onChange={(e) => handleTeachingExpChange(index, e)}
                   />
                 </div>
@@ -397,7 +437,7 @@ const EmploymentDetails = () => {
                 </div>
                 <div className="w-56 lg:w-40 p-2 xl:w-56">
                   <label className="text-sm font-light">
-                    Reason for Leaving
+                  Area(s) and nature of work
                   </label>
                   <input
                     className="form-control
@@ -417,10 +457,10 @@ const EmploymentDetails = () => {
     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
                     type="text"
                     required
-                    name="reasonForLeaving"
+                    name="area"
                     autoComplete="true"
-                    placeholder="Enter reason for leaving"
-                    value={input.reasonForLeaving}
+                    placeholder="Enter area of work"
+                    value={input.area}
                     onChange={(e) => handleTeachingExpChange(index, e)}
                   />
                 </div>
@@ -455,9 +495,9 @@ const EmploymentDetails = () => {
                 <input
                   type="file"
                   className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                  required
+                  
                   autoComplete="true"
-                  onChange={(e) => setAppendix5(e.target.files[0])}
+                  onChange={(e) => tempFile(e.target.files[0])}
                 />
               </label>
               <button
@@ -467,6 +507,11 @@ const EmploymentDetails = () => {
               >
                 <UploadIcon className="h-4" />
               </button>
+              {appendix5 && (
+                <div className="m-auto mx-4">
+                  {appendix5.name}
+                </div>
+              )}
             </div>
           </div>
           <div className="divider"></div>
@@ -484,9 +529,9 @@ const EmploymentDetails = () => {
                 <input
                   type="file"
                   className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                  required
+                  
                   autoComplete="true"
-                  onChange={(e) => setAppendix6(e.target.files[0])}
+                  onChange={(e) => tempFile(e.target.files[0])}
                 />
               </label>
               <button
@@ -496,6 +541,11 @@ const EmploymentDetails = () => {
               >
                 <UploadIcon className="h-4" />
               </button>
+              {appendix6 && (
+                <div className="m-auto mx-4">
+                  {appendix6.name}
+                </div>
+              )}
             </div>
           </div>
           <div className="divider"></div>
@@ -533,26 +583,24 @@ const EmploymentDetails = () => {
           <label htmlFor="" className="mx-3 text-center">
             Membership of Proffesional Bodies
           </label>
-          <label
-            htmlFor=""
-            className="text-sm font-light mt-3 mx-3 text-center"
-          >
-            Enter name of bodies
-          </label>
-          <div className="lg:grid lg:grid-flow-col">
+          <div className="lg:grid">
             {profBodyMembership.map((input, index) => {
               return (
                 <div
                   key={index}
-                  className="w-56 mb-4 flex justify-center m-auto lg:justify-start lg:m-0 lg:w-full "
+                  className="w-56 mb-4 flex flex-col justify-center items-center m-auto lg:justify-start lg:m-0 lg:w-full "
                 >
                   <div className="flex justify-center items-center my-2">
-                    <label htmlFor="" className="text-sm font-light mx-3">
-                      {input.id}
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control
+                    <div className="mx-3">
+                      <label
+                        htmlFor=""
+                        className="text-sm font-light mt-3 mx-3 text-center"
+                      >
+                        Name of proffesional body
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control
     block
     w-full
     px-3
@@ -567,12 +615,81 @@ const EmploymentDetails = () => {
     ease-in-out
     m-0
     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                      name="name"
-                      autoComplete="true"
-                      placeholder="Enter name of body"
-                      value={input.name}
-                      onChange={(e) => handleProfBodyMembershipChange(index, e)}
-                    />
+                        name="name"
+                        autoComplete="true"
+                        placeholder="Enter name of body"
+                        value={input.name}
+                        onChange={(e) =>
+                          handleProfBodyMembershipChange(index, e)
+                        }
+                      />
+                    </div>
+                    <div className="mx-3">
+                      <label
+                        htmlFor=""
+                        className="text-sm font-light mt-3 mx-3 text-center"
+                      >
+                        Membership Number
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control
+    block
+    w-full
+    px-3
+    py-1.5
+    text-base
+    font-normal
+    text-gray-700
+    bg-white bg-clip-padding
+    border border-solid border-gray-300
+    rounded
+    transition
+    ease-in-out
+    m-0
+    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                        name="membershipNo"
+                        autoComplete="true"
+                        placeholder="Enter membership no"
+                        value={input.membershipNo}
+                        onChange={(e) =>
+                          handleProfBodyMembershipChange(index, e)
+                        }
+                      />
+                    </div>
+                    <div className="mx-3">
+                      <label
+                        htmlFor=""
+                        className="text-sm font-light mt-3 mx-3 text-center"
+                      >
+                        Membership type (Life/Yearly)
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control
+    block
+    w-full
+    px-3
+    py-1.5
+    text-base
+    font-normal
+    text-gray-700
+    bg-white bg-clip-padding
+    border border-solid border-gray-300
+    rounded
+    transition
+    ease-in-out
+    m-0
+    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                        name="membershipType"
+                        autoComplete="true"
+                        placeholder="Enter membership type"
+                        value={input.membershipType}
+                        onChange={(e) =>
+                          handleProfBodyMembershipChange(index, e)
+                        }
+                      />
+                    </div>
                   </div>
                 </div>
               );

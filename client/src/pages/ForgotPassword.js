@@ -85,7 +85,7 @@ const ForgotPassword = () => {
             </div>
           </div>
         )}
-        <div className="w-56 mb-4 relative group">
+        <div className="w-56 mb-4 relative group mx-auto">
           <p className="text-sm font-light text-red-300">
             Please enter the email address you register your account with. We
             will send you reset password confirmation to this email
@@ -119,7 +119,7 @@ const ForgotPassword = () => {
         </div>
         <button
           type="submit"
-          className="btn  bg-[#020493] hover:bg-[#0608c2] text-white w-56"
+          className="btn  bg-[#020493] hover:bg-[#0608c2] text-white w-56 mx-auto"
         >
           Send Email
         </button>

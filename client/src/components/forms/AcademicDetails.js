@@ -17,9 +17,18 @@ const AcademicDetails = () => {
       grade: "",
     },
   ]);
-  const [phdDissertationTitle, setPhdDissertationTitle] = useState("");
-  const [phdAwardDate, setPhdAwardDate] = useState("");
-  const [appendix4, setAppendix4] = useState("");
+  const [particularsOfPhd, setParticularsOfPhd] = useState({
+    phdDissertationTitle: "",
+    enrollmentDate: "",
+    registrationDate: "",
+    completionDate: "",
+    supervisors: "",
+  });
+  const [tempFile, setTempFile] = useState("");
+  const [appendix4, setAppendix4] = useState({
+    name: "",
+    url: "",
+  });
 
   const handleAcademicChange = (index, e) => {
     let data = [...academic];
@@ -46,13 +55,16 @@ const AcademicDetails = () => {
 
   const uploadA4 = (files) => {
     const formData = new FormData();
-    formData.append("file", appendix4);
+    formData.append("file", tempFile);
     formData.append("upload_preset", "rivjkqek");
 
     axios
       .post("https://api.cloudinary.com/v1_1/saahildev/image/upload", formData)
       .then((response) => {
-        setAppendix4(response.data.url);
+        setAppendix4({
+          name: tempFile.name,
+          url: response.data.url,
+        });
       });
   };
 
@@ -67,8 +79,8 @@ const AcademicDetails = () => {
       try {
         const { data } = await axios.get(`/api/form/forminfo/${id}`, config);
         if (data.user.academic) setAcademic(data.user.academic);
-        setPhdDissertationTitle(data.user.phdDissertationTitle);
-        setPhdAwardDate(data.user.phdAwardDate);
+        if (data.user.particularsOfPhd)
+          setParticularsOfPhd(data.user.particularsOfPhd);
         if (data.user.appendix4) {
           setAppendix4(data.user.appendix4);
         }
@@ -93,8 +105,7 @@ const AcademicDetails = () => {
         `/api/form/forminfo/${id}`,
         {
           academic,
-          phdDissertationTitle,
-          phdAwardDate,
+          particularsOfPhd,
           appendix4,
         },
         config
@@ -188,7 +199,7 @@ const AcademicDetails = () => {
                 key={index}
                 className="w-56 mb-4 relative group grid place-content-center place-items-center m-auto lg:grid-flow-col  gap-4 "
               >
-                <div className="w-56 lg:w-40 p-2 xl:w-56">
+                <div className="w-56 lg:w-40 p-2 xl:w-40">
                   <label className="text-sm font-light">Degree/Title</label>
                   <input
                     className="form-control
@@ -301,7 +312,7 @@ const AcademicDetails = () => {
                     onChange={(e) => handleAcademicChange(index, e)}
                   />
                 </div>
-                <div className="w-56 lg:w-40 p-2 xl:w-56">
+                <div className="w-56 lg:w-24 p-2 xl:w-32">
                   <label className="text-sm font-light">Grade/Marks</label>
                   <input
                     className="form-control
@@ -325,6 +336,33 @@ const AcademicDetails = () => {
                     autoComplete="true"
                     placeholder="Enter grade"
                     value={input.grade}
+                    onChange={(e) => handleAcademicChange(index, e)}
+                  />
+                </div>
+                <div className="w-56 lg:w-24 p-2 xl:w-32">
+                  <label className="text-sm font-light">Division</label>
+                  <input
+                    className="form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                    type="text"
+                    required
+                    id="division"
+                    autoComplete="true"
+                    placeholder="Enter division"
+                    value={input.division}
                     onChange={(e) => handleAcademicChange(index, e)}
                   />
                 </div>
@@ -357,9 +395,8 @@ const AcademicDetails = () => {
                 <input
                   type="file"
                   className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                  required
                   autoComplete="true"
-                  onChange={(e) => setAppendix4(e.target.files[0])}
+                  onChange={(e) => setTempFile(e.target.files[0])}
                 />
               </label>
               <button
@@ -369,17 +406,145 @@ const AcademicDetails = () => {
               >
                 <UploadIcon className="h-4" />
               </button>
+              {appendix4 && <div className="m-auto mx-4">{appendix4.name}</div>}
             </div>
           </div>
           <div className="divider"></div>
-          <div className="grid grid-cols-1 place-content-center w-56 m-auto  lg:w-full lg:grid-cols-2 lg:m-0 lg:gap-4">
-            <div className="w-56 mb-4 lg:w-3/4 lg:mx-2">
-              <label className="text-sm font-light">
-                Title of PhD Dissertation
-              </label>
-              <input
-                className="form-control
+          <div className="w-56 mb-4 lg:w-3/4 lg:mx-2">
+            <label className="text-sm font-light">
+              Title of PhD Dissertation
+            </label>
+            <input
+              className="form-control
         block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+              type="text"
+              required
+              id="phdDissertationTitle"
+              autoComplete="true"
+              placeholder="Enter Title of PhD Dissertation"
+              value={particularsOfPhd.phdDissertationTitle}
+              onChange={(e) =>
+                setParticularsOfPhd({
+                  ...particularsOfPhd,
+                  phdDissertationTitle: e.target.value,
+                })
+              }
+            />
+          </div>
+          <div className="grid grid-cols-1 place-content-center w-56 m-auto  lg:w-full lg:grid-cols-4 lg:m-0 lg:gap-4">
+            <div className="w-56 mb-4 lg:w-56 lg:mx-2">
+              <label className="text-sm font-light">Enrolment Date</label>
+              <input
+                className="
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                type="date"
+                required
+                id="enrollmentDate"
+                autoComplete="true"
+                placeholder="Enter Enrolment Date"
+                value={particularsOfPhd.enrollmentDate}
+                onChange={(e) =>
+                  setParticularsOfPhd({
+                    ...particularsOfPhd,
+                    enrollmentDate: e.target.value,
+                  })
+                }
+              />
+            </div>
+            <div className="w-56 mb-4 lg:w-56 lg:mx-2">
+              <label className="text-sm font-light">Registration Date</label>
+              <input
+                className="
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                type="date"
+                required
+                id="registrationDate"
+                autoComplete="true"
+                placeholder="Enter Registration Date"
+                value={particularsOfPhd.registrationDate}
+                onChange={(e) =>
+                  setParticularsOfPhd({
+                    ...particularsOfPhd,
+                    registrationDate: e.target.value,
+                  })
+                }
+              />
+            </div>
+            <div className="w-56 mb-4 lg:w-56 lg:mx-2">
+              <label className="text-sm font-light">Completion Date</label>
+              <input
+                className="
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                type="date"
+                required
+                id="completionDate"
+                autoComplete="true"
+                placeholder="Enter Completion Date"
+                value={particularsOfPhd.completionDate}
+                onChange={(e) =>
+                  setParticularsOfPhd({
+                    ...particularsOfPhd,
+                    completionDate: e.target.value,
+                  })
+                }
+              />
+            </div>
+            <div className="w-56 mb-4 lg:w-56 lg:mx-2">
+              <label className="text-sm font-light">Supervisor(s)</label>
+              <input
+                className="
         w-full
         px-3
         py-1.5
@@ -395,37 +560,16 @@ const AcademicDetails = () => {
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
                 type="text"
                 required
-                id="phdDissertationTitle"
+                id="supervisors"
                 autoComplete="true"
-                placeholder="Enter Title of PhD Dissertation"
-                value={phdDissertationTitle}
-                onChange={(e) => setPhdDissertationTitle(e.target.value)}
-              />
-            </div>
-            <div className="w-56 mb-4 lg:w-1/4 lg:mx-2">
-              <label className="text-sm font-light">
-                Date of award of Ph. D
-              </label>
-              <input
-                className="
-                px-3 py-1.5
-        w-full
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                type="date"
-                required
-                id="phdAwardDate"
-                autoComplete="true"
-                placeholder="Enter Date of award of  Ph. D"
-                value={phdAwardDate}
-                onChange={(e) => setPhdAwardDate(e.target.value)}
+                placeholder="Enter Supervisor(s)"
+                value={particularsOfPhd.supervisors}
+                onChange={(e) =>
+                  setParticularsOfPhd({
+                    ...particularsOfPhd,
+                    supervisors: e.target.value,
+                  })
+                }
               />
             </div>
           </div>
