@@ -31,147 +31,195 @@
 }
     </style>
   </head>
-  <body>
+  <body class="">
     <div class="container">
-      <div class="text-center">
-        <h2 class="text-lg font-bold">Atal Bihari Vajpayee</h2>
-        <h1 class="text-xl font-bold my-2">
-          INDIAN INSTITUTE OF INFORMATION TECHNOLOGY AND MANAGEMENT, GWALIOR
-        </h1>
-        <div class="flex">
-          <div>
+      <div class="flex font-bold justify-between">
+        <div class="container text-center">
+
+          <h2 class="text-[0.9rem] font-bold">Atal Bihari Vajpayee</h2>
+          <h1 class="text-[0.9rem] font-bold my-2">
+            INDIAN INSTITUTE OF INFORMATION TECHNOLOGY AND MANAGEMENT, GWALIOR
+          </h1>
+          <div class="text-[0.9rem]">
             <h3 class="underline">
-              Application form for Faculty Position – Summary Document
+              Application form for Faculty Position
             </h3>
-            Please read the insdivuctions in the advertisement carefully before
-            filling the form. Please provide the following information with
-            application.
+            <h3 class="underline my-1">
+              Summary Document
+            </h3>
+            <h4 class="my-1">
+              Application ID: _____________________ (To be filled by the office)
+            </h4>
           </div>
+        </div>
           <div>
             <img
               src="https://images.shiksha.com/mediadata/images/1609308018phpA4JpiI.jpeg"
               alt="logo"
+              class="h-[10rem] w-[12rem]"
             />
           </div>
         </div>
       </div>
-      <h3 class="font-bold">General Information</h3>
-      <div class=" flex justify-between">
-        <div class=" flex-1">
-            <table class="ui celled table" >
-              <tbody>
-<tr>
-  <td>1.Advertisement no:</td>
-  <td>{{userInfo.adNo}}</td>
-</tr>
-            <tr class="">
-            <td>2.Post:</td>
-            <td>{{userInfo.post}}</td>
-          </tr>
-          <tr class="">
-            <td>3.Discipline:</td>
-            <td>{{userInfo.discipline}}</td>
-          </tr>
-          <tr class="">
-            <td>4.Name:</td>
-            <td>{{userInfo.fname}} {{userInfo.mname}} {{userInfo.lname}}</td>
-          </tr>
-          <tr class="">
-            <td>5.Father's/Husbands's Name:</td>
-            <td>{{userInfo.fatherName}}</td>
-          </tr>
-          <tr class="">
-            <td>6.Date of Birth:</td>
-            <td>{{userInfo.dob}}</td>
-          </tr>
-          <tr class="">
-            <td>7.Category:</td>
-            <td>{{userInfo.category}}</td>
-          </tr>
-          <tr class="">
-            <td>8.Phone Number:</td>
-            <td>{{userInfo.phno}}</td>
-          </tr>
-          <tr class="">
-            <td>9.Email Id:</td>
-            <td>{{userInfo.email}}</td>
-          </tr>
-          <tr class="">
-            <td>10.Marital Status:</td>
-            <td>{{userInfo.maritalStatus}}</td>
-          </tr>
-        </tbody>
-      </table>
+      <h3 class="font-bold mx-2">A: General Information</h3>
+      <div class=" flex justify-between mx-2">
+        <div class=" flex-1">            
+<div class="flex justify-between border">
+  <div class="flex justify-between w-[35%]">
+    <h5 class="">1.Advertisement no:</h5>
+<div class="border-l"></div>
+  </div>
+  <h5>{{userInfo.adNo}}</h5>
+</div>
+            <div class="flex justify-between border">
+              <div class="flex justify-between w-[35%]">
+              <h5>2.Post Applied for:</h5>
+              <div class="border-l"></div>
+            </div>
+            <h5>{{userInfo.post}}</h5>
+          </div>
+          <div class="flex justify-between border">
+            <div class="flex justify-between w-[35%]">
+            <h5>3.Discipline:</h5>
+            <div class="border-l"></div>
+          </div>
+            <h5>{{userInfo.discipline}}</h5>
+          </div>
+          <div class="flex justify-between border">
+            <div class="flex justify-between w-[35%]">
+
+            <h5>4.Name:</h5>
+<div class="border-l"></div>
+</div>
+
+            <h5>{{userInfo.fname}} {{userInfo.mname}} {{userInfo.lname}}</h5>
+          </div>
+          <div class="flex justify-between border">
+            <div class="flex justify-between w-[35%]">
+
+            <h5>5.Father's/Husbands's Name:</h5>
+<div class="border-l"></div>
+</div>
+
+            <h5>{{userInfo.fatherName}}</h5>
+          </div>
+          <div class="flex justify-between border">
+            <div class="flex justify-between w-[35%]">
+
+            <h5>6.Date of Birth:</h5>
+<div class="border-l"></div>
+</div>
+
+            <h5>{{date userInfo.dob "MM-DD-YYYY"}}</h5>
+          </div>
+          <div class="flex justify-between border">
+            <div class="flex justify-between w-[35%]">
+
+            <h5>7.Category:</h5>
+<div class="border-l"></div>
+</div>
+
+            <h5>{{userInfo.category}}</h5>
+          </div>
+          <div class="flex justify-between border">
+            <div class="flex justify-between w-[35%]">
+
+            <h5>8.Phone Number:</h5>
+<div class="border-l"></div>
+</div>
+
+            <h5>{{userInfo.phno}}</h5>
+          </div>
+          <div class="flex justify-between border">
+            <div class="flex justify-between w-[35%]">
+
+            <h5>9.Email Id:</h5>
+<div class="border-l"></div>
+</div>
+
+            <h5>{{userInfo.email}}</h5>
+          </div>
+          <div class="flex justify-between border">
+            <div class="flex justify-between w-[35%]">
+
+            <h5>10.Marital Status:</h5>
+<div class="border-l"></div>
+</div>
+
+            <h5>{{userInfo.maritalStatus}}</h5>
+          </div>
     </div>
-        <div class="w-60">
+        <div class="h-[14rem] p-0 m-0 border-2">
           <img
-            src="http://res.cloudinary.com/saahildev/image/upload/v1658147792/Mini-project-pp/ulo7sah3owg5otzm3vee.jpg"
-            class=" w-72 object-cover"
+          src="http://res.cloudinary.com/saahildev/image/upload/v1658147792/Mini-project-pp/ulo7sah3owg5otzm3vee.jpg"
+          src="{{userInfo.userPPUrl}}"
+            class="h-[14rem] w-[13rem] object-cover"
           />
         </div>
       </div>
-      <div class="my-1">
-        <h5 class="font-bold mt-4">11.Address</h5>
-        <table class="ui celled table">
-          <tbody>
-            <tr class="">
-              <td class=" ">Location</td>
-              <td class=" ">{{userInfo.address.loc}}</td>
-            </tr>
-            <tr class="">
-              <td class=" ">Pincode</td>
-              <td class=" ">{{userInfo.address.pin}}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="border flex justify-between mx-2">
+            <div class="flex justify-between w-[26.7%] ">
+            <h5 class="">11.Address with PIN</h5>
+            <div class="border-l"></div>
+            </div>
+          <div class="flex-grow text-end">
+            <h5 class="">{{userInfo.address.loc}}</h5>
+            <hr class="" />
+            <h5 class=" ">{{userInfo.address.pin}}</h5>
+          </div>
+          </div>
       </div>
-      <div class="flex">
-        <div class="my-4 mx-2">
-        <h4 class="font-bold">
-          12.Academic Qualifications
-        </h4>
-        <table class="table-auto ui celled table">
+      <div class="flex justify-around">
+        <div class="my-2 mx-2">
+        <table class="">
           <thead class="text-center">
             <tr>
-              <th class="p-1">Degree</th>
-              <th class="p-1 ">Branch</th>
-              <th class="p-1 ">University</th>
-              <th class="p-1 ">Completion Year</th>
-              <th class="p-1 ">Grade</th>
-              <th class="p-1 ">Division</th>
+              <th colspan="10" class="border p-1">
+                12.Academic Qualifications
+              </th>
+            </tr>
+            <tr>
+              <td class="p-1 border">Degree/Title</td>
+              <td class="p-1 border">Branch/Specialisation</td>
+              <td class="p-1 border">University/College</td>
+              <td class="p-1 border">Completion Year</td>
+              <td class="p-1 border">Grade/%Marks</td>
+              <!-- <td class="p-1 ">Division</td> -->
             </tr>
             <tbody>
                 {{#each userInfo.academic as | i |}}
                  <tr>
-                 <td class="p-1 ">{{i.degree}}</td>
-                 <td class="p-1 ">{{i.branch}}</td>
-                 <td class="p-1 ">{{i.university}}</td>
-                 <td class="p-1 ">{{i.completionYear}}</td>
-                 <td class="p-1 ">{{i.grade}}</td>
-                 <td class="p-1 ">{{i.division}}</td>
+                 <td class="p-1 border">{{i.degree}}</td>
+                 <td class="p-1 border">{{i.branch}}</td>
+                 <td class="p-1 border">{{i.university}}</td>
+                 <td class="p-1 border">{{date i.completionYear "MM-DD-YYYY"}}</td>
+                 <td class="p-1 border">{{i.grade}}</td>
+                 <!-- <td class="p-1 ">{{i.division}}</td> -->
                  </tr>
             {{/each}}
             </tbody>
           </thead>
         </table>
       </div>
-      <div class="my-4 mx-2">
-        <h4 class="font-bold">
-          13.Industrial Exp
-        </h4>
-        <table class="ui celled table ">
+      <div class="my-2 mx-2">
+        <table class="">
           <thead class="text-center">
             <tr>
-              <th class="p-1 ">University</th>
-              <th class="p-1 ">Designation</th>
-              <th class="p-1 ">Period</th>
+              <th colspan="10" class="border p-1">
+                13.Teaching/Industrial Experience
+              </th>
+            </tr>
+            <tr>
+              <td class="p-1 border">University</td>
+              <td class="p-1 border">Designation</td>
+              <td class="p-1 border">Period</td>
             </tr>
             <tbody>
                 {{#each userInfo.industrialExp as | i |}}
                  <tr>
-                 <td class="p-1 ">{{i.organisation}}</td>
-                 <td class="p-1 ">{{i.designation}}</td>
-                 <td class="p-1 ">{{i.period}}</td>
+                 <td class="p-1 border">{{i.organisation}}</td>
+                 <td class="p-1 border">{{i.designation}}</td>
+                 <td class="p-1 border">{{ i.period }}</td>
                  </tr>
             {{/each}}
             </tbody>
@@ -179,47 +227,51 @@
         </table>
       </div>
     </div>
-      <div class="flex">
-        <div class="my-4 mx-2">
-        <h4 class="font-bold">
-          14.Sponsored Research Projects
-        </h4>
-        <table class="ui celled table">
+      <div class="flex justify-around">
+        <div class="my-2 mx-2">
+        <table class="">
           <thead class="text-center ">
             <tr>
-            <th class="p-1 ">Title</th>
-            <th class="p-1 ">Grant Amount</th>
-            <th class="p-1 ">Status</th>
+              <th colspan="10" class="border p-1">
+                14.Sponsored Research Projects
+              </th>
+            </tr>
+            <tr>
+            <td class="p-1 border">Title</td>
+            <td class="p-1 border">Grant Amount</td>
+            <td class="p-1 border">Status</td>
             </tr>
             <tbody>
                 {{#each userInfo.sponsoredProjects as | i |}}
                  <tr>
-                 <td class="p-1 ">{{i.title}}</td>
-                 <td class="p-1 ">{{i.grantAmount}}</td>
-                 <td class="p-1 ">{{i.status}}</td>
+                 <td class="p-1 border">{{i.title}}</td>
+                 <td class="p-1 border">{{i.grantAmount}}</td>
+                 <td class="p-1 border">{{i.status}}</td>
                  </tr>
             {{/each}}
             </tbody>
           </thead>
         </table>
       </div>
-      <div class="my-4 mx-2 ">
-        <h4 class="font-bold">
-          15.Consultancy
-        </h4>
-        <table class="ui celled table ">
+      <div class="my-2 mx-2 ">
+        <table class="">
           <thead class=" text-center">
             <tr>
-              <th class="p-1 ">University</th>
-              <th class="p-1 ">Title</th>
-              <th class="p-1 ">Grant Amount</th>
+              <th colspan="10" class="border p-1">
+                15.Consultancy
+              </th>
+            </tr>
+            <tr>
+              <td class="p-1 border">University</td>
+              <td class="p-1 border">Title</td>
+              <td class="p-1 border">Grant Amount</td>
             </tr>
             <tbody>
                 {{#each userInfo.consultancy as | i |}}
                  <tr>
-                 <td class="p-1 ">{{i.organisation}}</td>
-                 <td class="p-1 ">{{i.title}}</td>
-                 <td class="p-1 ">{{i.grantAmount}}</td>
+                 <td class="p-1 border">{{i.organisation}}</td>
+                 <td class="p-1 border">{{i.title}}</td>
+                 <td class="p-1 border">{{i.grantAmount}}</td>
                  </tr>
             {{/each}}
             </tbody>
@@ -227,331 +279,460 @@
         </table>
       </div>
     </div>
-      <div class="flex ">
-      <div class="my-4 mx-2">
-        <h4 class="font-bold">
-          16.PHD Thesis Supervised
-        </h4>
-        <table class=" ui celled table ">
+      <div class="flex justify-around">
+      <div class="my-2 mx-1">
+        <table class="">
           <thead class="  text-center">
             <tr>
-              <th class=" p-1 ">Status</th>
-              <th class=" p-1 ">No</th>
+              <th colspan="10" class="border p-1">
+                16.PHD Thesis Supervised
+              </th>
+            </tr>
+            <tr>
+              <td class=" p-1 border ">Status</td>
+              <td class=" p-1 border ">Number</td>
             </tr>
             <tbody>
               <tr>
-                <th class=" p-1 ">Bachelor Level</th>
-                <td class=" p-1 ">{{userInfo.thesis.bachelorsLvl}}</td>
+                <td class=" p-1 border ">Master's Level</td>
+                <td class=" p-1 border ">{{userInfo.thesis.mastersLvl}}</td>
               </tr>
               <tr>
-                <th class=" p-1 ">Bachelor Level</th>
-                <td class=" p-1 ">{{userInfo.thesis.mastersLvl}}</td>
+                <td class=" p-1 border ">PHD Co</td>
+                <td class=" p-1 border ">{{userInfo.thesis.phdCo}}</td>
               </tr>
               <tr>
-                <th class=" p-1 ">PHD Co</th>
-                <td class=" p-1 ">{{userInfo.thesis.phdCo}}</td>
-              </tr>
-              <tr>
-                <th class=" p-1 ">PHD Single</th>
-                <td class=" p-1 ">{{userInfo.thesis.phdSingle}}</td>
+                <td class=" p-1 border ">PHD Single</td>
+                <td class=" p-1 border ">{{userInfo.thesis.phdSingle}}</td>
               </tr>
             </tbody>
           </thead>
         </table>
       </div>
 
-      <div class="my-4 mx-2">
-        <h4 class="font-bold">
-          17.Patents
-        </h4>
-        <table class="ui celled table">
+      <div class="my-2 mx-1">
+        <table class="">
           <thead class="text-center  ">
             <tr>
-              <th class="p-1  ">Status</th>
-              <th class="p-1  ">Number</th>
+              <th colspan="10" class="border p-1">
+                17.Patents
+              </th>
+            </tr>
+            <tr>
+              <td class="p-1 border  ">Status</td>
+              <td class="p-1 border  ">Number</td>
             </td>
           </tr>
           <tbody>
             <tr>
-              <th class="p-1 ">Awarded</th>
-              <td class="p-1 ">{{add userInfo.patent.awardedNational userInfo.patent.awardedIntenational}}</td>
+              <td class="p-1 border ">Awarded</td>
+              <td class="p-1 border ">{{add userInfo.patent.awardedNational userInfo.patent.awardedIntenational}}</td>
             </tr>
             <tr>
-              <th class="p-1 ">Pending</th>
-              <td class="p-1 ">{{add userInfo.patent.filedNational userInfo.patent.filedInternational}}</td>
+              <td class="p-1 border ">Pending</td>
+              <td class="p-1 border ">{{add userInfo.patent.filedNational userInfo.patent.filedInternational}}</td>
             </tr>
           </tbody>
         </thead>
       </table>
     </div>
-  </div>
-      
-      <div class="flex">
-        <div class="my-4 mx-2">
-        <h4 class="font-bold">
-          18.Publications
-        </h4>
-        <table class=" ui celled table">
-          <thead class="text-center  ">
-            <tr>
-              <th class="p-1  ">Books</th>
-              <th class="p-1 ">National Conferences</th>
-              <th class="p-1 ">I'National Conferences</th>
-              <th class="p-1 ">Book Chapters</th>
-            </td>
-          </tr>
-          <tbody>
-            <tr>
-              <td class="p-1 ">{{userInfo.publications.books}}</td>
-              <td class="p-1 ">{{userInfo.publications.nationalConferences}}</td>
-              <td class="p-1 ">{{userInfo.publications.internationalConferences}}</td>
-              <td class="p-1 ">{{userInfo.publications.bookChapters}}</td>
-            </tr>
-          </tbody>
-        </thead>
-      </table>
-  </div>
-    <div class="my-4 mx-2">
-      <h4 class="font-bold">
-        19.Passed higher level exams
-      </h4>
-      <table class=" ui celled table">
+    <div class="my-2 mx-1">
+      <table class="">
         <thead class="text-center  ">
           <tr>
-            <th class="p-1  ">NET</th>
-            <th class="p-1 ">GATE</th>
-            <th class="p-1 ">CSIR/UGCJRF</th>
+            <th colspan="10" class="border p-1">
+              18.Publications
+            </th>
+          </tr>
+          <tr>
+            <td class="p-1 border  ">Books</td>
+            <td class="p-1 border ">National Conferences</td>
+            <td class="p-1 border ">I'National Conferences</td>
+            <td class="p-1 border ">Book Chapters</td>
+          </td>
         </tr>
         <tbody>
           <tr>
-            <td class="p-1 ">{{userInfo.examsCleared.net}}</td>
-            <td class="p-1 ">{{userInfo.examsCleared.gate}}</td>
-            <td class="p-1 ">{{userInfo.examsCleared.csirOrjrf}}</td>
+            <td class="p-1 border ">{{userInfo.publications.books}}</td>
+            <td class="p-1 border ">{{userInfo.publications.nationalConferences}}</td>
+            <td class="p-1 border ">{{userInfo.publications.internationalConferences}}</td>
+            <td class="p-1 border ">{{userInfo.publications.bookChapters}}</td>
+          </tr>
+        </tbody>
+      </thead>
+    </table>
+</div>
+  </div>
+      
+      <div class="flex justify-around">
+        
+    <div class="my-2 mx-2">
+      <table class="">
+        <thead class="text-center  ">
+          <tr>
+            <th colspan="10" class="border p-1">
+              19.Passed higher level exams
+            </th>
+          </tr>
+          <tr>
+            <td class="p-1 border  ">NET</td>
+            <td class="p-1 border ">GATE</td>
+            <td class="p-1 border ">CSIR/UGCJRF</td>
+        </tr>
+        <tbody>
+          <tr>
+            <td class="p-1 border ">{{userInfo.examsCleared.net}}</td>
+            <td class="p-1 border ">{{userInfo.examsCleared.gate}}</td>
+            <td class="p-1 border ">{{userInfo.examsCleared.csirOrjrf}}</td>
         </tbody>
       </thead>
     </table>
   </div>
-</div>
-
-<div class="my-4 mx-2">
-  <h4 class="font-bold">
-    20.CEPs/Workshops/Seminars/STCs organized
-  </h4>
-  <table class=" ui celled table">
-    <thead class="text-center  ">
-      <tr>
-        <th class="p-1  ">Duration</th>
-        <th class="p-1 ">Participants</th>
-      </td>
-    </tr>
-    <tbody>
-      <tr>
-        {{#each userInfo.workshopsOrganised as | i |}}
-        <td class="p-1 ">{{i.periodFrom}} to {{i.periodTo}}</td>
-        <td class="p-1 ">{{i.noOfCandidates}}</td>
-        {{/each}}
-      </tr>
-    </tbody>
-  </thead>
-</table>
-</div>
-
-  <div class="my-4">
-    <h4 class="font-bold">
-      21.Have you ever been punished
-    </h4>
-    <table class=" ui celled table">
+  <div class="my-2 mx-2">
+    <table class="">
       <thead class="text-center  ">
         <tr>
-          <th class="p-1  ">At College/Uni</th>
-          <th class="p-1 ">In service</th>
-          <th class="p-1 ">By court of law</th>
-          <th class="p-1 ">Asked to resign</th>
-          <th class="p-1 ">Dismissed</th>
-          <th class="p-1 ">discharged</th>
-          <th class="p-1 ">Pending court cases</th>
+          <th colspan="10" class="border p-1">
+            20.CEPs/Workshops/Seminars/STCs organized
+          </th>
+        </tr>
+        <tr>
+          <td class="p-1 border  ">Duration</td>
+          <td class="p-1 border ">Participants</td>
+        </td>
+      </tr>
+      <tbody>
+        <tr>
+          {{#each userInfo.workshopsOrganised as | i |}}
+          <td class="p-1 border ">{{date i.periodFrom "MM-DD-YYYY"}} to {{date i.periodTo "MM-DD-YYYY"}}</td>
+          <td class="p-1 border ">{{i.noOfCandidates}}</td>
+          {{/each}}
+        </tr>
+      </tbody>
+    </thead>
+  </table>
+  </div>
+</div>
+
+  <div class="flex my-2 justify-center">
+    <table class="">
+      <thead class="text-center  ">
+        <tr>
+          <th colspan="10" class="border p-1">
+            21.Have you ever been punished
+          </th>
+        </tr>
+        <tr>
+          <td class="p-1 border  ">At College/Uni</td>
+          <td class="p-1 border ">In service</td>
+          <td class="p-1 border ">By court of law</td>
+          <td class="p-1 border ">Asked to resign</td>
+          <td class="p-1 border ">Dismissed</td>
+          <td class="p-1 border ">discharged</td>
+          <td class="p-1 border ">Pending court cases</td>
 
       </tr>
       <tbody>
         <tr>
-          <td class="p-1 ">{{userInfo.punishmentClg}}</td>
-          <td class="p-1 ">{{userInfo.punishmentClg}}</td>
-          <td class="p-1 ">{{userInfo.punishmentCourt}}</td>
-          <td class="p-1 ">{{userInfo.mentalHealth}}</td>
-          <td class="p-1 ">{{userInfo.mentalHealth}}</td>
-          <td class="p-1 ">{{userInfo.mentalHealth}}</td>
-          <td class="p-1 ">{{userInfo.courtCases}}</td>
+          <td class="p-1 border ">{{userInfo.punishmentClg}}</td>
+          <td class="p-1 border ">{{userInfo.punishmentClg}}</td>
+          <td class="p-1 border ">{{userInfo.punishmentCourt}}</td>
+          <td class="p-1 border ">{{userInfo.mentalHealth}}</td>
+          <td class="p-1 border ">{{userInfo.mentalHealth}}</td>
+          <td class="p-1 border ">{{userInfo.mentalHealth}}</td>
+          <td class="p-1 border ">{{userInfo.courtCases}}</td>
       </tbody>
     </thead>
   </table>
 </div>
 
 <div class="break_before">
-  <div class="text-center">
-    <h2 class="text-lg font-bold">Atal Bihari Vajpayee</h2>
-    <h1 class="text-xl font-bold my-2">
-      INDIAN INSTITUTE OF INFORMATION TECHNOLOGY AND MANAGEMENT, GWALIOR
-    </h1>
-    <div class="flex">
-      <div>
+  <div class="flex font-bold justify-between">
+    <div class="container text-center">
+
+      <h2 class="text-[0.9rem] font-bold">Atal Bihari Vajpayee</h2>
+      <h1 class="text-[0.9rem] font-bold my-2">
+        INDIAN INSTITUTE OF INFORMATION TECHNOLOGY AND MANAGEMENT, GWALIOR
+      </h1>
+      <div class="text-[0.9rem]">
         <h3 class="underline">
-          Application form for Faculty Position – Summary Document
+          Application form for Faculty Position
         </h3>
-        Please read the insdivuctions in the advertisement carefully before
-        filling the form. Please provide the following information with
-        application.
+        <div class="my-1 text-start">
+          <h3 >
+            Note:
+          </h3>
+          <h3>
+            1.	Please read the instructions in the advertisement carefully before filling the application form.
+          </h3>
+          <h3>
+            2.	Use a separate sheet(s), wherever required, to fill sub-heading in the format indicated as Appendices.
+          </h3>
+          <h3>
+            3.	All separate sheet(s) must bear your name, signature, and page number.
+          </h3>
+        </div>
+        <h4 class="my-1">
+          Application ID: _____________________ (To be filled by the office)
+        </h4>
       </div>
+    </div>
       <div>
         <img
           src="https://images.shiksha.com/mediadata/images/1609308018phpA4JpiI.jpeg"
           alt="logo"
+          class="h-[10rem] w-[12rem]"
         />
       </div>
     </div>
-  </div>
-  <h3 class="font-bold">General Information</h3>
-      <div class=" flex justify-between">
+  <h3 class="font-bold mx-2">A.General Information</h3>
+      <div class=" flex justify-between mx-2">
         <div class=" flex-1">
-          <div class="border  flex justify-between mr-20">
+          <div class="border flex justify-between">
+  <div class="flex justify-between w-[35%]">
             <h5>1.Advertisement no:</h5>
+<div class="border-l"></div>
+</div>
             <h5>{{userInfo.adNo}}</h5>
           </div>
-          <div class="border  flex justify-between mr-20">
+          <div class="border flex justify-between">
+  <div class="flex justify-between w-[35%]">
+
             <h5>2.Post:</h5>
+<div class="border-l"></div>
+</div>
+
             <h5>{{userInfo.post}}</h5>
           </div>
           <div class="">
-            <div class="border mr-20">
+            <div class="border flex justify-between">
+              <div class="flex justify-between w-[35%]">
               <h5>3.Name in full</h5>
-              <div class="  flex justify-between">
-                <h5>First name:</h5>
-                <h5>{{userInfo.fname}}</h5>
-              </div>
-              <div class="  flex justify-between">
-                <h5>Middle name:</h5>
-    
-                <h5>{{userInfo.mname}}</h5>
-              </div><div class="  flex justify-between">
-                <h5>Last name:</h5>
-                <h5> {{userInfo.lname}}</h5>
+<div class="border-l"></div>
+</div>
+              <div class="flex">
+                <h5 class="border-x px-1 ">{{userInfo.fname}}</h5>
+                <h5 class="border-x px-1 ">{{userInfo.mname}}</h5>
+                <h5 class="border-x pl-1 "> {{userInfo.lname}}</h5>
               </div>
             </div>
-            <div class="border  flex justify-between mr-20">
+            <div class="border  flex justify-between">
+  <div class="flex justify-between w-[35%]">
+
               <h5>4.Father's name:</h5>
+<div class="border-l"></div>
+</div>
+
+
               <h5>{{userInfo.fatherName}}</h5>
             </div>
           </div>
-          <div class="border  flex justify-between mr-20">
+          <div class="border  flex justify-between">
+  <div class="flex justify-between w-[35%]">
+
             <h5>5.Aadhaar Number:</h5>
+<div class="border-l"></div>
+</div>
+
             <h5>{{userInfo.aadhaarNo}}</h5>
           </div>
-          <div class="border mr-20">
+          <div class="border flex justify-between">
+  <div class="flex justify-between w-[35%]">
+
             <h5>6.Fee Details</h5>
-            <div class=" flex justify-between ">
-              <h5>Transaction Id:</h5>
-              <h5>{{userInfo.feeDetails.id}}</h5>
-            </div>
-            <div class=" flex justify-between ">
-              <h5>Date of transaction:</h5>
-              <h5>{{userInfo.feeDetails.date}}</h5>
+<div class="border-l"></div>
+</div>
+            <div class="flex-grow">
+              <div class="flex justify-between">
+  <div class="flex justify-between w-[35%]">
+
+                <h5>Transaction Id</h5>
+<div class="border-l"></div>
+</div>
+                <h5>{{userInfo.feeDetails.id}}</h5>
+              </div>
+              <hr />
+              <div class="flex justify-between">
+  <div class="flex justify-between w-[35%]">
+
+                <h5>Date of transaction</h5>
+<div class="border-l"></div>
+
+                </div>
+                <h5>{{date userInfo.feeDetails.date "MM-DD-YYYY"}}</h5>
+              </div>
             </div>
           </div>
-          <div class="border  flex justify-between mr-20">
+          <div class="border  flex justify-between">
+  <div class="flex justify-between w-[35%]">
+
             <h5>7.Account Details used for transaction:</h5>
+<div class="border-l"></div>
+</div>
+
             <h5>{{userInfo.feeDetails.accUsed}}</h5>
           </div>
-          <div class="border  flex justify-between mr-20">
+          <div class="border  flex justify-between">
+  <div class="flex justify-between w-[35%]">
+
             <h5>8.Specialisation:</h5>
+<div class="border-l"></div>
+</div>
+
             <h5>{{userInfo.specialisation}}</h5>
           </div>
-          <div class="border  flex justify-between mr-20">
-            <h5>9.Gender:</h5>
-            <h5>{{userInfo.gender}}</h5>
-          </div>        
-          <div class="border  flex justify-between mr-20">
-            <h5>10.Marital Status:</h5>
-            <h5>{{userInfo.maritalStatus}}</h5>
-          </div>   
         </div>
 
-        <div class="w-60">
+        <div class="h-[14rem] p-0 m-0 border-2">
           <img
             src="http://res.cloudinary.com/saahildev/image/upload/v1658147792/Mini-project-pp/ulo7sah3owg5otzm3vee.jpg"
+          src="{{userInfo.userPPUrl}}"
+          class="h-[14rem] w-[13rem] object-cover"
             class=" w-72 object-cover"
           />
         </div>
       </div>
-      <div class="border  flex justify-between mr-20">
+      <div class="border  flex justify-between mx-2">
+        <div class="flex justify-between w-[26.7%]">
+      
+                  <h5>9.Gender:</h5>
+      <div class="border-l"></div>
+      </div>
+      
+                  <h5>{{userInfo.gender}}</h5>
+                </div>        
+                <div class="border  flex justify-between mx-2">
+        <div class="flex justify-between w-[26.7%]">
+      
+                  <h5>10.Marital Status:</h5>
+      <div class="border-l"></div>
+      </div>
+      
+                  <h5>{{userInfo.maritalStatus}}</h5>
+                </div>   
+      <div class="border  flex justify-between mx-2">
+        <div class="flex justify-between w-[26.7%]">
         <h5>11.Category:</h5>
+<div class="border-l"></div>
+</div>
+
         <h5>{{userInfo.category}}</h5>
       </div>  
-        <div class="border mr-20">
+        <div class="border flex justify-between mx-2">
+        <div class="flex justify-between w-[26.7%]">
+
           <h4 >12.Address for correspondence</h4>
-          <div class=" flex justify-between ">
-            <h5 class=" ">Location</h5>
-            <h5 class=" ">{{userInfo.address.loc}}</h5>
-          </div>
-          <div class=" flex justify-between ">
-            <h5 class=" ">Pincode</h5>
-            <h5 class=" ">{{userInfo.address.pin}}</h5>
-          </div>
+<div class="border-l"></div>
+</div>
+<div class="flex-grow text-end">
+            <h5 class="h-12 ">{{userInfo.address.loc}}</h5>
+            <hr />
+            <div class="flex justify-end ">
+              <h5 class="px-4">PINCODE:</h5>
+              <h5 class=" ">{{userInfo.address.pin}}</h5>
+            </div>
         </div>
-        <div class="border mr-20">
+      </div>
+        <div class="border flex justify-between mx-2">
+        <div class="flex justify-between w-[26.7%]">
           <h4 >13.Permanent address (if different from above)</h4>
-          <div class=" flex justify-between ">
-            <h5 class=" ">Location</h5>
-            <h5 class=" ">{{userInfo.secAddress.loc}}</h5>
-          </div>
-          <div class=" flex justify-between ">
-            <h5 class=" ">Pincode</h5>
+<div class="border-l"></div>
+</div>
+<div class="flex-grow text-end">
+            <h5 class="h-12">{{userInfo.secAddress.loc}}</h5>
+            <hr />
+            <div class="flex justify-end ">
+              <h5 class="px-4">PINCODE:</h5>
             <h5 class=" ">{{userInfo.secAddress.pin}}</h5>
+            </div>
           </div>
         </div>
-        <div class="border  flex justify-between mr-20">
+        <div class="border  flex justify-between mx-2">
+        <div class="flex justify-between w-[26.7%]">
+
           <h5>14.Email Id:</h5>
+<div class="border-l"></div>
+</div>
+
           <h5>{{userInfo.email}}</h5>
         </div>
-        <div class="border  flex justify-between mr-20">
+        <div class="border  flex justify-between mx-2">
+        <div class="flex justify-between w-[26.7%]">
+
           <h5>15.Alternate Email Id:</h5>
+<div class="border-l"></div>
+</div>
+
           <h5>{{userInfo.secEmail}}</h5>
         </div>
-        <div class="border  flex justify-between mr-20">
-          <h5>16.Phone Number:</h5>
-          <h5>{{userInfo.phno}}</h5>
+        <div class="flex mx-2">
+
+          <div class="border flex-grow  flex justify-between">
+            <div class="flex justify-between w-[60%]">
+              
+              <h5>16.Phone Number:</h5>
+              <div class="border-l"></div>
+            </div>
+
+          <h5 class="pr-2">{{userInfo.phno}}</h5>
         </div>
-        <div class="border  flex justify-between mr-20">
+        <div class="border flex-grow  flex justify-between">
+          <div class="flex justify-between w-[50%]">
+            
           <h5>17.Secondary Phone Number:</h5>
-          <h5>{{userInfo.secPhNo}}</h5>
+          <div class="border-l"></div>
         </div>
-        <div class="border  flex justify-between mr-20">
+        
+        <h5>{{userInfo.secPhNo}}</h5>
+      </div>
+    </div>
+    <div class="flex mx-2">
+        <div class="border flex flex-grow justify-between ">
+        <div class="flex justify-between w-[62.9%]">
           <h5>18.Date of Birth:</h5>
-          <h5>{{userInfo.dob}}</h5>
+<div class="border-l"></div>
+</div>
+
+          <h5 class="pr-2">{{date userInfo.dob "MM-DD-YYYY"}}</h5>
         </div>
-        <div class="border  flex justify-between mr-20">
+        <div class="border flex-grow  flex justify-between">
+        <div class="flex justify-between w-[50%]">
+
           <h5>19.Age on last date of advertisement:</h5>
+<div class="border-l"></div>
+</div>
           <h5>{{userInfo.age}}</h5>
         </div>
-        <div class="border  flex justify-between mr-20">
+      </div>
+        <div class="border  flex justify-between mx-2">
+        <div class="flex justify-between w-[26.7%]">
+
           <h5>20.Nationality:</h5>
+<div class="border-l"></div>
+</div>
+
           <h5>{{userInfo.nationality}}</h5>
         </div>
         <!-- <h2 class="font-bold">*,**,*** Enclose relevant documents/certificates/proofs as <span class="underline"> Appendix 1, 2 and 3,</span> respectively.</h2>         -->
       </div>
 </div>
-<div class="break_before">
+<!-- <div class="break_before"> -->
 
 <div class="my-4 mx-2">
   <h4 class="font-bold">
+    B.Academic Details
+  </h4>
+  <h4 class="">
     21.Academic Qualifications
   </h4>
   <table class="border table-auto">
     <thead class="border text-center">
       <tr>
-        <td class="border p-1">Degree</td>
-        <td class="border p-1 ">Branch</td>
-        <td class="border p-1 ">Uni</td>
+        <td class="border p-1">Degree / Exam</td>
+        <td class="border p-1 ">Branch / Specialisation</td>
+        <td class="border p-1 ">University / Board / College</td>
         <td class="border p-1 ">Completion Year</td>
-        <td class="border p-1 ">Grade</td>
+        <td class="border p-1 ">Percentage of Marks / Grade</td>
         <td class="border p-1 ">Division</td>
       </tr>
       <tbody>
@@ -560,7 +741,7 @@
            <td class="border p-1 ">{{i.degree}}</td>
            <td class="border p-1 ">{{i.branch}}</td>
            <td class="border p-1 ">{{i.university}}</td>
-           <td class="border p-1 ">{{i.completionYear}}</td>
+           <td class="border p-1 ">{{date i.completionYear "MM-DD-YYYY"}}</td>
            <td class="border p-1 ">{{i.grade}}</td>
            <td class="border p-1 ">{{i.division}}</td>
            </tr>
@@ -568,50 +749,67 @@
       </tbody>
     </thead>
   </table>
-  <!-- <h2 class="font-bold mb-2">
+  <h2 class="font-bold mb-2">
     Enclose mark sheets/certificates as Appendix 4. If there is any gap in the education, it should be specifically indicated as a last page in the Appendix 4.
-  </h2> -->
+  </h2>
   <h4 class="font-bold">
     22.Particulars of the PhD
   </h4>
-  <div class="border mr-20">
+  <div class="border">
     <div class=" flex justify-between border ">
       <h5 class=" ">Title of Dissertation</h5>
       <h5 class=" ">{{userInfo.particularsOfPhd.phdDissertationTitle}}</h5>
     </div>
-    <div class=" flex justify-between border ">
-      <h5 class=" ">Enrollment Date</h5>
-      <h5 class=" ">{{userInfo.particularsOfPhd.enrollmentDate}}</h5>
+    <div class="flex ">
+      <div class=" flex justify-between border w-1/2 ">
+        <h5 class=" border-r ">Enrollment Date</h5>
+        <h5 class=" ">{{date userInfo.particularsOfPhd.enrollmentDate "MM-DD-YYYY"}}</h5>
+      </div>
+      <div class=" flex justify-between border w-1/2 ">
+        <h5 class="border-r ">Registration Date</h5>
+        <h5 class=" ">{{date userInfo.particularsOfPhd.registrationDate "MM-DD-YYYY"}}</h5>
+      </div>
     </div>
-    <div class=" flex justify-between border ">
-      <h5 class=" ">Registration Date</h5>
-      <h5 class=" ">{{userInfo.particularsOfPhd.registrationDate}}</h5>
-    </div>
-    <div class=" flex justify-between ">
-      <h5 class=" ">Completion Date</h5>
-      <h5 class=" ">{{userInfo.particularsOfPhd.completionDate}}</h5>
-    </div>
-    <div class=" flex justify-between border ">
-      <h5 class=" ">Supervisor(s)</h5>
-      <h5 class=" ">{{userInfo.particularsOfPhd.supervisors}}</h5>
+    <div class="flex ">
+      <div class=" flex justify-between  w-1/2 ">
+        <h5 class="border-r ">Completion Date</h5>
+        <h5 class=" ">{{date userInfo.particularsOfPhd.completionDate "MM-DD-YYYY"}}</h5>
+      </div>
+      <div class=" flex justify-between  w-1/2 ">
+        <h5 class="border-r ">Supervisor(s)</h5>
+        <h5 class=" ">{{userInfo.particularsOfPhd.supervisors}}</h5>
+      </div>
     </div>
   </div>
   <div class="my-4 mx-2">
     <h4 class="font-bold">
-      23.Employment Experience and Post PHD Experience
+      C.Employment Experience and Post PHD Experience
+    </h4>
+    <h4 class="">
+      23. Employment details * (Fill the current employment first)
     </h4>
     <table class="border ">
       <thead class="border text-center">
         <tr>
           <td class="border p-1 ">Organization</td>
-          <td class="border p-1 ">Position</td>
-          <td class="border p-1 ">Nature of Position</td>
-          <td class="border p-1 ">Date of joining</td>
-          <td class="border p-1 ">Date of leaving</td>
+          <td class="border p-1 ">Position held</td>
+          <td class="border p-1 ">Nature of Position (Regular / Contractual)</td>
+          <td colspan="2" class="border p-1 ">Duration</td>
           <td class="border p-1 ">Pay band/Pay level</td>
           <td class="border p-1 ">Pay in Pay Brand/Pay in Pay Level</td>
-          <td class="border p-1 ">GP/AP</td>
+          <td class="border p-1 ">GP/AGP</td>
           <td class="border p-1 ">Areas and Nature of work</td>
+        </tr>
+        <tr>
+          <td class="border p-1 "></td>
+          <td class="border p-1 "></td>
+          <td class="border p-1 "></td>
+          <td class="border p-1 ">Date of joining</td>
+          <td class="border p-1 ">Date of leaving</td>
+          <td class="border p-1 "></td>
+          <td class="border p-1 "></td>
+          <td class="border p-1 "></td>
+          <td class="border p-1 "></td>
         </tr>
         <tbody>
             {{#each userInfo.teachingExp as | i |}}
@@ -619,8 +817,8 @@
              <td class="border p-1 ">{{i.employer}}</td>
              <td class="border p-1 ">{{i.position}}</td>
              <td class="border p-1 ">{{i.natureOfPosition}}</td>
-             <td class="border p-1 ">{{i.dateOfJoining}}</td>
-             <td class="border p-1 ">{{i.dateOfLeaving}}</td>
+             <td class="border p-1 ">{{date i.dateOfJoining "MM-DD-YYYY"}}</td>
+             <td class="border p-1 ">{{date i.dateOfLeaving "MM-DD-YYYY"}}</td>
              <td class="border p-1 ">{{i.payLevel}}</td>
              <td class="border p-1 ">{{i.PayInPayLevel}}</td>
              <td class="border p-1 ">{{i.GP}}</td>
@@ -630,28 +828,27 @@
         </tbody>
       </thead>
     </table>
-    <!-- <h2 class="font-bold mb-2">
+    <h2 class="font-bold mb-2">
       Enclose experience certificate(s) as Appendix 5 and NOC from existing employer, if applicable, as Appendix 6.
-    </h2> -->
+    </h2>
     <h4 class="font-bold">
       24.Post Phd Experience
     </h4>
-    <table class="border ">
-      <thead class="border text-center">
-        <tr>
-          <td class="border p-1 ">Post PhD Experience in Year(s) and Month(s)	</td>
-        </tr>
-        <tbody>
-             <tr>
-             <td class="border p-1 ">{{userInfo.postPhdExp}}</td>
-             </tr>
-        </tbody>
-      </thead>
-    </table>
+    <div class="flex">
+      <div>
+        <h5 class="border p-1 ">Post PhD Experience in Year(s) and Month(s)	</h5>
+      </div>
+        <div>
+          <h5 class="border p-1 ">{{userInfo.postPhdExp}}</h5>
+        </div>
+      </div>
   </div>
 
   <div class="my-4 mx-2">
     <h4 class="font-bold">
+      D.Membership
+    </h4>
+    <h4 class="">
       25.Membership of Professional bodies
     </h4>
     <table class="border ">
@@ -677,7 +874,10 @@
 
     <div class="my-4 mx-2">
       <h4 class="font-bold">
-        26.References
+        E.References
+      </h4>
+      <h4 class="">
+        26. Three references: At least one of the references should be familiar with your recent work. *
       </h4>
       <table class="border ">
         <thead class="border text-center">
@@ -701,53 +901,63 @@
           </tbody>
         </thead>
       </table>
-      <!-- <h2 class="font-bold mb-2">
+      <h2 class="font-bold mb-2">
         * Email/mobile number is mandatory.
-      </h2> -->
+      </h2>
       </div>
 
       <div class="my-4 mx-2">
         <h4 class="font-bold">
           F. Other Information
         </h4>
-        <h4 class="font-bold">
+        <h4 class="">
          26.Publications 
-         <!-- <span class="font-bold">(Enclose reprints of 05 best papers as Appendix 7) </span> -->
+         <span class="font-bold ml-1">(Enclose reprints of 05 best papers as Appendix 7) </span>
         </h4>
-        <div class="flex justify-end my-1">
+        <div class="flex justify-end mr-32">
           <h5 class="border">Total Number of papers:</h5>
           <h5 class="border">{{userInfo.publications.totalPapers}}</h5>
         </div>
         <table class="border ">
           <thead class="border text-center">
             <tr>
-              <td class="border p-1 ">Articles in referred Non-SCI indexed Journal(s)</td>
-              <td class="border p-1 ">Total number of articles in SCI indexed Journal(s)</td>
-              <td class="border p-1 ">Proceedings in International Conference(s)</td>
-              <td class="border p-1 ">Proceedings in National Conference(s)</td>
-              <td class="border p-1 ">Books</td>
-              <td class="border p-1 ">Book Chapters</td>
-              <td class="border p-1 ">Articles in SCI indexed Journal(s) outside the PhD work</td>
+              <td>Type</td>
+              <td>No.</td>
+              <td>Type</td>
+              <td>No.</td>
             </tr>
             <tbody>
-              
-              <td class="border p-1">{{userInfo.publications.referredJournals}}</td>
-              <td class="border p-1">{{userInfo.publications.sciIndexedJournal}}</td>
-              <td class="border p-1">{{userInfo.publications.internationalConferences}}</td>
-              <td class="border p-1">{{userInfo.publications.nationalConferences}}</td>
-              <td class="border p-1">{{userInfo.publications.books}}</td>
-              <td class="border p-1">{{userInfo.publications.bookChapters}}</td>
+              <tr>
+                <td class="border p-1 ">Articles in referred Non-SCI indexed Journal(s)</td>
+                <td class="border p-1">{{userInfo.publications.nonSciIndexedJournal}}</td>
+                <td class="border p-1 ">Total number of articles in SCI indexed Journal(s)</td>
+                <td class="border p-1">{{userInfo.publications.sciIndexedJournal}}</td>
+              </tr>
+              <tr>
+                <td class="border p-1 ">Proceedings in International Conference(s)</td>
+                <td class="border p-1">{{userInfo.publications.internationalConferences}}</td>
+                <td class="border p-1 ">Proceedings in National Conference(s)</td>
+                <td class="border p-1">{{userInfo.publications.nationalConferences}}</td>
+              </tr>
+              <tr>
+                <td class="border p-1 ">Books</td>
+                <td class="border p-1">{{userInfo.publications.books}}</td>
+                <td class="border p-1 ">Book Chapters</td>
+                <td class="border p-1">{{userInfo.publications.bookChapters}}</td>
+              </tr>
+                <td colspan="3" class="border p-1 ">Articles in SCI indexed Journal(s) outside the PhD work</td>
               <td class="border p-1">{{userInfo.publications.sciIndexJournalOutsidePhd}}</td>
                  </tr>
             </tbody>
           </thead>
         </table>
-        <h4 class="font-bold">
-          27. Details of 05 Best Papers 
-          <!-- provided in Appendix 7 -->
-         </h4>
-        <table class="border ">
-          <thead class="border text-center">
+        <div class="my-4 mx-2">
+          <h4 class="font-bold mt-2">
+            27. Details of 05 Best Papers 
+            provided in Appendix 7
+          </h4>
+          <table class="border ">
+            <thead class="border text-center">
             <tr>
               <td class="border p-1 ">Author</td>
               <td class="border p-1 ">Year</td>
@@ -762,12 +972,12 @@
               <td class="border p-1">{{i.title}}</td>
               <td class="border p-1">{{i.completeRefOfJournal}}</td>
               <td class="border p-1">{{i.impactFactor}}</td>
-                 </tr>
-                 {{/each}}
+            </tr>
+            {{/each}}
             </tbody>
           </thead>
         </table>
-        </div>
+      </div>
 
         <div class="my-4 mx-2">
           <h4 class="font-bold">
@@ -776,8 +986,8 @@
           <table class="border ">
             <thead class="border text-center">
               <tr>
-                <td colspan="2" class="border p-1 ">Awarded/Granted</td>
                 <td colspan="2" class="border p-1">Filed</td>
+                <td colspan="2" class="border p-1 ">Awarded/Granted</td>
               </tr>
               <tbody>
                 <tr>
@@ -787,10 +997,10 @@
                   <td class="border p-1 ">International</td>
                 </tr>
               <tr>
-                <td class="border p-1">{{userInfo.patent.awardedNational}}</td>
-                <td class="border p-1">{{userInfo.patent.awardedIntenational}}</td>
                 <td class="border p-1">{{userInfo.patent.filedNational}}</td>
                 <td class="border p-1">{{userInfo.patent.filedInternational}}</td>
+                <td class="border p-1">{{userInfo.patent.awardedNational}}</td>
+                <td class="border p-1">{{userInfo.patent.awardedIntenational}}</td>
               </tr>
               </tbody>
             </thead>
@@ -798,21 +1008,25 @@
           </div>
 
           <div class="my-4 mx-2">
-            <h4 class="font-bold">
+            <h4 >
               29. Research Experience 
-              <!-- (Excluding research done at the level of Masters/ PhD degrees) -->
+              <span class="font-bold ml-1">
+                (Excluding research done at the level of Masters/ PhD degrees)
+              </span>
             </h4>
             <table class="border ">
               <thead class="border text-center">
                 <tr>
                   <td colspan="2" class="border p-1 ">Duration</td>
-                  <td  class="border p-1">Organization</td>
+                  <td rowspan="2" class="border p-1">Organization</td>
                   <td  class="border p-1">Area of Research</td>
                 </tr>
                 <tbody>
                   <tr>
                   <td  class="border p-1">From</td>
                   <td  class="border p-1">To</td>
+                  <td  class="border p-1"></td>
+                  <td  class="border p-1"></td>
                     
                   </tr>
                 {{#each userInfo.researchExp as | i |}}
@@ -858,9 +1072,11 @@
               </div>
 
               <div class="my-4 mx-2">
-                <h4 class="font-bold">
+                <h4 >
                   31. Thesis (Masters / PhD) supervised 
-                  <!-- (Completed at all the Institutions that you have worked with) -->
+                  <span class="font-bold ml-1">
+                    (Completed at all the Institutions that you have worked with)
+                  </span>
                 </h4>
                 <table class="border ">
                   <thead class="border text-center">
@@ -895,22 +1111,27 @@
                     <thead class="border text-center">
                       <tr>
                         <td colspan="2"  class=" p-1 ">Period</td>
-                        <td  class=" p-1">Sponsoring Organization</td>
-                        <td  class=" p-1">Title of Project</td>
-                        <td  class=" p-1">Grant Amount</td>
-                        <td  class=" p-1">Co-investigators</td>
-                        <td  class=" p-1">Status(Ongoing/Completed)</td>
+                        <td  class="border p-1">Sponsoring Organization</td>
+                        <td  class="border p-1">Title of Project</td>
+                        <td  class="border p-1">Grant Amount</td>
+                        <td  class="border p-1">Co-investigators</td>
+                        <td  class="border p-1">Status(Ongoing/Completed)</td>
                       </tr>
                       <tbody>
                       <tr>
                         <td  class="border p-1">From</td>
                         <td class="border p-1">To</td>
+                        <td class="border p-1"></td>
+                        <td class="border p-1"></td>
+                        <td class="border p-1"></td>
+                        <td class="border p-1"></td>
+                        <td class="border p-1"></td>
                       </tr>
                   {{#each userInfo.sponsoredProjects as | i |}}
 
                       <tr>
-                        <td class="border">{{i.period}}</td>
-                        <td class="border">{{i.period}}</td>
+                        <td class="border">{{date i.periodFrom "MM-DD-YYYY"}}</td>
+                        <td class="border">{{date i.periodTo "MM-DD-YYYY"}}</td>
                         <td class="border">{{i.organisation}}</td>
                         <td class="border">{{i.title}}</td>
                         <td class="border">{{i.grantAmount}}</td>
@@ -931,22 +1152,27 @@
                       <thead class="border text-center">
                         <tr>
                           <td colspan="2"  class=" p-1 ">Period</td>
-                          <td  class=" p-1">Sponsoring Organization</td>
-                          <td  class=" p-1">Title of Project</td>
-                          <td  class=" p-1">Grant Amount</td>
-                          <td  class=" p-1">Co-investigators</td>
-                          <td  class=" p-1">Status(Ongoing/Completed)</td>
+                          <td  class="border p-1">Sponsoring Organization</td>
+                          <td  class="border p-1">Title of Project</td>
+                          <td  class="border p-1">Grant Amount</td>
+                          <td  class="border p-1">Co-investigators</td>
+                          <td  class="border p-1">Status(Ongoing/Completed)</td>
                         </tr>
                         <tbody>
                         <tr>
                           <td  class="border p-1">From</td>
                           <td class="border p-1">To</td>
+                          <td class="border p-1"></td>
+                          <td class="border p-1"></td>
+                          <td class="border p-1"></td>
+                          <td class="border p-1"></td>
+                          <td class="border p-1"></td>
                         </tr>
                     {{#each userInfo.consultancy as | i |}}
   
                         <tr>
-                          <td class="border">{{i.period}}</td>
-                          <td class="border">{{i.period}}</td>
+                          <td class="border">{{date i.periodFrom "MM-DD-YYYY"}}</td>
+                          <td class="border">{{date i.periodTo "MM-DD-YYYY"}}</td>
                           <td class="border">{{i.organisation}}</td>
                           <td class="border">{{i.title}}</td>
                           <td class="border">{{i.grantAmount}}</td>
@@ -962,23 +1188,25 @@
                     <div class="my-4 mx-2">
                       <h4 class="font-bold">
                       34.  Articles in referred Non-SCI indexed Journals
-                       <!-- (List those published and accepted separately) -->
+                      <span class="font-bold ml-1">
+                        (List those published and accepted separately)
+                      </span>
                       </h4>
                       <table class="border ">
                         <thead class="border text-center">
                           <tr>
-                            <td  class=" p-1">Author</td>
-                            <td  class=" p-1">Year</td>
-                            <td  class=" p-1">Title</td>
-                            <td  class=" p-1">Complete Reference of Journal</td>
-                            <td  class=" p-1">Impact Factor</td>
+                            <td  class="border p-1">Author</td>
+                            <td  class="border p-1">Year</td>
+                            <td  class="border p-1">Title</td>
+                            <td  class="border p-1">Complete Reference of Journal</td>
+                            <td  class="border p-1">Impact Factor</td>
                           </tr>
                           <tbody>
                       {{#each userInfo.refJournal as | i |}}
     
                           <tr>
                             <td class="border">{{i.author}}</td>
-                            <td class="border">{{i.year}}</td>
+                            <td class="border">{{date i.year "MM-DD-YYYY"}}</td>
                             <td class="border">{{i.title}}</td>
                             <td class="border">{{i.referenceOfJournal}}</td>
                             <td class="border">{{i.impactFactor}}</td>
@@ -987,29 +1215,31 @@
                           </tbody>
                         </thead>
                       </table>
-                      <!-- <h2 class="font-bold mb-2">* Attach a list as Appendix 9 in the format given above. Do not write et al. for authors. All the authors must be listed in the same order in the article.</h2> -->
+                      <h2 class="font-bold mb-2">* Attach a list as Appendix 9 in the format given above. Do not write et al. for authors. All the authors must be listed in the same order in the article.</h2>
                       </div>
 
                       <div class="my-4 mx-2">
                         <h4 class="font-bold">
                           35. Articles in SCI indexed Journals
-                           <!-- (List those published and accepted separately) -->
+                          <span class="font-bold ml-1">
+                            (List those published and accepted separately)
+                          </span>
                         </h4>
                         <table class="border ">
                           <thead class="border text-center">
                             <tr>
-                              <td  class=" p-1">Author</td>
-                              <td  class=" p-1">Year</td>
-                              <td  class=" p-1">Title</td>
-                              <td  class=" p-1">Complete Reference of Journal</td>
-                              <td  class=" p-1">Impact Factor</td>
+                              <td  class="border p-1">Author</td>
+                              <td  class="border p-1">Year</td>
+                              <td  class="border p-1">Title</td>
+                              <td  class="border p-1">Complete Reference of Journal</td>
+                              <td  class="border p-1">Impact Factor</td>
                             </tr>
                             <tbody>
                         {{#each userInfo.sciIndexJournal as | i |}}
       
                             <tr>
                               <td class="border">{{i.author}}</td>
-                              <td class="border">{{i.year}}</td>
+                              <td class="border">{{date i.year "MM-DD-YYYY"}}</td>
                               <td class="border">{{i.title}}</td>
                               <td class="border">{{i.referenceOfJournal}}</td>
                               <td class="border">{{i.impactFactor}}</td>
@@ -1018,30 +1248,32 @@
                             </tbody>
                           </thead>
                         </table>
-                        <!-- <h2 class="font-bold mb-2">* Attach a list as Appendix 10 in the format given above. Do not write et al. for authors. All the authors must be listed in the same order in the article.</h2> -->
+                        <h2 class="font-bold mb-2">* Attach a list as Appendix 10 in the format given above. Do not write et al. for authors. All the authors must be listed in the same order in the article.</h2>
                         </div>
 
 
                         <div class="my-4 mx-2">
                           <h4 class="font-bold">
                             36. Proceedings in International Conferences* 
-                            <!-- (List those published and accepted separately) -->
+                            <span class="font-bold ml-1">
+                              (List those published and accepted separately)
+                            </span>
                           </h4>
                           <table class="border ">
                             <thead class="border text-center">
                               <tr>
-                                <td  class=" p-1">Author</td>
-                                <td  class=" p-1">Year</td>
-                                <td  class=" p-1">Title</td>
-                                <td  class=" p-1">Name and place of conference</td>
-                                <td  class=" p-1">Presented/published/both</td>
+                                <td  class="border p-1">Author</td>
+                                <td  class="border p-1">Year</td>
+                                <td  class="border p-1">Title</td>
+                                <td  class="border p-1">Name and place of conference</td>
+                                <td  class="border p-1">Presented/published/both</td>
                               </tr>
                               <tbody>
                           {{#each userInfo.internationalConferences as | i |}}
         
                               <tr>
                                 <td class="border">{{i.author}}</td>
-                                <td class="border">{{i.year}}</td>
+                                <td class="border">{{date i.year "MM-DD-YYYY"}}</td>
                                 <td class="border">{{i.title}}</td>
                                 <td class="border">{{i.nameAndPlace}}</td>
                                 <td class="border">{{i.presentedOrPublished}}</td>
@@ -1050,29 +1282,31 @@
                               </tbody>
                             </thead>
                           </table>
-                          <!-- <h2 class="font-bold mb-2">* Attach a list as Appendix 11 in the format given above. Do not write et al. for authors. All the authors must be listed in the same order in the article.</h2> -->
+                          <h2 class="font-bold mb-2">* Attach a list as Appendix 11 in the format given above. Do not write et al. for authors. All the authors must be listed in the same order in the article.</h2>
                           </div>
 
                           <div class="my-4 mx-2">
                             <h4 class="font-bold">
                               37. Proceedings in National Conferences* 
-                              <!-- (List those published and accepted separately) -->
+                              <span class="font-bold ml-1">
+                                (List those published and accepted separately)
+                              </span>
                             </h4>
                             <table class="border ">
                               <thead class="border text-center">
                                 <tr>
-                                  <td  class=" p-1">Author</td>
-                                  <td  class=" p-1">Year</td>
-                                  <td  class=" p-1">Title</td>
-                                  <td  class=" p-1">Name and place of conference</td>
-                                  <td  class=" p-1">Presented/published/both</td>
+                                  <td  class="border p-1">Author</td>
+                                  <td  class="border p-1">Year</td>
+                                  <td  class="border p-1">Title</td>
+                                  <td  class="border p-1">Name and place of conference</td>
+                                  <td  class="border p-1">Presented/published/both</td>
                                 </tr>
                                 <tbody>
                             {{#each userInfo.nationalConferences as | i |}}
           
                                 <tr>
                                   <td class="border">{{i.author}}</td>
-                                  <td class="border">{{i.year}}</td>
+                                  <td class="border">{{date i.year "MM-DD-YYYY"}}</td>
                                   <td class="border">{{i.title}}</td>
                                   <td class="border">{{i.nameAndPlace}}</td>
                                   <td class="border">{{i.presentedOrPublished}}</td>
@@ -1081,29 +1315,31 @@
                                 </tbody>
                               </thead>
                             </table>
-                            <!-- <h2 class="font-bold mb-2">* Attach a list as Appendix 12 in the format given above. Do not write et al. for authors. All the authors must be listed in the same order in the article.</h2> -->
+                            <h2 class="font-bold mb-2">* Attach a list as Appendix 12 in the format given above. Do not write et al. for authors. All the authors must be listed in the same order in the article.</h2>
                             </div>
 
                             <div class="my-4 mx-2">
                               <h4 class="font-bold">
                                 38. Books 
-                                <!-- (List those published and in press separately) -->
+                                <span class="font-bold ml-1">
+                                  (List those published and in press separately)
+                                </span>
                               </h4>
                               <table class="border ">
                                 <thead class="border text-center">
                                   <tr>
-                                    <td  class=" p-1">Title of the book</td>
-                                    <td  class=" p-1">Year</td>
-                                    <td  class=" p-1">ISBN No.</td>
-                                    <td  class=" p-1">Publisher</td>
-                                    <td  class=" p-1">Co-author(s)</td>
+                                    <td  class="border p-1">Title of the book</td>
+                                    <td  class="border p-1">Year</td>
+                                    <td  class="border p-1">ISBN No.</td>
+                                    <td  class="border p-1">Publisher</td>
+                                    <td  class="border p-1">Co-author(s)</td>
                                   </tr>
                                   <tbody>
                               {{#each userInfo.books as | i |}}
             
                                   <tr>
                                     <td class="border">{{i.title}}</td>
-                                    <td class="border">{{i.year}}</td>
+                                    <td class="border">{{date i.year "MM-DD-YYYY"}}</td>
                                     <td class="border">{{i.name}}</td>
                                     <td class="border">{{i.publisher}}</td>
                                     <td class="border">{{i.coAuthor}}</td>
@@ -1123,10 +1359,10 @@
                               <table class="border ">
                                 <thead class="border text-center">
                                   <tr>
-                                    <td  class=" p-1">NET (UGC)</td>
-                                    <td  class=" p-1">Gate</td>
-                                    <td  class=" p-1">CSIR/ UGC JRF</td>
-                                    <td colspan="3"  class=" p-1">Others (Please specify)</td>
+                                    <td  class="border p-1">NET (UGC)</td>
+                                    <td  class="border p-1">Gate</td>
+                                    <td  class="border p-1">CSIR/ UGC JRF</td>
+                                    <td colspan="3"  class="border p-1">Others (Please specify)</td>
                                   </tr>
                                   <tbody>
             
@@ -1141,7 +1377,7 @@
                                   </tbody>
                                 </thead>
                               </table>
-                              <!-- <h2  class="font-bold mb-2">* Tick mark at the appropriate box and attach certificates as Appendix 12.</h2> -->
+                              <h2  class="font-bold mb-2">* Tick mark at the appropriate box and attach certificates as Appendix 12.</h2>
                              </div>
 
                              <div class="my-4 mx-2">
@@ -1151,26 +1387,31 @@
                               <table class="border ">
                                 <thead class="border text-center">
                                   <tr>
-                                    <td  class=" p-1">Title</td>
-                                    <td colspan="2"  class=" p-1 ">Period</td>
-                                    <td  class=" p-1">Sponsoring Organization</td>
-                                    <td  class=" p-1">Total Expenditure</td>
-                                    <td  class=" p-1">Venue</td>
-                                    <td  class=" p-1">No. of Candidates</td>
+                                    <td  class="border p-1">Title</td>
+                                    <td colspan="2"  class="border p-1 ">Period</td>
+                                    <td  class="border p-1">Sponsoring Organization</td>
+                                    <td  class="border p-1">Total Expenditure</td>
+                                    <td  class="border p-1">Venue</td>
+                                    <td  class="border p-1">No. of Candidates</td>
                                   </tr>
                                   <tbody>
                                   <tr>
                                     <td  class="border p-1"></td>
                                     <td  class="border p-1">From</td>
                                     <td class="border p-1">To</td>
+                                    <td  class="border p-1"></td>
+                                    <td  class="border p-1"></td>
+                                    <td  class="border p-1"></td>
+                                    <td  class="border p-1"></td>
+
                                   </tr>
                                   <tbody>
                                     {{#each userInfo.educationProgConducted as | i |}}
             
                                   <tr>
                                     <td class="border">{{i.title}}</td>
-                                    <td class="border">{{i.periodFrom}}</td>
-                                    <td class="border">{{i.periodTo}}</td>
+                                    <td class="border">{{date i.periodFrom "MM-DD-YYYY"}}</td>
+                                    <td class="border">{{date i.periodTo "MM-DD-YYYY"}}</td>
                                     <td class="border">{{i.organisation}}</td>
                                     <td class="border">{{i.totalExpenditure}}</td>
                                     <td class="border">{{i.venue}}</td>
@@ -1180,7 +1421,7 @@
                                   </tbody>
                                 </thead>
                               </table>
-                              <!-- <h2  class="font-bold mb-2">* Tick mark at the appropriate box and attach certificates as Appendix 12.</h2> -->
+                              <h2  class="font-bold mb-2">* Tick mark at the appropriate box and attach certificates as Appendix 12.</h2>
                              </div>
 
                              <div class="my-4 mx-2">
@@ -1190,26 +1431,31 @@
                               <table class="border ">
                                 <thead class="border text-center">
                                   <tr>
-                                    <td  class=" p-1">Title</td>
-                                    <td colspan="2"  class=" p-1 ">Period</td>
-                                    <td  class=" p-1">Sponsoring Organization</td>
-                                    <td  class=" p-1">Total Expenditure</td>
-                                    <td  class=" p-1">Venue</td>
-                                    <td  class=" p-1">No. of Candidates</td>
+                                    <td  class="border p-1">Title</td>
+                                    <td colspan="2"  class="border p-1 ">Period</td>
+                                    <td  class="border p-1">Sponsoring Organization</td>
+                                    <td  class="border p-1">Total Expenditure</td>
+                                    <td  class="border p-1">Venue</td>
+                                    <td  class="border p-1">No. of Candidates</td>
                                   </tr>
                                   <tbody>
                                   <tr>
                                     <td  class="border p-1"></td>
                                     <td  class="border p-1">From</td>
                                     <td class="border p-1">To</td>
+                                    <td  class="border p-1"></td>
+                                    <td  class="border p-1"></td>
+                                    <td  class="border p-1"></td>
+                                    <td  class="border p-1"></td>
+
                                   </tr>
                                   <tbody>
                                     {{#each userInfo.workshopsOrganised as | i |}}
             
                                   <tr>
                                     <td class="border">{{i.title}}</td>
-                                    <td class="border">{{i.periodFrom}}</td>
-                                    <td class="border">{{i.periodTo}}</td>
+                                    <td class="border">{{date i.periodFrom "MM-DD-YYYY"}}</td>
+                                    <td class="border">{{date i.periodTo "MM-DD-YYYY"}}</td>
                                     <td class="border">{{i.organisation}}</td>
                                     <td class="border">{{i.totalExpenditure}}</td>
                                     <td class="border">{{i.venue}}</td>
@@ -1219,7 +1465,7 @@
                                   </tbody>
                                 </thead>
                               </table>
-                              <!-- <h2  class="font-bold mb-2">* Tick mark at the appropriate box and attach certificates as Appendix 12.</h2> -->
+                              <h2  class="font-bold mb-2">* Tick mark at the appropriate box and attach certificates as Appendix 12.</h2>
                              </div>
 
 
@@ -1235,7 +1481,7 @@
 
 
 
-</div>
+<!-- </div> -->
 
     </div>
   </body>

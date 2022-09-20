@@ -527,10 +527,10 @@ const UserInfo = () => {
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
                       type="text"
                       required
-                      id="completedYear"
+                      id="completionYear"
                       autoComplete="true"
                       placeholder="Enter completion year"
-                      value={input.completedYear}
+                      value={input.completionYear}
                     />
                   </div>
                   <div className="w-56 lg:w-40 p-2 xl:w-56">

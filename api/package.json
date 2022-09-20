@@ -22,6 +22,7 @@
     "html-pdf": "^3.0.1",
     "jsonwebtoken": "^8.5.1",
     "jspdf": "^2.5.1",
+    "moment": "^2.29.4",
     "mongoose": "^6.3.6",
     "nodemailer": "^6.7.5",
     "pdf-puppeteer": "^1.1.10",

@@ -10,6 +10,8 @@ const fs = require("fs-extra");
 
 const hbs = require("handlebars");
 
+const moment = require('moment');
+
 exports.createPdf = async (req, res) => {
   // pdf.create(pdfTemplate(req.body), {}).toFile("result.pdf", (err) => {
   //   if (err) {
@@ -20,6 +22,11 @@ exports.createPdf = async (req, res) => {
   // });
 
   const data = req.body;
+
+  hbs.registerHelper('date', function (date, format) {
+    var mmnt = moment(date);
+    return mmnt.format(format);
+});
 
   hbs.registerHelper("add", function (a, b) {
     return parseInt(a) + parseInt(b);

@@ -305,10 +305,10 @@ const AcademicDetails = () => {
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
                     type="date"
                     required
-                    id="completedYear"
+                    id="completionYear"
                     autoComplete="true"
                     placeholder="Enter completion year"
-                    value={input.completedYear}
+                    value={input.completionYear}
                     onChange={(e) => handleAcademicChange(index, e)}
                   />
                 </div>
